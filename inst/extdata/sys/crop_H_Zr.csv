@@ -1,0 +1,164 @@
+crop,Zr,p
+a. Small Vegetables,,
+Broccoli,0.4-0.6,0.45
+Brussel Sprouts,0.4-0.6,0.45
+Cabbage,0.5-0.8,0.45
+Carrots,0.5-1.0,0.35
+Cauliflower,0.4-0.7,0.45
+Celery,0.3-0.5,0.2
+Garlic,0.3-0.5,0.3
+Lettuce,0.3-0.5,0.3
+Onions,,
+Onion-dry,0.3-0.6,0.3
+Onion-green,0.3-0.6,0.3
+Onion-seed,0.3-0.6,0.35
+Spinach,0.3-0.5,0.2
+Radishes,0.3-0.5,0.3
+b. Vegetables - Solarium Family (Solanaceae) ,,
+Egg Plant,0.7-1.2,0.45
+Sweet Peppers (bell),0.5-1.0,0.3
+Tomato,0.7-1.5,0.4
+c. Vegetables - Cucumber Family (Cucurbitaceae) ,,
+Cantaloupe,0.9-1.5,0.45
+Cucumber,,
+Cucumber-Fresh Market,0.7-1.2,0.5
+Cucumber-Machine harvest,0.7-1.2,0.5
+"Pumpkin, Winter Squash",1.0-1.5,0.35
+"Squash, Zucchini",0.6-1.0,0.5
+Sweet Melons,0.8-1.5,0.4
+Watermelon,0.8-1.5,0.4
+d. Roots and Tubers,,
+"Beets, table",0.6-1.0,0.5
+Cassava,,
+Cassava-year 1,0.5-0.8,0.35
+Cassava-year 2,0.7-1.0,0.4
+Parsnip,0.5-1.0,0.4
+Potato,0.4-0.6,0.35
+Sweet Potato,1.0-1.5,0.65
+Turnip (and Rutabaga),0.5-1.0,0.5
+Sugar Beet,0.7-1.2,0.55
+e. Legumes (Leguminosae) ,,
+"Beans, green",0.5-0.7,0.45
+"Beans, dry and Pulses",0.6-0.9,0.45
+"Beans, lima, large vines",0.8-1.2,0.45
+Chick pea,0.6-1.0,0.5
+Fababean (broad bean),,
+Fababean-Fresh,0.5-0.7,0.45
+Fababean-Dry/Seed,0.5-0.7,0.45
+Grabanzo,0.6-1.0,0.45
+Green Gram and Cowpeas,0.6-1.0,0.45
+Groundnut (Peanut),0.5-1.0,0.5
+Lentil,0.6-0.8,0.5
+Peas,,
+Peas-Fresh,0.6-1.0,0.35
+Peas-Dry/Seed,0.6-1.0,0.4
+Soybeans,0.6-1.3,0.5
+f. Perennial Vegetables (with winter dormancy and initially bare or mulched soil) ,,
+Artichokes,0.6-0.9,0.45
+Asparagus,1.2-1.8,0.45
+Mint,0.4-0.8,0.4
+Strawberries,0.2-0.3,0.2
+g. Fibre Crops,,
+Cotton,1.0-1.7,0.65
+Flax,1.0-1.5,0.5
+Sisal,0.5-1.0,0.8
+h. Oil Crops,,
+Castorbean (Ricinus),1.0-2.0,0.5
+"Rapeseed, Canola",1.0-1.5,0.6
+Safflower,1.0-2.0,0.6
+Sesame,1.0-1.5,0.6
+Sunflower,0.8-1.5,0.45
+i. Cereals,,
+Barley,1.0-1.5,0.55
+Oats,1.0-1.5,0.55
+Spring Wheat,1.0-1.5,0.55
+Winter Wheat,1.5-1.8,0.55
+"Maize, Field (grain) (field corn)",1.0-1.7,0.55
+"Maize, Sweet (sweet corn)",0.8-1.2,0.5
+Millet,1.0-2.0,0.55
+Sorghum,,
+Sorghum-grain,1.0-2.0,0.55
+Sorghum-sweet,1.0-2.0,0.5
+Rice,0.5-1.0,0.2
+j. Forages,,
+Alfalfa,,
+Alfalfa-for hay,1.0-2.0,0.55
+Alfalfa-for seed,1.0-3.0,0.6
+Bermuda,,
+Bermuda-for hay,1.0-1.5,0.55
+Bermuda-Spring crop for seed,1.0-1.5,0.6
+"Clover hay, Berseem",0.6-0.9,0.5
+Rye Grass hay,0.6-1.0,0.6
+Sudan Grass hay (annual),1.0-1.5,0.55
+Grazing Pasture,,
+Grazing Pasture-Rotated Grazing,0.5-1.5,0.6
+Grazing Pasture-Extensive Grazing,0.5-1.5,0.6
+Turf grass,,
+Turf grass-cool season,0.5-1.0,0.4
+Turf grass-warm season,0.5-1.0,0.5
+k. Sugar Cane,1.2-2.0,0.65
+l. Tropical Fruits and Trees,,
+Banana,,
+Banana-1st year,0.5-0.9,0.35
+Banana-2nd year,0.5-0.9,0.35
+Cacao,0.7-1.0,0.3
+Coffee,0.9-1.5,0.4
+Date Palms,1.5-2.5,0.5
+Palm Trees,0.7-1.1,0.65
+Pineapple,0.3-0.6,0.5
+Rubber Trees,1.0-1.5,0.4
+Tea,,
+Tea-non-shaded,0.9-1.5,0.4
+Tea-shaded,0.9-1.5,0.45
+m. Grapes and Berries,,
+Berries (bushes),0.6-1.2,0.5
+Grapes,,
+Grapes-Table or Raisin,1.0-2.0,0.35
+Grapes-Wine,1.0-2.0,0.45
+Hops,1.0-1.2,0.5
+n. Fruit Trees,,
+Almonds,1.0-2.0,0.4
+"Apples, Cherries, Pears",1.0-2.0,0.5
+"Apricots, Peaches, Stone Fruit",1.0-2.0,0.5
+Avocado,0.5-1.0,0.7
+Citrus,,
+Citrus-70% canopy,1.2-1.5,0.5
+Citrus-50% canopy,1.1-1.5,0.5
+Citrus-20% canopy,0.8-1.1,0.5
+Conifer Trees,1.0-1.5,0.7
+Kiwi,0.7-1.3,0.35
+Olives (40 to 60% ground coverage by canopy),1.2-1.7,0.65
+Pistachios,1.0-1.5,0.4
+Walnut Orchard,1.7-2.4,0.5
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,
+,,

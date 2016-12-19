@@ -1,0 +1,26 @@
+[general]
+creator=R package 'raster'
+created=2015-08-01 11:54:26
+[georeference]
+nrows=198
+ncols=155
+xmin=258082
+ymin=291877
+xmax=262732
+ymax=297817
+projection=+proj=tmerc +lat_0=4.666666666666667 +lon_0=-1 +k=0.99975 +x_0=274320 +y_0=0 +ellps=clrk80 +towgs84=-130,29,364,0,0,0,0 +units=m +no_defs
+[data]
+datatype=FLT8S
+byteorder=little
+nbands=1
+bandorder=BIL
+categorical=FALSE
+minvalue=-0.0196140743792057
+maxvalue=0.658607661724091
+nodatavalue=-1.7e+308
+[legend]
+legendtype=
+values=
+color=
+[description]
+layername=layer

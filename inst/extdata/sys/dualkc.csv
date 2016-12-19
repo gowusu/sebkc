@@ -1,0 +1,149 @@
+crop,Kcbini,Kcbmid,Kcbend
+a. Small Vegetables,0.15,0.95,0.85
+Broccoli,0.15,0.95,0.85
+Brussel Sprouts,0.15,0.95,0.85
+Cabbage,0.15,0.95,0.85
+Carrots,0.15,0.95,0.85
+Cauliflower,0.15,0.95,0.85
+Celery,0.15,0.95,0.9
+Garlic,0.15,0.9,0.6
+Lettuce,0.15,0.9,0.9
+Onions,,,
+Onion-dry,0.15,0.95,0.65
+Onion-green,0.15,0.9,0.9
+Onion-seed,0.15,1.05,0.7
+Spinach,0.15,0.9,0.85
+Radishes,0.15,0.85,0.75
+b. Vegetables - Solarium Family (Solanaceae) ,0.15,1.1,0.7
+Egg Plant,0.15,1,0.8
+Sweet Peppers (bell),0.15,1.002,0.8
+Tomato,0.15,1.102,0.60-0.80
+c. Vegetables - Cucumber Family (Cucurbitaceae) ,0.15,0.95,0.7
+Cantaloupe,0.15,0.75,0.5
+Cucumber,,,
+Cucumber-Fresh Market,0.15,0.952,0.7
+Cucumber-Machine harvest,0.15,0.95,0.8
+"Pumpkin, Winter Squash",0.15,0.95,0.7
+"Squash, Zucchini",0.15,0.9,0.7
+Sweet Melons,0.15,1,0.7
+Watermelon,0.15,0.95,0.7
+d. Roots and Tubers,0.15,1,0.85
+"Beets, table",0.15,0.95,0.85
+Cassava,,,
+Cassava-year 1,0.15,0.703,0.2
+Cassava-year 2,0.15,1.00,0.45
+Parsnip,0.15,0.95,0.85
+Potato,0.15,1.1,0.654
+Sweet Potato,0.15,1.1,0.55
+Turnip (and Rutabaga),0.15,1,0.85
+Sugar Beet,0.15,1.15,0.505
+e. Legumes (Leguminosae) ,0.15,1.1,0.5
+"Beans, green",0.15,1.002,0.8
+"Beans, dry and Pulses",0.15,1.102,0.25
+,0.15,,
+Chick pea,0.15,0.95,0.25
+Fababean (broad bean),0.15,,
+Fababean-Fresh,0.15,1.102,1.05
+Fababean-Dry/Seed,0.15,1.102,0.2
+Grabanzo,0.15,1.05,0.25
+Green Gram and Cowpeas,0.15,1,0.55-0.256
+Groundnut (Peanut),0.15,1.1,0.5
+Lentil,0.15,1.05,0.2
+Peas,0.15,,
+Peas-Fresh,0.15,1.102,1.05
+Peas-Dry/Seed,0.15,1.1,0.2
+Soybeans,0.15,1.1,0.3
+f. Perennial Vegetables (with winter dormancy and initially bare or mulched soil) ,,,
+Artichokes,0.15,0.95,0.9
+Asparagus,0.15,0.907,0.2
+Mint,0.4,1.1,1.05
+Strawberries,0.3,0.8,0.7
+g. Fibre Crops,0.15,,
+Cotton,0.15,1.10-1.15,0.50-0.40
+Flax,0.15,1.05,0.2
+Sisal,0.15,0.4-0.7,0.4-0.7
+h. Oil Crops,0.15,1.1,0.25
+Castorbean (Ricinus),0.15,1.1,0.45
+"Rapeseed, Canola",0.15,0.95-1.109,0.25
+Safflower,0.15,0.95-1.109,0.2
+Sesame,0.15,1.05,0.2
+Sunflower,0.15,0.95-1.109,0.25
+i. Cereals,0.15,1.1,0.25
+Barley,0.15,1.1,0.15
+Oats,0.15,1.1,0.15
+Spring Wheat,0.15,1.1,0.15-0.310
+Winter Wheat,0.15-0.511,1.1,0.15-0.310
+"Maize, Field (grain) (field corn)",0.15,1.15,"0.50,0.1512"
+"Maize, Sweet (sweet corn)",0.15,1.1,1.0013
+Millet,0.15,0.95,0.2
+Sorghum,0.15,,
+Sorghum-grain,0.15,0.95-1.05,0.35
+Sorghum-sweet,0.15,1.15,1
+Rice,1,1.15,0.70-0.45
+j. Forages,0.15,,
+Alfalfa,0.15,,
+Alfalfa-for hay,0.3014,1.1514,1.1014
+Alfalfa-for seed,0.3,0.45,0.45
+Bermuda,0.15,,
+Bermuda-for hay,0.5,0.9515,0.8
+Bermuda-Spring crop for seed,0.15,0.85,0.6
+"Clover hay, Berseem",0.3014,1.1014,1.0514
+Rye Grass hay,0.85,1.0015,0.95
+Sudan Grass hay (annual),0.3014,1.1014,1.0514
+Grazing Pasture,0.15,,
+Grazing Pasture-Rotated Grazing,0.3,0.80-1.00,0.8
+Grazing Pasture-Extensive Grazing,0.3,0.7,0.7
+Turf grass,,,
+Turf grass-cool season,0.85,0.9,0.9
+Turf grass-warm season,0.75,0.8,0.8
+k. Sugar Cane,0.15,1.2,0.7
+l. Tropical Fruits and Trees,,,
+Banana,0.15,,
+Banana-1st year,0.15,1.05,0.9
+Banana-2nd year,0.6,1.1,1.05
+Cacao (cocoa),0.9,1,1
+Coffee,0.15,,
+Coffee-bare ground cover,0.8,0.9,0.9
+Coffee-with weeds,1,1.05,1.05
+Date Palms,0.8,0.85,0.85
+Palm Trees,0.85,0.9,0.9
+Pineapple 17 (multiyear crop),0.15,,
+Pineapple 17 (multiyear crop)-bare soil,0.15,0.25,0.25
+Pineapple 17 (multiyear crop)-with grass,0.3,0.45,0.45
+Rubber Trees,0.85,0.9,0.9
+Tea,0.15,,
+Tea-non-shaded,0.9,0.95,0.9
+Tea-shaded,1.00,1.1,1.05
+m. Grapes and Berries,,,
+Berries (bushes),0.2,1,0.4
+Grapes,0.2,,
+Grapes-Table or Raisin,0.15,0.8,0.4
+Grapes-Wine,0.15,0.65,0.4
+Hops,0.15,1,0.8
+n. Fruit Trees,0.15,,
+Almonds,0.2,0.85,0.6019
+"Apples, Cherries, Pears 20",,,
+"Apples, Cherries, Pears 20- no ground cover, killing frost",0.35,0.9,0.6519
+"Apples, Cherries, Pears 20- no ground cover, no frosts",0.5,0.9,0.7019
+"Apples, Cherries, Pears 20- active ground cover, killing frost",0.45,1.15,0.9019
+"Apples, Cherries, Pears 20- active ground cover, no frosts",0.75,1.15,0.8019
+"Apricots, Peaches, Stone Fruit 20, 21",,,
+"Apricots, Peaches, Stone Fruit 20, 21- no ground cover, killing frost",0.35,0.85,0.6019
+"Apricots, Peaches, Stone Fruit 20, 21- no ground cover, no frosts",0.45,0.85,0.6019
+"Apricots, Peaches, Stone Fruit 20, 21- active ground cover, killing frost",0.45,1.1,0.8519
+"Apricots, Peaches, Stone Fruit 20, 21- active ground cover, no frosts",0.75,1.1,0.8019
+"Avocado, no ground cover",0.5,0.8,0.7
+"Citrus, no ground cover 22",,,
+"Citrus, no ground cover 22 70% canopy",0.65,0.6,0.65
+"Citrus, no ground cover 22 50% canopy",0.6,0.55,0.6
+"Citrus, no ground cover 22 20% canopy",0.45,0.4,0.5
+"Citrus, with active ground cover or weeds 23",,,
+"Citrus, with active ground cover or weeds 23 70% canopy",0.75,0.7,"0,75"
+"Citrus, with active ground cover or weeds 23 50% canopy",0.75,0.75,0.75
+"Citrus, with active ground cover or weeds 23 20% canopy",0.8,0.8,0.85
+Conifer Trees 24,0.95,0.95,0.95
+Kiwi,0.2,1,1
+Olives (40 to 60% ground coverage by canopy)25,0.55,0.65,0.65
+"Pistachios, no ground cover",0.2,1.05,0.4
+Walnut Orchard 20,0.4,1.05,0.6019
+Walnut Orchard 20,0.4,1.05,0.6019

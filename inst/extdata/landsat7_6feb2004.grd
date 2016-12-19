@@ -1,0 +1,25 @@
+[general]
+creator=R package 'raster'
+created=2015-08-01 11:48:48
+[georeference]
+nrows=84
+ncols=62
+xmin=652035
+ymin=779415
+xmax=653895
+ymax=781935
+projection=+proj=utm +zone=30 +ellps=WGS84 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+[data]
+datatype=FLT8S
+byteorder=little
+nbands=7
+bandorder=BIL
+minvalue=76:61:57:66:53:130:30
+maxvalue=82:67:65:79:71:139:51
+nodatavalue=-1.7e+308
+[legend]
+legendtype=
+values=
+color=
+[description]
+layername=X6feb2004mosaic.1:X6feb2004mosaic.2:X6feb2004mosaic.3:X6feb2004mosaic.4:X6feb2004mosaic.5:X6feb2004mosaic.6:X6feb2004mosaic.7

@@ -1,0 +1,10 @@
+Wetting,fw
+Precipitation,1
+Sprinkler irrigation,1
+Basin irrigation,1
+Border irrigation,1
+"Furrow irrigation (every furrow), narrow bed",0.8
+"Furrow irrigation (every furrow), wide bed",0.5
+Furrow irrigation (alternated furrows),0.4
+Trickle irrigation,0.3
+Drip,0.3

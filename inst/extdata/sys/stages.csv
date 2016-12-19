@@ -1,0 +1,168 @@
+crop,init ,dev ,mid ,late ,total ,plantdate ,region 
+Broccoli ,35,45,40,15,135,Sept ,"Calif. Desert, USA "
+Cabbage ,40,60,50,15,165,Sept ,"Calif. Desert, USA "
+Carrots ,20,30,40,20,100,Oct/Jan ,Arid climate 
+Carrots,30,40,60,20,150,Feb/Mar ,Mediterranean 
+Carrots,30,50,90,30,200,Oct ,"Calif. Desert, USA "
+Cauliflower ,35,50,40,15,140,Sept ,"Calif. Desert, USA "
+Celery ,25,40,95,20,180,Oct ,(Semi) Arid 
+Celery,25,40,45,15,125,April ,Mediterranean 
+Celery,30,55,105,20,210,Jan ,(Semi) Arid 
+Crucifers,20,30,20,10,80,April ,Mediterranean 
+Crucifers,25,35,25,10,95,February ,Mediterranean 
+Crucifers,30,35,90,40,195,Oct/Nov ,Mediterranean 
+Lettuce ,20,30,15,10,75,April ,Mediterranean 
+Lettuce,30,40,25,10,105,Nov/Jan ,Mediterranean 
+Lettuce,25,35,30,10,100,Oct/Nov ,Arid Region 
+Lettuce,35,50,45,10,140,Feb ,Mediterranean 
+Onion-dry,15,25,70,40,150,April ,Mediterranean 
+Onion-dry,20,35,110,45,210,Oct; Jan. ,Arid Region; Calif. 
+Onion-green,25,30,10,5,70,April/May ,Mediterranean 
+Onion-green,20,45,20,10,95,October ,Arid Region 
+Onion-green,30,55,55,40,180,March ,"Calif., USA "
+Onion-seed,20,45,165,45,275,Sept ,"Calif. Desert, USA "
+Spinach ,20,20,15/25 ,5,60/70 ,Apr; Sep/Oct ,Mediterranean 
+Spinach,20,30,40,10,100,November ,Arid Region 
+Radish ,5,10,15,5,35,Mar/Apr ,Medit.; Europe 
+,10,10,15,5,40,Winter ,Arid Region 
+Egg plant ,30,40,40,20,130\1 ,October ,Arid Region 
+Egg plant,30,45,40,25,40,May/June ,Mediterranean 
+Sweet peppers (bell) ,25/30 ,35,40,20,125,April/June ,Europe and Medit. 
+Sweet peppers (bell),30,40,110,30,210,October ,Arid Region 
+Tomato ,30,40,40,25,135,January ,Arid Region 
+Tomato,35,40,50,30,155,Apr/May ,"Calif., USA "
+Tomato,25,40,60,30,155,Jan ,"Calif. Desert, USA "
+Tomato,35,45,70,30,180,Oct/Nov ,Arid Region 
+Tomato,30,40,45,30,145,April/May ,Mediterranean 
+Cantaloupe ,30,45,35,10,120,Jan ,"Calif., USA "
+Cantaloupe,10,60,25,25,120,Aug ,"Calif., USA "
+Cucumber ,20,30,40,15,105,June/Aug ,Arid Region 
+Cucumber,25,35,50,20,130,Nov; Feb ,Arid Region 
+"Pumpkin, Winter squash ",20,30,30,20,100,"Mar, Aug ",Mediterranean 
+,25,35,35,25,120,June ,Europe 
+"Squash, Zucchini ",25,35,25,15,100,Apr; Dec. ,Medit.; Arid Reg. 
+"Squash, Zucchini",20,30,25,15,90,May/June ,Medit.; Europe 
+Sweet melons ,25,35,40,20,120,May ,Mediterranean 
+Sweet melons ,30,30,50,30,140,March ,"Calif., USA "
+Sweet melons ,15,40,65,15,135,Aug ,"Calif. Desert, USA "
+Sweet melons ,30,45,65,20,160,Dec/Jan ,Arid Region 
+Water melons ,20,30,30,30,110,April ,Italy 
+Water melons,10,20,20,30,80,Mat/Aug ,Near East (desert) 
+"Beets, table ",15,25,20,10,70,Apr/May ,Mediterranean 
+"Beets, table",25,30,25,10,90,Feb/Mar ,Mediterranean & Arid 
+Cassava: year 1 ,20,40,90,60,210,Rainy ,Tropical regions 
+year 2 ,150,40,110,60,360,season ,
+Potato ,25,30,30/45 ,30,115/130 ,Jan/Nov ,(Semi) Arid Climate 
+Potato,25,30,45,30,130,May ,Continental Climate 
+Potato,30,35,50,30,145,April ,Europe 
+Potato,45,30,70,20,165,Apr/May ,"Idaho, USA "
+Potato,30,35,50,25,140,Dec ,"Calif. Desert, USA "
+Sweet potato ,20,30,60,40,150,April ,Mediterranean 
+Sweet potato,15,30,50,30,125,Rainy seas. ,Tropical regions 
+Sugarbeet ,30,45,90,15,180,March ,"Calif., USA "
+Sugarbeet ,25,30,90,10,155,June ,"Calif., USA "
+Sugarbeet ,25,65,100,65,255,Sept ,"Calif. Desert, USA "
+Sugarbeet ,50,40,50,40,180,April ,"Idaho, USA "
+Sugarbeet ,25,35,50,50,160,May ,Mediterranean 
+Sugarbeet ,45,75,80,30,230,November ,Mediterranean 
+Sugarbeet ,35,60,70,40,205,November ,Arid Regions 
+Beans-green ,20,30,30,10,90,Feb/Mar ,"Calif., Mediterranean "
+Beans-green,15,25,25,10,75,Aug/Sep ,"Calif., Egypt, Lebanon "
+Beans-dry ,20,30,40,20,110,May/June ,Continental Climates 
+Beans-dry,15,25,35,20,95,June ,"Pakistan, Calif. "
+Beans-dry,25,25,30,20,100,June ,"Idaho, USA "
+"Faba bean, broad bean ",15,25,35,15,90,May ,Europe 
+"Faba bean, broad bean",20,30,35,15,100,Mar/Apr ,Mediterranean 
+"Faba bean, broad bean-dry ",90,45,40,60,235,Nov ,Europe 
+"Faba bean, broad bean-green ",90,45,40,0,175,Nov ,Europe 
+"Green gram, cowpeas ",20,30,30,20,110,March ,Mediterranean 
+Groundnut ,25,35,45,25,130,Dry ,West Africa 
+Groundnut ,35,35,35,35,140,season ,High Latitudes 
+Groundnut ,35,45,35,25,140,May May/June ,Mediterranean 
+Lentil ,20,30,60,40,150,April ,Europe 
+Lentil,25,35,70,40,170,Oct/Nov ,Arid Region 
+Peas ,15,25,35,15,90,May ,Europe 
+Peas ,20,30,35,15,100,Mar/Apr ,Mediterranean 
+Peas ,35,25,30,20,110,April ,"Idaho, USA "
+Soybeans ,15,15,40,15,85,Dec ,Tropics 
+Soybeans ,20,30/35 ,60,25,140,May ,Central USA 
+Soybeans,20,25,75,30,150,June ,Japan 
+Artichoke ,40,40,250,30,360,Apr (1st yr) ,California 
+Artichoke,20,25,250,30,325,May (2nd yr) ,(cut in May) 
+Asparagus ,50,30,100,50,230,Feb ,Warm Winter 
+Asparagus,90,30,200,45,365,Feb ,Mediterranean 
+Cotton ,30,50,60,55,195,Mar-May ,Egypt; Pakistan; Calif. 
+Cotton,45,90,45,45,225,Mar ,"Calif. Desert, USA "
+Cotton ,30,50,60,55,195,Sept ,Yemen 
+Cotton ,30,50,55,45,180,April ,Texas 
+Flax ,25,35,50,40,150,April ,Europe 
+Flax,30,40,100,50,220,October ,Arizona 
+Castor beans ,25,40,65,50,180,March ,(Semi) Arid Climates 
+Castor beans ,20,40,50,25,135,Nov. ,Indonesia 
+Safflower ,20,35,45,25,125,April ,"California, USA "
+Safflower ,25,35,55,30,145,Mar ,High Latitudes 
+Safflower ,35,55,60,40,190,Oct/Nov ,Arid Region 
+Sesame ,20,30,40,20,100,June ,China 
+Sunflower ,25,35,45,25,130,April/May ,Medit.; California 
+Barley/Oats/Wheat ,15,25,50,30,120,November ,Central India 
+Barley/Oats/Wheat ,20,25,60,30,135,March/Apr ,35-45 °L 
+Barley/Oats/Wheat ,15,30,65,40,150,July ,East Africa 
+Barley/Oats/Wheat ,40,30,40,20,130,Apr ,
+Barley/Oats/Wheat ,40,60,60,40,200,Nov ,
+Barley/Oats/Wheat ,20,50,60,30,160,Dec ,"Calif. Desert, USA "
+Winter Wheat ,20,60,70,30,180,December ,"Calif., USA "
+Winter Wheat ,30,140,40,30,240,November ,Mediterranean 
+Winter Wheat ,160,75,75,25,335,October ,"Idaho, USA "
+Grains-small ,20,30,60,40,150,April ,Mediterranean 
+Grains-small ,25,35,65,40,165,Oct/Nov ,Pakistan; Arid Reg. 
+Maize-grain ,30,50,60,40,180,April ,East Africa (alt.) 
+Maize-grain ,25,40,45,30,140,Dec/Jan ,Arid Climate 
+Maize-grain ,20,35,40,30,125,June ,Nigeria (humid) 
+Maize-grain ,20,35,40,30,125,October ,"India (dry, cool) "
+Maize-grain ,30,40,50,30,150,April ,"Spain (spr, sum.); Calif. "
+Maize-grain ,30,40,50,50,170,April ,"Idaho, USA "
+Maize-sweet ,20,20,30,10,80,March ,Philippines 
+Maize-sweet,20,25,25,10,80,May/June ,Mediterranean 
+Maize-sweet,20,30,50/30 ,10,90,Oct/Dec ,Arid Climate 
+Maize-sweet,30,30,30,103,110,April ,"Idaho, USA "
+Maize-sweet,20,40,70,10,140,Jan ,"Calif. Desert, USA "
+Millet ,15,25,40,25,105,June ,Pakistan 
+Millet,20,30,55,35,140,April ,Central USA 
+Sorghum ,20,35,40,30,130,May/June ,"USA, Pakis., Med. "
+Sorghum,20,35,45,30,140,Mar/April ,Arid Region 
+Rice ,30,30,60,30,150,Dec; May ,Tropics; Mediterranean 
+Rice,30,30,80,40,180,May ,Tropics 
+"Alfalfa, total season ",10,30,var. ,var. ,var. ,,last -4°C in spring until first -4°C in fall 
+Alfalfa 1st cutting cycle ,10,20,20,10,60,Jan Apr (last - 4°C) ,"Calif., USA. "
+Alfalfa 1st cutting cycle,10,30,25,10,75,,"Idaho, USA. "
+"Alfalfa, other cutting cycles ",5,10,10,5,30,Mar ,"Calif., USA. "
+"Alfalfa, other cutting cycles",5,20,10,10,45,Jun ,"Idaho, USA. "
+Bermuda for seed ,10,25,35,35,105,March ,"Calif. Desert, USA "
+Bermuda for hay (several cuttings) ,10,15,75,35,135,--- ,"Calif. Desert, USA "
+Grass Pasture ,10,20,-- ,-- ,-- ,,7 days before last -4°C in spring until 7 days after first -4°C in fall 
+"Sudan, 1st cutting cycle ",25,25,15,10,75,Apr ,"Calif. Desert, USA "
+"Sudan, other cutting cycles ",3,15,12,7,37,June ,"Calif. Desert, USA "
+"Sugarcane, virgin ",35,60,190,120,405,,Low Latitudes 
+"Sugarcane, virgin",50,70,220,140,480,,Tropics 
+"Sugarcane, virgin",75,105,330,210,720,,"Hawaii, USA "
+"Sugarcane, ratoon ",25,70,135,50,280,,Low Latitudes 
+"Sugarcane, ratoon",30,50,180,60,320,,Tropics 
+"Sugarcane, ratoon",35,105,210,70,420,,"Hawaii, USA "
+"Banana, 1st yr ",120,90,120,60,390,Mar ,Mediterranean 
+"Banana, 2nd yr ",120,60,180,5,365,Feb ,Mediterranean 
+Pineapple ,60,120,600,10,790,,"Hawaii, USA "
+Grapes ,20,40,120,60,240,April ,Low Latitudes 
+Grapes ,20,50,75,60,205,Mar ,"Calif., USA "
+Grapes ,20,50,90,20,180,May ,High Latitudes 
+Grapes ,30,60,40,80,210,April ,Mid Latitudes (wine) 
+Hops ,25,40,80,10,155,April ,"Idaho, USA "
+Citrus ,60,90,120,95,365,Jan ,Mediterranean 
+Deciduous Orchard ,20,70,90,30,210,March ,High Latitudes 
+Deciduous Orchard ,20,70,120,60,270,March ,Low Latitudes 
+Deciduous Orchard ,30,50,130,30,240,March ,"Calif., USA "
+Olives ,30,90,60,90,2705,March ,Mediterranean 
+Pistachios ,20,60,30,40,150,Feb ,Mediterranean 
+Walnuts ,20,10,130,30,190,April ,"Utah, USA "
+"Wetlands (Cattails, Bulrush) ",10,30,80,20,140,May ,"Utah, USA; killing frost "
+"Wetlands (Cattails, Bulrush)",180,60,90,35,365,November ,"Florida, USA "
+Wetlands (short veg.) ,180,60,90,35,365,November ,frost-free climate 
