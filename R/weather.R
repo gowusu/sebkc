@@ -75,8 +75,8 @@
 #' #retrieve daily data for a specific period i.e 1 month
 #' lincoln=weather(airport = "KLNK", date=c("2011-08-04","2011-09-04"))
 #' #kumasi and accra data for a time slice. May not work for different 
-#' geographical regions due different nummber of paramters. Write the results ti a file
-#' accrakumasi=weather(airport =c("DGSI","ACC"), date=c("2011-08-04","2011-10-04"),
+#' geographical regions due different nummber of paramters. Write the results to a file
+#' accrakumasi=weather(airport ="ACC", date=c("2011-08-04","2011-10-04"),
 #' folder="C:/Users/george/Documents/")
 #' }
 
@@ -172,8 +172,8 @@ weather=function (data=NULL,wmo=NULL, airport=NULL, date="YYYY-m-d",time=NULL,
       
     }
  if(!is.null(folder)){
-   write.csv(hour,paste(folder,"/WMO.hour.csv",sep=""))
-   write.csv(day,paste(folder,"/WMO.day.csv",sep=""))
+   write.csv(hour,paste(folder,"/",date,"/WMO.hour.csv",sep=""))
+   write.csv(day,paste(folder,"/",date,"/WMO.day.csv",sep=""))
     }
  list(WMO=list(hour=hour,day=day))
  
