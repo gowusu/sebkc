@@ -64,15 +64,15 @@ You can get Ta from  \code{\link{sebal}} Ta
 }
 \examples{
  \dontrun{
-albedo=raster(system.file("extdata","albedo.grd",package="SEBKc"))
-Ts=raster(system.file("extdata","Ts.grd",package="SEBKc"))
-NDVI=raster(system.file("extdata","NDVI.grd",package="SEBKc"))
+albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
+NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
 modWDI=wdi(Ts=Ts,Ta=299,NDVI=NDVI,albedo=NULL,Tsmax="auto",
 Tsmin="auto",sunelev=50)
 plot(modWDI$EF)
 
 #Using folder parameter
-folder=system.file("extdata","stack",package="SEBKc")
+folder=system.file("extdata","stack",package="sebkc")
 wdiauto=wdi(folder=folder,welev=317,Tsmax=31,Tsmin=28,Ta=290)
 
 #' #Another interactive example

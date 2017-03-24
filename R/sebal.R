@@ -119,17 +119,17 @@
 #' @examples
 #' \dontrun{
 #' #use original landsat 8 data by specifying folder path
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' modauto=sebal(folder = folder,welev = 380,xycold="full",xyhot="full")
 #' #plot ET fraction
 #' plot(modauto$EF)
 #' 
 #' #Semi-auto
 #' #load individual input files, for example from MODIS, ASTER etc
-#' albedo=raster(system.file("extdata","albedo.grd",package="SEBKc"))
-#' Ts=raster(system.file("extdata","Ts.grd",package="SEBKc"))
-#' NDVI=raster(system.file("extdata","NDVI.grd",package="SEBKc"))
-#' LAI=raster(system.file("extdata","LAI.grd",package="SEBKc"))
+#' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+#' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
+#' NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
+#' LAI=raster(system.file("extdata","LAI.grd",package="sebkc"))
 #' mod=sebal(albedo=albedo,Ts=Ts,NDVI=NDVI,SAVI=NULL,
 #' iter.max=7,xyhot="full",xycold="full",
 #' DOY=37,sunelev=50.71154048,welev=317.1,zx=10,
@@ -143,7 +143,7 @@
 #' #3 step simulation using landsat 7 with SLC OFF
 #' ##step one: prepare the input data 
 #' ### point to landsat 7 data with strips 
-#' folder=system.file("extdata","slc",package="SEBKc")
+#' folder=system.file("extdata","slc",package="sebkc")
 #' #####get the data stacked and remove strips
 #' rawdata=sebkcstack(folder,remove_cloud = 2,gap_fill = TRUE)
 #' ###### check if strips are removed

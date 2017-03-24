@@ -89,19 +89,19 @@ and qualifying for upper (Ts) and lower (NDVI) limits
 }
 \examples{
 \dontrun{
- folder=system.file("extdata","stack",package="SEBKc")
+ folder=system.file("extdata","stack",package="sebkc")
   modhot=hotTs(folder=folder,welev=170,extent="auto",cluster=3)
   
    #use object of  landsat578
-folder=system.file("extdata","stack",package="SEBKc")
+folder=system.file("extdata","stack",package="sebkc")
 data=landsat578(data=folder, welev=170)
 modfhot=hotTs(folder=data,welev=170,extent="auto",cluster=3)
 
 #Or Ts = data
 modhotTs=hotTs(data,welev=170,extent="auto",cluster=3)
-albedo=raster(system.file("extdata","albedo.grd",package="SEBKc"))
-Ts=raster(system.file("extdata","Ts.grd",package="SEBKc"))
-NDVI=raster(system.file("extdata","NDVI.grd",package="SEBKc"))
+albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
+NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
 #simulatte with default parameters without albedo
 modhot=hotTs(Ts=Ts,NDVI=NDVI,extent="auto",cluster=3)
 #simulate with albedo but set extent to "auto" and cluster to 7

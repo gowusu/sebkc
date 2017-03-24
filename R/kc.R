@@ -255,7 +255,7 @@
 #' FAO56Example34=kc(ETo=7,P=0,RHmin=20,soil="sandy loam",crop="Broccoli",I=10,
 #'            kctype = "dual",u2=3,kc=c(0.9,0,0),h=1,Zr=0.1,fw="drip")
 #'          
-#' file=system.file("extdata","sys","irrigation.txt",package="SEBKc")
+#' file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 #' data=read.table(file,header=TRUE)  
 #' P=data$P
 #' rc=0
@@ -288,7 +288,7 @@
 #'  lines(moddual$output$Day,moddual$output$Kcb,type="l", lty=2)
 #' ###########Spatial model I: Evaporation Fraction (EF) Model###################
 #' #landsat folder with original files but a subset
-#' folder=system.file("extdata","stack",package="SEBKc") 
+#' folder=system.file("extdata","stack",package="sebkc") 
 #' 
 #' sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28) #sebi model
 #' kc2=stack(sebiauto$EF/2,sebiauto$EF,sebiauto$EF/3) #assign EF to kc
@@ -719,17 +719,17 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
       thetainter=TRUE
     }
   }
-  folder=system.file("extdata","sys",package="SEBKc")
+  folder=system.file("extdata","sys",package="sebkc")
   
  
   
-  soilwater=read.csv(system.file("extdata","sys","soilwater2.csv",package="SEBKc"),header=TRUE,stringsAsFactors=FALSE)
-  stages=(read.csv(system.file("extdata","sys","stages.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-  crop_H_Zr=na.omit(read.csv(system.file("extdata","sys","crop_H_Zr.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-  singlekc=na.omit(read.csv(system.file("extdata","sys","singlekc.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-  dualkc=na.omit(read.csv(system.file("extdata","sys","dualkc.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-  ky=na.omit(read.csv(system.file("extdata","sys","ky.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-  wetting=na.omit(read.csv(system.file("extdata","sys","fw.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
+  soilwater=read.csv(system.file("extdata","sys","soilwater2.csv",package="sebkc"),header=TRUE,stringsAsFactors=FALSE)
+  stages=(read.csv(system.file("extdata","sys","stages.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+  crop_H_Zr=na.omit(read.csv(system.file("extdata","sys","crop_H_Zr.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+  singlekc=na.omit(read.csv(system.file("extdata","sys","singlekc.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+  dualkc=na.omit(read.csv(system.file("extdata","sys","dualkc.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+  ky=na.omit(read.csv(system.file("extdata","sys","ky.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+  wetting=na.omit(read.csv(system.file("extdata","sys","fw.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
    #for crop heigh and roots
   soilwater$ID=1:9
   range=0.75

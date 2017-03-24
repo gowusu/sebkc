@@ -31,7 +31,7 @@ on projection and geometry of input spatial data 'ext'.
 \examples{
  \dontrun{
 #Get ext data
-folder=system.file("extdata","stack",package="SEBKc")
+folder=system.file("extdata","stack",package="sebkc")
 data=landsat578(data=folder, welev=362)
 temp=data$Ts
 latitude=seq(7.544,7.590,0.001)

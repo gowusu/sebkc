@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' stack=sebkcstack(folder=folder)
 #' data=cropsebkc(stack$data,stack$data)
 #' }

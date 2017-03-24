@@ -229,7 +229,7 @@ There are several ways  to use cal.kc:
 \examples{
 \dontrun{
 #fewer iteration
-file=system.file("extdata","sys","irrigation.txt",package="SEBKc")
+file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 data=read.table(file,header=TRUE)  
 P=data$P
 rc=0
@@ -274,7 +274,7 @@ hmodel="gaussian",Zrmodel="linear",xydata=NULL,ETa=ETo)
 
 #Example with spatial kcs
 #landsat folder with original files but a subset
-folder=system.file("extdata","stack",package="SEBKc") 
+folder=system.file("extdata","stack",package="sebkc") 
 sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28) #sebi model
 kc2=stack(sebiauto$EF/2,sebiauto$EF,sebiauto$EF/3) #assign EF to kc
 xydata=data.frame(cbind(longitude=data$longitude,latitude=data$latitude))

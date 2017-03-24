@@ -93,10 +93,10 @@
 #' } 
 #' @examples
 #' \dontrun{
-#' albedo=raster(system.file("extdata","albedo.grd",package="SEBKc"))
-#' Ts=raster(system.file("extdata","Ts.grd",package="SEBKc"))
-#' NDVI=raster(system.file("extdata","NDVI.grd",package="SEBKc"))
-#' LAI=raster(system.file("extdata","LAI.grd",package="SEBKc"))
+#' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+#' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
+#' NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
+#' LAI=raster(system.file("extdata","LAI.grd",package="sebkc"))
 #' Parallel=tseb(Ts=Ts,LAI=LAI,DOY=37,xyhot="full",
 #' xycold="full",albedo=albedo,Tmax=31,
 #' Tmin=28,RHmax=NULL,RHmin=NULL,zom=NULL,NDVI=NDVI,SAVI=NULL,hc=20,
@@ -114,7 +114,7 @@
 #' latitude=5.6,n=6.5)
 #' 
 #' #using landsat folder parameters
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' tsebautoseries=tseb(folder=folder,welev=317,Tmax=31,Tmin=27,
 #' latitude=5.6,n=6.5)
 #' tsebautoparallel=tseb(folder=folder,welev=317,Tmax=31,Tmin=27,

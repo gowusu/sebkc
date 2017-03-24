@@ -52,20 +52,20 @@
 #' @examples
 #' \dontrun{
 #' #using landsat folder
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' modcold=coldTs(folder=folder,welev=170,extent="auto")
 #'
 #' #use object of  
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' data=landsat578(data=folder, welev=362)
 #' modcold=coldTs(folder=data,welev=170,extent="auto",cluster=3)
 #' 
 #' modcoldTs=coldTs(data,welev=170,extent="auto",cluster=3)
 #' 
 #' #using input different input data
-#' albedo=raster(system.file("extdata","albedo.grd",package="SEBKc"))
-#' Ts=raster(system.file("extdata","Ts.grd",package="SEBKc"))
-#' NDVI=raster(system.file("extdata","NDVI.grd",package="SEBKc"))
+#' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+#' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
+#' NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
 #' #simulate with default parameters without albedo
 #' modcold=coldTs(Ts=Ts,NDVI=NDVI,sunangle=50.7)
 #' #simulate with albedo but set extent to "auto" and cluster to 7

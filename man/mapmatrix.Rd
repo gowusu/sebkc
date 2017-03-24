@@ -21,7 +21,7 @@ Internal function for doing interpolation
 }
 \examples{
 \dontrun{
-folder=system.file("extdata","stack",package="SEBKc")
+folder=system.file("extdata","stack",package="sebkc")
 sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)
 points=sampleRandom(sebiauto$EF,100,sp=TRUE)
 pt=cbind(points@coords,points@data)

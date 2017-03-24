@@ -30,7 +30,7 @@ coordinates. If x is a raster object with  horizontal  coordinates then it will 
 WGS 84.
 }
 \examples{
-folder=system.file("extdata","stack",package="SEBKc")
+folder=system.file("extdata","stack",package="sebkc")
 data=landsat578(data=folder, welev=362)
 temp=data$Ts
 latitude=seq(7.544,7.590,0.001)

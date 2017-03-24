@@ -122,12 +122,12 @@ For landsat 8, use the meta data.
 \examples{
 \dontrun{
 #Automatic detection of parameters
-folder=system.file("extdata","stack",package="SEBKc")
+folder=system.file("extdata","stack",package="sebkc")
 modauto=landsat578(data=folder, welev=362)
 
 #Manual estimation with input parameters
 landsat7_6feb2004=brick(system.file("extdata","landsat7_6feb2004.grd",
-package="SEBKc"))
+package="sebkc"))
 mod=landsat578(data=landsat7_6feb2004,welev=317.1,sensor=7,gain="high",
 sunelev=50.71154048,weights="auto",grescale="auto",brescale="auto",
 ESUN="auto",K1=666.09,K2=1282.71,date="2002-2-6")

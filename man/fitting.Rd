@@ -36,7 +36,7 @@ fitting(obs, est, P = 1)
 }
 }
 \examples{
-file=system.file("extdata","sys","irrigation.txt",package="SEBKc")
+file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 data=read.table(file,header=TRUE)  
 obs=data$ETo
 est=data$ETc

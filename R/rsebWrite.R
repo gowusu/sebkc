@@ -16,7 +16,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' stack=landsat578(data=folder, welev=362)
 #' writesebkc(stack)
 #' sebaloutput=sebal(folder = folder,welev = 317)

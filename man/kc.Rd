@@ -332,7 +332,7 @@ FAO56Example33=kc(ETo=7,P=0,RHmin=20,soil="sandy loam",crop="Broccoli",I=10,
 FAO56Example34=kc(ETo=7,P=0,RHmin=20,soil="sandy loam",crop="Broccoli",I=10,
            kctype = "dual",u2=3,kc=c(0.9,0,0),h=1,Zr=0.1,fw="drip")
          
-file=system.file("extdata","sys","irrigation.txt",package="SEBKc")
+file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 data=read.table(file,header=TRUE)  
 P=data$P
 rc=0
@@ -363,7 +363,7 @@ h=1:12/1:12*0.3
  lines(moddual$output$Day,moddual$output$Kcb,type="l", lty=2)
 ###########Spatial model I: Evaporation Fraction (EF) Model###################
 #landsat folder with original files but a subset
-folder=system.file("extdata","stack",package="SEBKc") 
+folder=system.file("extdata","stack",package="sebkc") 
 
 sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28) #sebi model
 kc2=stack(sebiauto$EF/2,sebiauto$EF,sebiauto$EF/3) #assign EF to kc

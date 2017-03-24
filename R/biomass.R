@@ -17,7 +17,7 @@
 #' @examples
 #'  \dontrun{
 #' #Get ext data
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' data=landsat578(data=folder, welev=362)
 #' temp=data$Ts
 #' latitude=seq(7.544,7.590,0.001)
@@ -70,7 +70,7 @@ invdist=function(longitude,latitude,var,ext,idp = .5){
 #' @export 
 #' @author George Owusu
 #' @examples
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' data=landsat578(data=folder, welev=362)
 #' temp=data$Ts
 #' latitude=seq(7.544,7.590,0.001)
@@ -202,7 +202,7 @@ lonlatreproject=function(x,y=NULL,var=NA,map,epsg=4326){
 #' 
 #' ############## Spatial Estimation with internal interpolation ###########################
 #' #generate spatial data
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' modauto=landsat578(data=folder, welev=362)
 #' Tday=modauto$Ts-273.15 #temperature in degree celcius
 #' LAI=modauto$LAI
@@ -369,14 +369,14 @@ inter=NULL
 
 
 if(latitude<0){
-  Pmfile=read.table(system.file("extdata","sys","pmwrite2.txt",package="SEBKc"),header=TRUE)
-  latrad=read.table(system.file("extdata","sys","latradiancesouth.txt",package="SEBKc"),header=TRUE)
-  boin=read.table(system.file("extdata","sys","bowrite2south.txt",package="SEBKc"),header=TRUE)
-  bcin=read.table(system.file("extdata","sys","bcwrite2south.txt",package="SEBKc"),header=TRUE)  
-}else{Pmfile=read.table(system.file("extdata","sys","pmwrite2.txt",package="SEBKc"),header=TRUE)
-latrad=read.table(system.file("extdata","sys","latradiance.txt",package="SEBKc"),header=TRUE)
-boin=read.table(system.file("extdata","sys","bowrite2.txt",package="SEBKc"),header=TRUE)
-bcin=read.table(system.file("extdata","sys","bcwrite2.txt",package="SEBKc"),header=TRUE)
+  Pmfile=read.table(system.file("extdata","sys","pmwrite2.txt",package="sebkc"),header=TRUE)
+  latrad=read.table(system.file("extdata","sys","latradiancesouth.txt",package="sebkc"),header=TRUE)
+  boin=read.table(system.file("extdata","sys","bowrite2south.txt",package="sebkc"),header=TRUE)
+  bcin=read.table(system.file("extdata","sys","bcwrite2south.txt",package="sebkc"),header=TRUE)  
+}else{Pmfile=read.table(system.file("extdata","sys","pmwrite2.txt",package="sebkc"),header=TRUE)
+latrad=read.table(system.file("extdata","sys","latradiance.txt",package="sebkc"),header=TRUE)
+boin=read.table(system.file("extdata","sys","bowrite2.txt",package="sebkc"),header=TRUE)
+bcin=read.table(system.file("extdata","sys","bcwrite2.txt",package="sebkc"),header=TRUE)
 }
 
 

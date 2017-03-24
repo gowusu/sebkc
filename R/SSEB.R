@@ -32,9 +32,9 @@
 #'
 #' @examples
 #' \dontrun{
-#' albedo=raster(system.file("extdata","albedo.grd",package="SEBKc"))
-#' Ts=raster(system.file("extdata","Ts.grd",package="SEBKc"))
-#' NDVI=raster(system.file("extdata","NDVI.grd",package="SEBKc"))
+#' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+#' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
+#' NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
 #' #minimal data
 #'modsseb=sseb(Ts=Ts,TH="full",TC="full",sunelev=50,NDVI=NDVI,DEM=NULL,
 #'albedo=albedo,NDVImax=0.7,cc=0.65,KL=0.0065,
@@ -42,7 +42,7 @@
 #'u=2,DOY=37,latitude=5.6,n=NULL,RHmax=NULL,RHmin=NULL)
 #' 
 #' #uaing the folder parameters
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' ssebauto=sseb(folder=folder,welev=317,Tmax=31,Tmin=28, latitude=5.6)
 #' 
 #' #Another interactive example

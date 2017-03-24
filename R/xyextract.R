@@ -11,10 +11,10 @@
 #'
 #' @examples
 #' \dontrun{
-#' lonlat=read.table(system.file("extdata","sys","xyvalues.txt",package="SEBKc"),header=TRUE)
+#' lonlat=read.table(system.file("extdata","sys","xyvalues.txt",package="sebkc"),header=TRUE)
 #' longitude=lonlat$longitude
 #' latitude=lonlat$latitude
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' data=landsat578(data=folder, welev=362)
 #' Ts=data$Ts
 #' Tsdata=xyextract(Ts,longitude,latitude)
@@ -52,12 +52,12 @@ xyextract=function(map,longitude,latitude){
   names(data)=c("longitude","latitude",thisname)
   data
 }
-#xydata=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/SEBKc/inst/extdata/sys/xyvalues.txt",header=TRUE)
+#xydata=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/sebkc/inst/extdata/sys/xyvalues.txt",header=TRUE)
 
 #Tsdata2[5]=rev(Tsdata2[5])
 #Ts=data$Ts
-#Px=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/SEBKc/inst/extdata/sys/P.txt",header=T)
-#ETOI=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/SEBKc/inst/extdata/sys/ETOI.txt",header=T)
+#Px=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/sebkc/inst/extdata/sys/P.txt",header=T)
+#ETOI=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/sebkc/inst/extdata/sys/ETOI.txt",header=T)
 # I=ETOI$I
 #ETo=ETOI$Eto
 #mapmatrix(Px,1,map)
@@ -76,7 +76,7 @@ xyextract=function(map,longitude,latitude){
 #' @export 
 #' @examples
 #' \dontrun{
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)
 #' points=sampleRandom(sebiauto$EF,100,sp=TRUE)
 #' pt=cbind(points@@coords,points@@data)

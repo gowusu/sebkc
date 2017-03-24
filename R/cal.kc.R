@@ -52,7 +52,7 @@
 #' @examples
 #' \dontrun{
 #' #fewer iteration
-#' file=system.file("extdata","sys","irrigation.txt",package="SEBKc")
+#' file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 #' data=read.table(file,header=TRUE)  
 #' P=data$P
 #' rc=0
@@ -97,7 +97,7 @@
 #' 
 #' #Example with spatial kcs
 #' #landsat folder with original files but a subset
-#' folder=system.file("extdata","stack",package="SEBKc") 
+#' folder=system.file("extdata","stack",package="sebkc") 
 #' sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28) #sebi model
 #' kc2=stack(sebiauto$EF/2,sebiauto$EF,sebiauto$EF/3) #assign EF to kc
 #' xydata=data.frame(cbind(longitude=data$longitude,latitude=data$latitude))
@@ -129,13 +129,13 @@
       return  (print("Observation data ETa or theta is needed"))
     }
     
-    soilwater=read.csv(system.file("extdata","sys","soilwater2.csv",package="SEBKc"),header=TRUE,stringsAsFactors=FALSE)
-    stages=(read.csv(system.file("extdata","sys","stages.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-    crop_H_Zr=na.omit(read.csv(system.file("extdata","sys","crop_H_Zr.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-    singlekc=na.omit(read.csv(system.file("extdata","sys","singlekc.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-    dualkc=na.omit(read.csv(system.file("extdata","sys","dualkc.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-    ky=na.omit(read.csv(system.file("extdata","sys","ky.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
-    wetting=na.omit(read.csv(system.file("extdata","sys","fw.csv",package="SEBKc"),stringsAsFactors=FALSE,header=TRUE))
+    soilwater=read.csv(system.file("extdata","sys","soilwater2.csv",package="sebkc"),header=TRUE,stringsAsFactors=FALSE)
+    stages=(read.csv(system.file("extdata","sys","stages.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+    crop_H_Zr=na.omit(read.csv(system.file("extdata","sys","crop_H_Zr.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+    singlekc=na.omit(read.csv(system.file("extdata","sys","singlekc.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+    dualkc=na.omit(read.csv(system.file("extdata","sys","dualkc.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+    ky=na.omit(read.csv(system.file("extdata","sys","ky.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
+    wetting=na.omit(read.csv(system.file("extdata","sys","fw.csv",package="sebkc"),stringsAsFactors=FALSE,header=TRUE))
     soil2=soil
     crop2=crop
     

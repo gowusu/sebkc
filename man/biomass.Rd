@@ -117,7 +117,7 @@ pointSmod$output$yield
 
 ############## Spatial Estimation with internal interpolation ###########################
 #generate spatial data
-folder=system.file("extdata","stack",package="SEBKc")
+folder=system.file("extdata","stack",package="sebkc")
 modauto=landsat578(data=folder, welev=362)
 Tday=modauto$Ts-273.15 #temperature in degree celcius
 LAI=modauto$LAI

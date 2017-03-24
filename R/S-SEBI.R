@@ -16,12 +16,12 @@
 #' @examples
 #' \dontrun{
 #' #Manual data specification
-#' albedo=raster(system.file("extdata","albedo.grd",package="SEBKc"))
-#' Ts=raster(system.file("extdata","Ts.grd",package="SEBKc"))
+#' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+#' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
 #' mod=ssebi(Ts=Ts,albedo=albedo,cluster=100,threshold=0,plot=TRUE)
 #' 
 #' #Using landsat folder
-#' folder=system.file("extdata","stack",package="SEBKc")
+#' folder=system.file("extdata","stack",package="sebkc")
 #' ssebiauto=ssebi(folder=folder,welev=278)
 #' }
 #' @export

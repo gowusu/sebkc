@@ -25,10 +25,10 @@ coordinates and extract raster values
 }
 \examples{
 \dontrun{
-lonlat=read.table(system.file("extdata","sys","xyvalues.txt",package="SEBKc"),header=TRUE)
+lonlat=read.table(system.file("extdata","sys","xyvalues.txt",package="sebkc"),header=TRUE)
 longitude=lonlat$longitude
 latitude=lonlat$latitude
-folder=system.file("extdata","stack",package="SEBKc")
+folder=system.file("extdata","stack",package="sebkc")
 data=landsat578(data=folder, welev=362)
 Ts=data$Ts
 Tsdata=xyextract(Ts,longitude,latitude)
