@@ -25,10 +25,10 @@ if(!require(raster)){
 if(!require(gstat)){
   install.packages("gstat")
 }
-if(!require("httr ")){
-  install.packages("httr ")
+if(!require(httr)){
+  install.packages(httr)
   }
-if(!require("sebkc ")){
+if(!require(sebkc)){
 devtools::install_github("gowusu/sebkc")
   }
 </code></pre>
