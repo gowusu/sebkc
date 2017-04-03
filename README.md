@@ -13,7 +13,13 @@ Specifically, the package can perform the following functions:
 
 ## Installation
 You can install the latest development version from github with,
- <pre><code> if (packageVersion("devtools") < 1.6) {
+ <pre><code>
+ 
+  if (!require(devtools)) {
+  install.packages("devtools")
+  }
+
+if (packageVersion("devtools") < 1.6) {
   install.packages("devtools")
   }
   if(!require(sp)){
@@ -26,7 +32,7 @@ if(!require(gstat)){
   install.packages("gstat")
 }
 if(!require(httr)){
-  install.packages(httr)
+  install.packages("httr")
   }
 if(!require(sebkc)){
 devtools::install_github("gowusu/sebkc")

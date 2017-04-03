@@ -26,7 +26,7 @@ if(!require(gstat)){
   install.packages("gstat")
 }
 if(!require(httr)){
-  install.packages(httr)
+  install.packages("httr")
   }
 if(!require(sebkc)){
 devtools::install_github("gowusu/sebkc")
