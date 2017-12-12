@@ -158,7 +158,6 @@ lonlatreproject=function(x,y=NULL,var=NA,map,epsg=4326){
 #' Evaluation of simplified water-crop yield models. 
 #' Agricultural Water Management, 2(2), 95-129. 
 #' doi: http://dx.doi.org/10.1016/0378-3774(79)90026-X}
-#' }
 #' \item{}{FAO (1981). Report on the Agro-ecological Zones Project: 
 #' Food and Agriculture Organization of the United Nations.}
 #' @return yield and biomass in t/ha

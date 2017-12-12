@@ -1,6 +1,6 @@
 Package: sebkc
 Type: Package
-Title: Surface Energy Balance and Crop Coefficient Estimation with R
+Title: The Surface Energy Balance and Crop Coefficient Estimation with R
 Version: 1.0-0
 Date: 2015-10-27
 Author: George Owusu <owusugeorge@ug.edu.gh>
