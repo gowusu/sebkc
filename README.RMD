@@ -25,6 +25,9 @@ if (packageVersion("devtools") < 1.6) {
   if(!require(sp)){
   install.packages("sp")
 }
+if(!require(rgdal)){
+  install.packages("rgdal")
+}
 if(!require(raster)){
   install.packages("raster")
 }
