@@ -1,8 +1,8 @@
 Package: sebkc
 Type: Package
 Title: The Surface Energy Balance and Crop Coefficient Estimation with R
-Version: 1.0-0
-Date: 2015-10-27
+Version: 1.0-1
+Date: 2018-05-21
 Author: George Owusu <owusugeorge@ug.edu.gh>
 Maintainer: George Owusu <gowusu@gmail.com>
 Depends: R (>= 2.10),raster(>= 2.1-12), sp(>= 1.0-13),gstat
@@ -17,5 +17,5 @@ Description: This R package computes and integrates surface energy balance
 License: GPL-2
 LazyData: true
 RoxygenNote: 5.0.1
-Packaged: 2016-12-19 19:25:05 UTC
+Packaged: 2018-05-21 19:25:05 UTC
 NeedsCompilation: no

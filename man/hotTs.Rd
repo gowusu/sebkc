@@ -61,6 +61,10 @@ landsat 5,7 or 8 bands and metadata.
 At the moment only Landsat folder is supported}
 
 \item{welev}{Weather station elevation in meters}
+
+\item{clip}{extent object or raster object or polygon from which an Extent 
+object can be extracted. A polygon or raster will be reprojected to 
+conform the data to be cropped. for example clip can take the form of c(xmin, xmax, ymin, ymax)}
 }
 \value{
 \itemize{

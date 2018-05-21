@@ -114,6 +114,10 @@ Lz = 0° for Greenwich.}
 
 \item{iter.max}{maximum iterations of sensible heat calculation.}
 
+\item{clip}{extent object or raster object or polygon from which an Extent 
+object can be extracted. A polygon or raster will be reprojected to 
+conform the data to be cropped. for example clip can take the form of c(xmin, xmax, ymin, ymax)}
+
 \item{folder}{An original  directory of the images that contains all 
 landsat 5,7 or 8 bands and metadata.
 At the moment only Landsat folder is supported}

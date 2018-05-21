@@ -150,6 +150,7 @@ lonlatreproject=function(x,y=NULL,var=NA,map,epsg=4326){
 #'  the rest of the data. Both longitude, latitude, and the variables must be of
 #'  the same length. If longitude is not provided no interpolation will be done.}
 #'  }
+#'  
 #'  @references 
 #' \itemize{
 #' \item{}{De Wit, C. T. (1968). Plant production Miscellaneous Papers: 
@@ -160,6 +161,7 @@ lonlatreproject=function(x,y=NULL,var=NA,map,epsg=4326){
 #' doi: http://dx.doi.org/10.1016/0378-3774(79)90026-X}
 #' \item{}{FAO (1981). Report on the Agro-ecological Zones Project: 
 #' Food and Agriculture Organization of the United Nations.}
+#' }
 #' @return yield and biomass in t/ha
 #' @export
 #'

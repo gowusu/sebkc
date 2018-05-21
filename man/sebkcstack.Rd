@@ -32,13 +32,15 @@ landsat 7 or NAs in other data set. It uses  \code{\link{raster}{focal}}
 neighbourhood approach. It is an automated Version of USGS "Gap-Filling Landsat
  7 SLC-off Single Scenes Using Erdas Imagine TM". Like USGS, it also takes 
  approximately one hour to complete.
- see details at \url{http://landsat.usgs.gov/ERDAS_Approach.php}
- @param gap_loop numeric. The number of loops or repetitions that gap-fill 
- should be run. The default is 8 for one landsat scene. If the landsat image
- is smaller, it can be reduced. 
- @param clip extent object or raster object or polygon from which an Extent 
- object can be extracted. A polygon or raster will be reprojected to 
- conform the data to be cropped}
+ see details at http://landsat.usgs.gov/ERDAS_Approach.php}
+
+\item{gap_loop}{numeric. The number of loops or repetitions that gap-fill 
+should be run. The default is 8 for one landsat scene. If the landsat image
+is smaller, it can be reduced.}
+
+\item{clip}{extent object or raster object or polygon from which an Extent 
+object can be extracted. A polygon or raster will be reprojected to 
+conform the data to be cropped. for example clip can take the form of c(xmin, xmax, ymin, ymax)}
 }
 \value{
 \itemize{
