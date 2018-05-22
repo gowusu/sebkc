@@ -28,7 +28,7 @@
 #' @examples
 #' \dontrun{
 #'  folder=system.file("extdata","stack",package="sebkc")
-#'   model=coldhot(Tmin=307,Tmax=307,folder=folder,welev=170)
+#'   model=coldhot(Tmin=300,Tmax=310,folder=folder,welev=170)
 #'   spplot(model$Tshot)
 #'   spplot(model$Tscold)
 #'   modauto=sebal(folder = folder,welev = 380,xycold=model$xycold,xyhot=model$xyhot)}
