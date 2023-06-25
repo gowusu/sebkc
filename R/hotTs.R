@@ -63,13 +63,13 @@
 #'
 hotTs=function(Ts,NDVI,albedo=NULL,DEM=NULL,
       cluster=8,extent="interactive",upper=0.80,
-    lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL) 
+    lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL,iter.max = 500) 
   UseMethod ("hotTs")
 #' @export
 #' @rdname hotTs
 hotTs.default=function(Ts=NULL,NDVI,albedo=NULL,DEM=NULL,
 cluster=8,extent="interactive",upper=0.80,
-lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL){
+lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL,iter.max = 500){
   print("Selecting hot pixel")
   if(is.null(Ts)&&!is.null(folder)){
     #Ts=folder 
@@ -166,9 +166,18 @@ NDVI2 <- crop(NDVI, ext)
 if(!is.null(albedo)){
 albedo2=crop(albedo, ext)
 }
-Ts.kmeans <- kmeans(na.omit(Ts[]), cluster, iter.max = 100, nstart = 3)
-kmeansraster<-raster(Ts)
-kmeansraster[]<-Ts.kmeans$cluster
+v <- na.omit(getValues(Ts))
+set.seed(99)
+Ts.kmeans <- kmeans(v, centers=cluster, iter.max = iter.max, nstart = 3)
+  
+kmeansraster <- raster(Ts)
+i <- attr(v, "na.action")
+j <- (1:ncell(Ts))[-i]
+kmeansraster[j] <- Ts.kmeans$cluster
+
+#Ts.kmeans <- kmeans(na.omit(Ts[]), cluster, iter.max = 100, nstart = 3)
+#kmeansraster<-raster(Ts)
+#kmeansraster[]<-Ts.kmeans$cluster
 Tsmean=zonal(Ts, kmeansraster, 'mean') 
 TsSD=zonal(Ts, kmeansraster, 'sd') 
 #TsCV=zonal(Ts, kmeansraster, fun='cv') 

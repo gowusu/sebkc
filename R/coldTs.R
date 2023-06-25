@@ -195,9 +195,18 @@ upper1=quantile(Ts,probs=0.3)
 lower1=quantile(Ts,probs=0.05)
 #Ts[Ts>upper1[[1]],]=NA
 #Ts[Ts<lower1[[1]],]=NA
-Ts.kmeans <- kmeans(na.omit(Ts[]), cluster, iter.max = iter.max, nstart = 3)
-kmeansraster<-raster(Ts)
-kmeansraster[]<-Ts.kmeans$cluster
+
+v <- na.omit(getValues(Ts))
+set.seed(99)
+Ts.kmeans <- kmeans(v, centers=cluster, iter.max = iter.max, nstart = 3)
+  
+kmeansraster <- raster(Ts)
+i <- attr(v, "na.action")
+j <- (1:ncell(Ts))[-i]
+kmeansraster[j] <- Ts.kmeans$cluster
+#Ts.kmeans <- kmeans(na.omit(Ts[]), cluster, iter.max = iter.max, nstart = 3)
+#kmeansraster<-raster(Ts)
+#kmeansraster[]<-Ts.kmeans$cluster
 Tsmean=zonal(Ts, kmeansraster, 'mean') 
 TsSD=zonal(Ts, kmeansraster, 'sd') 
 
