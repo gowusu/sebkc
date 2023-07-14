@@ -26,13 +26,13 @@
 #' }
 #' @export
 #' @rdname ssebi 
-ssebi=function(Ts,albedo=NULL,cluster=100,
+ssebi=function(Ts,albedo=NULL,
                threshold=0.2,plot=TRUE,Rn24=NULL,folder=NULL,welev=NULL)
   UseMethod ("ssebi")
 #' @export
 #' @rdname ssebi 
   
-ssebi.default=function(Ts=NULL,albedo=NULL,cluster=100,
+ssebi.default=function(Ts=NULL,albedo=NULL,
             threshold=0.2,plot=TRUE,Rn24=NULL,folder=NULL,welev=NULL){
   
   
