@@ -126,7 +126,7 @@ if(!is.null(Rn24)){
   ET24=EF*Rn24*0.035
 }
 
-factor<-list(EF=EF,amax=amax,bmax=bmax,amin=amin,bmin=bmin,folder=folder)
+factor<-list(EF=EF,ET24=ET24,amax=amax,bmax=bmax,amin=amin,bmin=bmin,folder=folder)
 factor$call<-match.call()
 class(factor)<-"ssebi"
 factor
