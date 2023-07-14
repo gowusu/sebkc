@@ -18,7 +18,7 @@
 #' #Manual data specification
 #' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 #' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
-#' mod=ssebi(Ts=Ts,albedo=albedo,cluster=100,threshold=0,plot=TRUE)
+#' mod=ssebi(Ts=Ts,albedo=albedo,threshold=0,plot=TRUE)
 #' 
 #' #Using landsat folder
 #' folder=system.file("extdata","stack",package="sebkc")
@@ -76,11 +76,12 @@ Ts=raster(Ts)
 if(class(albedo)!="RasterLayer"&&!is.null(albedo)){
 albedo=raster(albedo)
 }
-max=maxValue(albedo)
-min=minValue(albedo)
-range=max-min
-ave=range/cluster
-seq=(seq(min,max,ave))
+#max=maxValue(albedo)
+#min=minValue(albedo)
+#range=max-min
+#ave=range/cluster
+#seq=(seq(min,max,ave))
+seq = unique(round(albedo, 2))
 albedoclass=cut(albedo,breaks=seq)
 albedomin=zonal(albedo, albedoclass, fun='min') 
 Tsmin=zonal(Ts, albedoclass, fun='min')
@@ -105,15 +106,15 @@ bmax=coef(modTmax)[[2]]
 amin=coef(modTmin)[[1]]
 bmin=coef(modTmin)[[2]]
 EF=(((bmax*albedo)+amax)-Ts)/(((bmax*albedo)+amax)-((bmin*albedo)+amin))
-EF[EF<0]=NA
-EF[EF>1]=NA
+EF[EF<0]=0
+EF[EF>1]=1
 
 if(plot==T||plot==TRUE){
 #plot(albedo,Ts, maxpixels=5000000,xlab="Albedo",ylab="Surface Tempearture[Ts]")
-plot(albedo,Ts,maxpixels=ncell(albedo)/2,xlab="Albedo",ylab="Surface Tempearture[Ts]")
+plot(albedo,Ts,maxpixels=ncell(albedo),xlab="Albedo",ylab="Surface Tempearture[Ts]")
 
-#lines(alTsmindata2[[2]],alTsmindata2[[3]],type="p",col=2)
-#lines(alTsmaxdata3[[2]],alTsmaxdata3[[3]],type="p",col=3)
+lines(alTsmindata2[[2]],alTsmindata2[[3]],type="p",col="forestgreen", pch = 19)
+lines(alTsmaxdata2[[2]],alTsmaxdata2[[3]],type="p",col="red", pch = 19)
 abline(modTmin, col = "forestgreen")
 abline(modTmax, col = "red")
 dev.new(width=15, height=10)
@@ -122,7 +123,7 @@ plot(EF)
 }
 ET24=NULL
 if(!is.null(Rn24)){
-  ET24=(EF*Rn24)/2.45
+  ET24=EF*Rn24*0.035
 }
 
 factor<-list(EF=EF,amax=amax,bmax=bmax,amin=amin,bmin=bmin,folder=folder)
