@@ -94,7 +94,7 @@ sebkcstack.default<-function(folder,meta_pattern="MTL.txt",remove_cloud=F,
   
 crop=clip
 metafile=list.files(folder,meta_pattern,full.names = TRUE)
-metadata=read.delim(metafile,sep="=",stringsAsFactors = F)
+metadata=read.delim(metafile,sep="=",stringsAsFactors = F,skipNul = TRUE)
 SPACECRAFT_ID=(metadata[grep("SPACECRAFT_ID",metadata$GROUP),][[2]])
 sensor=as.numeric(strsplit(SPACECRAFT_ID, "_")[[1]][2])
 raster1crop=NULL
