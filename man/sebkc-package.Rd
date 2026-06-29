@@ -26,11 +26,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: George Owusu \email{gowusu@gmail.com}
+\strong{Maintainer}: George Owusu \email{owusugeorge@ug.edu.gh}
 
 Authors:
 \itemize{
-  \item George Owusu \email{gowusu@gmail.com}
+  \item George Owusu \email{owusugeorge@ug.edu.gh}
 }
 
 }

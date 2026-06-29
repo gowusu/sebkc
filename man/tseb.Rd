@@ -191,8 +191,8 @@ It only needed if you set model to "metric" [mm/hr]}
 
 \item{wmo}{numeric. World Meteorological Organization weather station code.
 You can use the  Worldwide Station List at 
-\url{https://www.wunderground.com/about/faq/international_cities.asp}  [Accessed on 2016-5-6] or 
-\url{http://www.wetterzentrale.de/klima/stnlst.html} [Accessed on 2016-5-6]}
+\url{https://www.wunderground.com/}  [Accessed on 2016-5-6] or 
+\url{https://www.wetterzentrale.de/klima/stnlst.html} [Accessed on 2016-5-6]}
 
 \item{airport}{numeric. IATA or ICAO code. They are alphabetically  listed at 
 \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A} [Accessed on 2016-5-6]}
@@ -279,8 +279,8 @@ Norman et al (1995) and Colaizzi et al(2012) models.
  \item{\strong{Theory}}{This function separately computes LEs, LEs using
  Net radiation (Rn), sensible heat flux (H) and soil heat flux (G).
  The Rn was first computed with \code{sebal}. The soil net radiation computed
- as  \eqn{Rns=(sebal$Rn*exp(0.9*log(1-fc)))} . The canopy radiation was computed 
- as  \eqn{Rnc=sebal$Rn-Rns} . The G was computed from \code{sebal}. 
+ as  \code{Rns=(sebal$Rn*exp(0.9*log(1-fc)))} . The canopy radiation was computed 
+ as  \code{Rnc=sebal$Rn-Rns} . The G was computed from \code{sebal}. 
  The canopy sensible heat (Hc) and soil sensible heat (Hs) were computed
  based on corresponding canopy Temperature (Tc) and soil temperature (Tsoil).
  Two different approaches were employed to sensible heat fluxes. The first
