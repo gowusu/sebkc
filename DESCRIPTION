@@ -1,21 +1,27 @@
 Package: sebkc
 Type: Package
-Title: The Surface Energy Balance and Crop Coefficient Estimation with R
-Version: 1.0-1
-Date: 2018-05-21
-Author: George Owusu <owusugeorge@ug.edu.gh>
-Maintainer: George Owusu <gowusu@gmail.com>
-Depends: R (>= 2.10),raster(>= 2.1-12), sp(>= 1.0-13),gstat
-Imports: gstat
-Description: This R package computes and integrates surface energy balance
-    components of evapotranspiration (ET), Sensible heat(H), soil heat flux(G) and
-    Net Radiation(Rn) into FAO56 water balance model. The SEBKc package can perform Single Kc, 
-    Dual Kc and the integration of thermal-based Evaporative Fractions in a water balance model.
-    The SEB models include the Two Source Surface Energy Balance (TSEB) such as TSEB-PT, 
-    TSEB-PM and TSEB-Parallel as well as One Source Surface Energy Balance (OSEB) models such as 
-    SEBAL, METRIC, SEBI, SSEB and SEBS.
+Title: Surface Energy Balance and Crop Coefficient Evapotranspiration
+    Estimation
+Version: 1.0-2
+Date: 2026-06-29
+Authors@R: person(given = "George", family = "Owusu",
+    email = "gowusu@gmail.com", role = c("aut", "cre"))
+Description: Computes and integrates surface energy balance components of
+    evapotranspiration (ET), sensible heat (H), soil heat flux (G) and
+    net radiation (Rn) into the FAO56 water balance model. The package can
+    perform single crop coefficient (Kc), dual Kc and the integration of
+    thermal-based evaporative fractions in a water balance model. The
+    surface energy balance models include the Two-Source Surface Energy
+    Balance (TSEB) models such as TSEB-PT, TSEB-PM and TSEB-Parallel, as
+    well as One-Source Surface Energy Balance (OSEB) models such as SEBAL,
+    METRIC, SEBI, SSEB and SEBS. Methods are described in Allen et al.
+    (2007) <doi:10.1061/(ASCE)0733-9437(2007)133:4(380)> and
+    Bastiaanssen et al. (1998) <doi:10.1016/S0022-1694(98)00253-4>.
+Depends: R (>= 3.5.0), raster (>= 2.5), sp (>= 1.2)
+Imports: gstat, methods, stats, graphics, grDevices, utils
 License: GPL-2
-LazyData: true
-RoxygenNote: 5.0.1
-Packaged: 2018-05-21 19:25:05 UTC
+Encoding: UTF-8
+URL: https://github.com/gowusu/sebkc
+BugReports: https://github.com/gowusu/sebkc/issues
+RoxygenNote: 7.3.2
 NeedsCompilation: no

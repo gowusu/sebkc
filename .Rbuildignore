@@ -1,2 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.html$
+^README\.RMD$
+^README\.Rmd$
+^cran-comments\.md$
+^doc$
+^Meta$
+^\.github$
+^LICENSE\.md$
