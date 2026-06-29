@@ -6,21 +6,75 @@
 \title{R computation of Surface Energy Balance Algorithm for Land 
 and METRIC}
 \usage{
-sebal(albedo, Ts, NDVI, SAVI, welev, xyhot = "auto", xycold = "auto",
-  DOY = NULL, sunelev, zx = 10, u = 2, zomw = 2, zom = NULL,
-  LAI = NULL, DEM = NULL, lapse = 0.0065, Rn24 = NULL, ETr = NULL,
-  ETr24 = NULL, wmo = NULL, airport = NULL, Krs = 0.16,
-  surface = "grass", latitude = NULL, t1 = 1, time = NULL, Lz = NULL,
-  Lm = NULL, model = "SEBAL", iter.max = 7, clip = NULL,
-  folder = NULL)
+sebal(
+  albedo,
+  Ts,
+  NDVI,
+  SAVI,
+  welev,
+  xyhot = "auto",
+  xycold = "auto",
+  DOY = NULL,
+  sunelev,
+  zx = 10,
+  u = 2,
+  zomw = 2,
+  zom = NULL,
+  LAI = NULL,
+  DEM = NULL,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  ETr = NULL,
+  ETr24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  latitude = NULL,
+  t1 = 1,
+  time = NULL,
+  Lz = NULL,
+  Lm = NULL,
+  model = "SEBAL",
+  iter.max = 7,
+  clip = NULL,
+  folder = NULL
+)
 
-\method{sebal}{default}(albedo = NULL, Ts = NULL, NDVI = NULL,
-  SAVI = NULL, welev, xyhot = "auto", xycold = "auto", DOY = NULL,
-  sunelev = NULL, zx = 10, u = 2, zomw = 2, zom = NULL, LAI = NULL,
-  DEM = NULL, lapse = 0.0065, Rn24 = NULL, ETr = NULL, ETr24 = NULL,
-  wmo = NULL, airport = NULL, Krs = 0.16, surface = "grass",
-  latitude = NULL, t1 = 1, time = NULL, Lz = NULL, Lm = NULL,
-  model = "SEBAL", iter.max = 7, clip = NULL, folder = NULL)
+\method{sebal}{default}(
+  albedo = NULL,
+  Ts = NULL,
+  NDVI = NULL,
+  SAVI = NULL,
+  welev,
+  xyhot = "auto",
+  xycold = "auto",
+  DOY = NULL,
+  sunelev = NULL,
+  zx = 10,
+  u = 2,
+  zomw = 2,
+  zom = NULL,
+  LAI = NULL,
+  DEM = NULL,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  ETr = NULL,
+  ETr24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  latitude = NULL,
+  t1 = 1,
+  time = NULL,
+  Lz = NULL,
+  Lm = NULL,
+  model = "SEBAL",
+  iter.max = 7,
+  clip = NULL,
+  folder = NULL
+)
 }
 \arguments{
 \item{albedo}{A RasterLayer data that has albedo values. 
@@ -106,7 +160,7 @@ time is 12.5 for a period between 12:00 and 13:00}
 
 \item{Lz}{longitude of the centre of the local time zone [degrees west of Greenwich].
 MUST BE POSITIVE
-Lz = 0° for Greenwich.}
+Lz = 0 degrees for Greenwich.}
 
 \item{Lm}{longitude of the measurement site [degrees west of Greenwich]. MUST BE POSITIVE}
 
@@ -209,9 +263,6 @@ xycold=modcold$xycold
 modsebal=sebal(folder=data,xyhot=xyhot,xycold=xycold,welev=welev)
 }
 }
-\author{
-George Owusu
-}
 \references{
 \itemize{
 \item{}{Bastiaanssen, W. G. M., Menenti, M., Feddes, R. A., & Holtslag,
@@ -233,4 +284,6 @@ with Internalized Calibration (METRIC)-Applications.
 Journal of Irrigation and Drainage Engineering, 133(4): 395-406.}
 }
 }
-
+\author{
+George Owusu
+}

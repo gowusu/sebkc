@@ -45,4 +45,3 @@ map=invdist(longitude,latitude,var,ext=temp)
 \author{
 George Owusu
 }
-

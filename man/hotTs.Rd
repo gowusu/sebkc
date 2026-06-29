@@ -5,15 +5,41 @@
 \alias{hotTs.default}
 \title{Automatic computation of hot pixel Radiometric Surface Temperature (Ts)}
 \usage{
-hotTs(Ts, NDVI, albedo = NULL, DEM = NULL, cluster = 8,
-  extent = "interactive", upper = 0.8, lower = 0.2, plot = TRUE,
-  layout = "portrait", draw = "poly", folder = NULL, welev = NULL,
-  clip = NULL)
+hotTs(
+  Ts,
+  NDVI,
+  albedo = NULL,
+  DEM = NULL,
+  cluster = 8,
+  extent = "interactive",
+  upper = 0.8,
+  lower = 0.2,
+  plot = TRUE,
+  layout = "portrait",
+  draw = "poly",
+  folder = NULL,
+  welev = NULL,
+  clip = NULL,
+  iter.max = 500
+)
 
-\method{hotTs}{default}(Ts = NULL, NDVI, albedo = NULL, DEM = NULL,
-  cluster = 8, extent = "interactive", upper = 0.8, lower = 0.2,
-  plot = TRUE, layout = "portrait", draw = "poly", folder = NULL,
-  welev = NULL, clip = NULL)
+\method{hotTs}{default}(
+  Ts = NULL,
+  NDVI,
+  albedo = NULL,
+  DEM = NULL,
+  cluster = 8,
+  extent = "interactive",
+  upper = 0.8,
+  lower = 0.2,
+  plot = TRUE,
+  layout = "portrait",
+  draw = "poly",
+  folder = NULL,
+  welev = NULL,
+  clip = NULL,
+  iter.max = 500
+)
 }
 \arguments{
 \item{Ts}{A RasterLayer data that indicates radiometric 
@@ -65,6 +91,8 @@ At the moment only Landsat folder is supported}
 \item{clip}{extent object or raster object or polygon from which an Extent 
 object can be extracted. A polygon or raster will be reprojected to 
 conform the data to be cropped. for example clip can take the form of c(xmin, xmax, ymin, ymax)}
+
+\item{iter.max}{maximum iterations of sensible heat calculation.}
 }
 \value{
 \itemize{
@@ -113,9 +141,6 @@ modhot=hotTs(Ts=Ts,NDVI=NDVI,albedo=albedo,cluster=7,
 extent="auto")
 }
 }
-\author{
-George Owusu
-}
 \references{
 Allen, R. G., Burnett, B., Kramber, W., Huntington, J., 
 Kjaersgaard, J., Kilic, A., Kelly, C., & Trezza, R. 2013. Automated 
@@ -125,4 +150,6 @@ JAWRA Journal of the American Water Resources Association, 49(3): 563-576.
 \seealso{
 \code{\link{coldTs}}
 }
-
+\author{
+George Owusu
+}

@@ -21,7 +21,7 @@
 #'  are also used to select the final Ts.
 #' @seealso \code{\link{coldTs}} 
 #' @return 
-#' \itemize{
+#' \describe{
 #' \item{Ts:} { The selected or input Ts}
 #' \item{Tshot:} { The Temperature of hot pixel}
 #' \item{TX:} { The average temperature of the hot pixels}
@@ -78,7 +78,7 @@ lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NU
   if(is.null(folder)){
     folder="nothing454782ghf7poi8r.hope"
   }
-  if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
+  if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
     file.info2=TRUE
   }else{
     file.info2=file.info(folder)[["isdir"]]
@@ -88,8 +88,8 @@ lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NU
       return(print("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
-    if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
-      if(class(Ts)=="landsat578"){
+    if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
+      if(inherits(Ts, "landsat578")){
         mod=Ts
       }else{
       mod=folder
@@ -106,13 +106,13 @@ lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NU
 albedothre=0.02
 ext=extent
 
-if(class(NDVI)!="RasterLayer"){
+if(!inherits(NDVI, "RasterLayer")){
 NDVI=raster(NDVI)
 }
-if(class(Ts)!="RasterLayer"){
+if(!inherits(Ts, "RasterLayer")){
 Ts=raster(Ts)
 }
-if(class(albedo)!="RasterLayer"&&!is.null(albedo)){
+if(!inherits(albedo, "RasterLayer")&&!is.null(albedo)){
 albedo=raster(albedo)
 }
 

@@ -5,18 +5,69 @@
 \alias{ETohr.default}
 \title{Hourly FAO-56 and ASCE-EWRI Reference Evapotranspiration}
 \usage{
-ETohr(Tmean, RH, DOY, Lz, t1, time, Lm, latitude, longitude = NULL,
-  n = NULL, uz = 2, Rs = NULL, Rn = NULL, G = NULL, altitude = NULL,
-  z = NULL, Krs = 0.16, Tmax = NULL, Tmin = NULL, albedo = 0.23,
-  as = 0.25, bs = 0.5, ETins = NULL, ETr24 = NULL, wmo = NULL,
-  airport = NULL, map = NULL, surface = "grass", period = "daytime")
+ETohr(
+  Tmean,
+  RH,
+  DOY,
+  Lz,
+  t1,
+  time,
+  Lm,
+  latitude,
+  longitude = NULL,
+  n = NULL,
+  uz = 2,
+  Rs = NULL,
+  Rn = NULL,
+  G = NULL,
+  altitude = NULL,
+  z = NULL,
+  Krs = 0.16,
+  Tmax = NULL,
+  Tmin = NULL,
+  albedo = 0.23,
+  as = 0.25,
+  bs = 0.5,
+  ETins = NULL,
+  ETr24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  map = NULL,
+  surface = "grass",
+  period = "daytime"
+)
 
-\method{ETohr}{default}(Tmean, RH, DOY, Lz, t1 = 1, time, Lm, latitude,
-  longitude = NULL, n = NULL, uz = 2, Rs = NULL, Rn = NULL,
-  G = NULL, altitude = NULL, z = NULL, Krs = 0.16, Tmax = NULL,
-  Tmin = NULL, albedo = 0.23, as = 0.25, bs = 0.5, ETins = NULL,
-  ETr24 = NULL, wmo = NULL, airport = NULL, map = NULL,
-  surface = "grass", period = "daytime")
+\method{ETohr}{default}(
+  Tmean,
+  RH,
+  DOY,
+  Lz,
+  t1 = 1,
+  time,
+  Lm,
+  latitude,
+  longitude = NULL,
+  n = NULL,
+  uz = 2,
+  Rs = NULL,
+  Rn = NULL,
+  G = NULL,
+  altitude = NULL,
+  z = NULL,
+  Krs = 0.16,
+  Tmax = NULL,
+  Tmin = NULL,
+  albedo = 0.23,
+  as = 0.25,
+  bs = 0.5,
+  ETins = NULL,
+  ETr24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  map = NULL,
+  surface = "grass",
+  period = "daytime"
+)
 }
 \arguments{
 \item{Tmean}{Numeric. Hourly Mean Air Temperature in degree Celsius}
@@ -28,7 +79,7 @@ If you give data in the form of date [YYYY-mm-dd], it will be converted to DOY}
 
 \item{Lz}{longitude of the centre of the local time zone [degrees west of Greenwich].
 MUST BE POSITIVE
-Lz = 0° for Greenwich.}
+Lz = 0 degrees for Greenwich.}
 
 \item{t1}{The length of the calculation period in hour; 1 for hour, 0.5 for 30 minutes
 0.25 for 15 minutes.}
@@ -126,9 +177,6 @@ ET1hr=ETohr(Tmean=38,RH=52,DOY=274,Lz=15,t1=1,time=14.5,Lm=16.25,latitude=16.22,
 ET1hr$ETo
 }
 }
-\author{
-George Owusu
-}
 \references{
 \itemize{ 
 \item{}{ALLEN, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. 1998. 
@@ -156,4 +204,6 @@ Evett, S. R., . . . O'Shaughnessy, S. A. (2012). Two-source energy balance model
 \seealso{
 \code{\link{ETo}}
 }
-
+\author{
+George Owusu
+}

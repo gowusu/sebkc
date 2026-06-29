@@ -10,6 +10,9 @@ dl(latitude, DOY, model = "CBM", Tmax = NULL, Tmin = NULL, p = 0.5)
 \item{latitude}{geographical coordinates in decimal degrees. It should be negative
 for southern hemisphere}
 
+\item{DOY}{Numeric or Date [YYYY-mm-dd]. Day of the Year. 
+If you give data in the form of date [YYYY-mm-dd], it will be converted to DOY}
+
 \item{model}{character Type of model:"CBM" (Schoolfield, 1982),"BGC" (Running & Coughlan, 1988),
 "CERES" (Ritchie, 1991) or "FAO56"}
 
@@ -33,9 +36,6 @@ Tmax=31
 Tmin=26
 mod=dl(latitude,DOY,model,Tmax,Tmin=Tmin)
 }
-\author{
-George Owusu
-}
 \references{
 \itemize{
 \item{}{Schoolfield R. (1982). Expressing daylength as a function of latitude and Julian date.}
@@ -48,4 +48,6 @@ processes. Ecological Modelling, 42(2), 125-154 http://dx.doi.org/10.1016/0304-3
 Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper, 56, 300.}
 }
 }
-
+\author{
+George Owusu
+}

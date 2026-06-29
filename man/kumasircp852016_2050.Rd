@@ -4,7 +4,8 @@
 \name{kumasircp852016_2050}
 \alias{kumasircp852016_2050}
 \title{A 8.5 RCP downscaled Weather data of Kumasi from 2016 to 2050}
-\format{A data frame with 12784 rows and 8 variables:
+\format{
+A data frame with 12784 rows and 8 variables:
 \describe{
   \item{DOY}{Day of the Year in dates}
   \item{Tmax}{Maximum Temperature [oC]}
@@ -14,7 +15,8 @@
   \item{n}{sunshine hours}
   \item{uz}{wind speed [m/s]}
   \item{P}{Daily precipitation [mm]}
-}}
+}
+}
 \description{
 A dataset containing Rain, maximum and minimum temperature, wind speed, sunshine hours,
 and minimum and maximum Relative Humidity. The RCP 8.5 assumes that green house 
@@ -23,4 +25,3 @@ gas will rise throughout 21st Century.
 \author{
 George Owusu
 }
-

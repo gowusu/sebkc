@@ -5,17 +5,51 @@
 \alias{landsat578.default}
 \title{Radiometric correction and processing of Landsat Images}
 \usage{
-landsat578(data, welev, sensor = NULL, gain = "low", sunelev = NULL,
-  date = NULL, weights = "auto", grescale = "auto", brescale = "auto",
-  ESUNx = "auto", Mp = NULL, Ap = NULL, K1 = NULL, K2 = NULL,
-  Rp = 0.91, Rsky = 1.32, tNB = 0.886, DOY = NULL, clip = NULL,
-  folder = NULL)
+landsat578(
+  data,
+  welev,
+  sensor = NULL,
+  gain = "low",
+  sunelev = NULL,
+  date = NULL,
+  weights = "auto",
+  grescale = "auto",
+  brescale = "auto",
+  ESUNx = "auto",
+  Mp = NULL,
+  Ap = NULL,
+  K1 = NULL,
+  K2 = NULL,
+  Rp = 0.91,
+  Rsky = 1.32,
+  tNB = 0.886,
+  DOY = NULL,
+  clip = NULL,
+  folder = NULL
+)
 
-\method{landsat578}{default}(data = NULL, welev, sensor = NULL,
-  gain = "low", sunelev = NULL, date = NULL, weights = "auto",
-  grescale = "auto", brescale = "auto", ESUNx = "auto", Mp = NULL,
-  Ap = NULL, K1 = NULL, K2 = NULL, Rp = 0.91, Rsky = 1.32,
-  tNB = 0.886, DOY = NULL, clip = NULL, folder = NULL)
+\method{landsat578}{default}(
+  data = NULL,
+  welev,
+  sensor = NULL,
+  gain = "low",
+  sunelev = NULL,
+  date = NULL,
+  weights = "auto",
+  grescale = "auto",
+  brescale = "auto",
+  ESUNx = "auto",
+  Mp = NULL,
+  Ap = NULL,
+  K1 = NULL,
+  K2 = NULL,
+  Rp = 0.91,
+  Rsky = 1.32,
+  tNB = 0.886,
+  DOY = NULL,
+  clip = NULL,
+  folder = NULL
+)
 }
 \arguments{
 \item{data}{An original folder containing Landsat data or
@@ -139,9 +173,6 @@ ESUN="auto",K1=666.09,K2=1282.71,date="2002-2-6")
 albedo=mod$albedo
 }
 }
-\author{
-George Owusu
-}
 \references{
 \itemize{
 \item{}{Chander, G., Markham, B. L., & Helder, D. L. 2009. 
@@ -155,4 +186,6 @@ University of Idaho.}
  from https://landsat.usgs.gov/documents/Landsat8DataUsersHandbook.pdf}
 }
 }
-
+\author{
+George Owusu
+}

@@ -5,19 +5,73 @@
 \alias{sebs.default}
 \title{SEBS Estimation of Evapotranspiration Fraction}
 \usage{
-sebs(albedo, Ts, Tmax, Tmin, RHmax = NULL, RHmin = NULL, n = NULL, NDVI,
-  SAVI, iter.max = 7, xyhot, xycold, DOY, sunelev, welev, zx, u, zomw,
-  zom = NULL, LAI = NULL, DEM = NULL, lapse = 0.0065, Rn24 = NULL,
-  wmo = NULL, airport = NULL, Krs = 0.16, surface = "grass",
-  latitude = NULL, model = "SEBS", clip = NULL, folder = NULL)
+sebs(
+  albedo,
+  Ts,
+  Tmax,
+  Tmin,
+  RHmax = NULL,
+  RHmin = NULL,
+  n = NULL,
+  NDVI,
+  SAVI,
+  iter.max = 7,
+  xyhot,
+  xycold,
+  DOY,
+  sunelev,
+  welev,
+  zx,
+  u,
+  zomw,
+  zom = NULL,
+  LAI = NULL,
+  DEM = NULL,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  latitude = NULL,
+  model = "SEBS",
+  clip = NULL,
+  folder = NULL
+)
 
-\method{sebs}{default}(albedo = NULL, Ts, Tmax, Tmin, RHmax = NULL,
-  RHmin = NULL, n = NULL, NDVI, SAVI, iter.max = 7, xyhot = "auto",
-  xycold = "auto", DOY = NULL, sunelev, welev, zx = 10, u = 2,
-  zomw = 2, zom = NULL, LAI = NULL, DEM = NULL, lapse = 0.0065,
-  Rn24 = NULL, wmo = NULL, airport = NULL, Krs = 0.16,
-  surface = "grass", latitude = NULL, model = "SEBS", clip = NULL,
-  folder = NULL)
+\method{sebs}{default}(
+  albedo = NULL,
+  Ts,
+  Tmax,
+  Tmin,
+  RHmax = NULL,
+  RHmin = NULL,
+  n = NULL,
+  NDVI,
+  SAVI,
+  iter.max = 7,
+  xyhot = "auto",
+  xycold = "auto",
+  DOY = NULL,
+  sunelev,
+  welev,
+  zx = 10,
+  u = 2,
+  zomw = 2,
+  zom = NULL,
+  LAI = NULL,
+  DEM = NULL,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  latitude = NULL,
+  model = "SEBS",
+  clip = NULL,
+  folder = NULL
+)
 }
 \arguments{
 \item{albedo}{A RasterLayer data that has albedo values. 
@@ -162,13 +216,10 @@ modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
 modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
 xyhot=modhot$xyhot
 xycold=modcold$xycold
-#use object of \\code{\\link{coldTs}} or \\code{\\link{hotTs}} in different ways
+#use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
 modsebs=sebs(data,xyhot=modhot,xycold=xycold,welev=welev,
 Tmax=Tmax,Tmin=Tmin,RHmax=RHmax,RHmin=RHmin)
  }
-}
-\author{
-George Owusu
 }
 \references{
 Su, Z. 2002. The Surface Energy Balance System (SEBS) for estimation 
@@ -177,4 +228,6 @@ of turbulent heat fluxes. Hydrol. Earth Syst. Sci., 6(1): 85-100.
 \seealso{
 \code{\link{sebal}} , \code{\link{ETo}}, \code{\link{sebi}}
 }
-
+\author{
+George Owusu
+}

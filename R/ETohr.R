@@ -33,8 +33,9 @@
 #' \code{\link{sebal}}, \code{\link{sebi}},\code{\link{sebs}},\code{\link{sseb}},
 #' \code{\link{tseb}} 
 #' @author George Owusu
+#' @param period character. Time of day for the calculation: "daytime" or "nighttime". The default is "daytime".
 #' @return 
-#' \itemize{
+#' \describe{
 #' \item{ETo:} {hour reference ETo [mm/hr]}
 #' \item{ETa:} {hour actual ET. It is not NULL if EF has a numeric value}
 #' \item{ETc:} {hour crop ET. It is not NULL if Kc has a numeric value}
@@ -52,7 +53,7 @@
 #' ET1hr$ETo
 #' }
 #' @references
-#' \itemize{ 
+#' \describe{ 
 #' \item{}{ALLEN, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. 1998. 
 #' Crop Evapotranspiration (guidelines for computing crop water requirements) 
 #' FAO Irrigation and Drainage Paper No. 56: FAO.}
@@ -92,7 +93,7 @@ ETohr.default=function(Tmean,RH,DOY,Lz,t1=1,time,Lm,latitude,longitude=NULL,n=NU
     if(!is.null(wmo)||!is.null(airport)){
    Tmean=sebkc.tryCatch(Tmean)$value
    
-   if(class(Tmean)[1]=="simpleError"){
+   if(inherits(Tmean, "simpleError")){
     Tmean=NULL 
    }
    if(is.null(Tmean$time)){
@@ -101,7 +102,7 @@ ETohr.default=function(Tmean,RH,DOY,Lz,t1=1,time,Lm,latitude,longitude=NULL,n=NU
      time=NULL
    }
    Tmean=sebkc.tryCatch(weather(data=Tmean,airport = airport,wmo=wmo, date=DOY,time=time))$value
-   if(class(Tmean)[1]=="simpleError"){
+   if(inherits(Tmean, "simpleError")){
     return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",Tmean))) 
    }
    Tmean= Tmean$WMO$hour

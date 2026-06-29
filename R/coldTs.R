@@ -40,7 +40,7 @@
 #' (see above) are slected. The provided upper and lower probabilities
 #'  are also used to select the final Ts.
 #' @return 
-#' \itemize{
+#' \describe{
 #' \item{Ts:} { The selected or input Ts [K]}
 #' \item{Tscold:} { The Temperature of cold pixe [K] }
 #' \item{TC:} { The average temperature of the cold pixels [K]}
@@ -100,7 +100,7 @@ iter.max=100){
   }
   
   
-  if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
+  if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
     file.info2=TRUE
   }else{
     file.info2=file.info(folder)[["isdir"]]
@@ -110,8 +110,8 @@ iter.max=100){
       return(print("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
-    if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
-      if(class(Ts)=="landsat578"){
+    if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
+      if(inherits(Ts, "landsat578")){
         mod=Ts
       }else{
         mod=folder
@@ -132,13 +132,13 @@ iter.max=100){
   
 ext=extent
 albedothre=0.02
-if(class(NDVI)!="RasterLayer"){
+if(!inherits(NDVI, "RasterLayer")){
 NDVI=raster(NDVI)
 }
-if(class(Ts)!="RasterLayer"){
+if(!inherits(Ts, "RasterLayer")){
 Ts=raster(Ts)
 }
-if(class(albedo)!="RasterLayer"&&!is.null(albedo)){
+if(!inherits(albedo, "RasterLayer")&&!is.null(albedo)){
 albedo=raster(albedo)
 }
 

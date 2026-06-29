@@ -5,15 +5,40 @@
 \alias{hotTs2.default}
 \title{Automatic computation of hot pixel Radiometric Surface Temperature (Ts)}
 \usage{
-hotTs2(Ts, NDVI, albedo = NULL, sunangle = NULL, DEM = NULL,
-  extent = "interactive", upper = 0.95, lower = 0.8, NDVI.probs = 0.1,
-  plot = TRUE, layout = "portrait", draw = "poly", folder = NULL,
-  welev = NULL)
+hotTs2(
+  Ts,
+  NDVI,
+  albedo = NULL,
+  sunangle = NULL,
+  DEM = NULL,
+  extent = "interactive",
+  upper = 0.95,
+  lower = 0.8,
+  NDVI.probs = 0.1,
+  plot = TRUE,
+  layout = "portrait",
+  draw = "poly",
+  folder = NULL,
+  welev = NULL
+)
 
-\method{hotTs2}{default}(Ts = NULL, NDVI, albedo = NULL, sunangle = NULL,
-  DEM = NULL, cluster = 10, extent = "interactive", upper = 0.95,
-  lower = 0.8, NDVI.probs = 0.2, plot = TRUE, layout = "portrait",
-  draw = "poly", folder = NULL, welev = NULL)
+\method{hotTs2}{default}(
+  Ts = NULL,
+  NDVI,
+  albedo = NULL,
+  sunangle = NULL,
+  DEM = NULL,
+  cluster = 10,
+  extent = "interactive",
+  upper = 0.95,
+  lower = 0.8,
+  NDVI.probs = 0.2,
+  plot = TRUE,
+  layout = "portrait",
+  draw = "poly",
+  folder = NULL,
+  welev = NULL
+)
 }
 \arguments{
 \item{Ts}{A RasterLayer data that indicates radiometric 
@@ -114,9 +139,6 @@ modhot=hotTs2(Ts=Ts,NDVI=NDVI,albedo=albedo,cluster=7,
 extent="auto")
 }
 }
-\author{
-George Owusu
-}
 \references{
 Allen, R. G., Burnett, B., Kramber, W., Huntington, J., 
 Kjaersgaard, J., Kilic, A., Kelly, C., & Trezza, R. 2013. Automated 
@@ -126,4 +148,6 @@ JAWRA Journal of the American Water Resources Association, 49(3): 563-576.
 \seealso{
 \code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldT2}}
 }
-
+\author{
+George Owusu
+}

@@ -4,11 +4,31 @@
 \alias{wdi}
 \title{Water Deficit Index (WDI)}
 \usage{
-wdi(Ts = NULL, Ta, NDVI, albedo = NULL, Tsmax = "auto", Tsmin = "auto",
-  sunelev = NULL, folder = NULL, welev = NULL, Rn24 = NULL)
+wdi(
+  Ts = NULL,
+  Ta,
+  NDVI,
+  albedo = NULL,
+  Tsmax = "auto",
+  Tsmin = "auto",
+  sunelev = NULL,
+  folder = NULL,
+  welev = NULL,
+  Rn24 = NULL
+)
 
-wdi(Ts = NULL, Ta, NDVI, albedo = NULL, Tsmax = "auto", Tsmin = "auto",
-  sunelev = NULL, folder = NULL, welev = NULL, Rn24 = NULL)
+wdi(
+  Ts = NULL,
+  Ta,
+  NDVI,
+  albedo = NULL,
+  Tsmax = "auto",
+  Tsmin = "auto",
+  sunelev = NULL,
+  folder = NULL,
+  welev = NULL,
+  Rn24 = NULL
+)
 }
 \arguments{
 \item{Ts}{A RasterLayer data that indicates radiometric 
@@ -86,13 +106,10 @@ modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
 modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
 Tsmax=modhot$Tshot
 Tsmin=modcold$Tscold
-#use object of \\code{\\link{coldTs}} or \\code{\\link{hotTs}} in different ways
+#use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
 modWDI2=wdi(data,Ta=299,Tsmax=Tsmax,Tsmin=modcold,sunelev=50)
 plot(modWDI2$EF)
 }
-}
-\author{
-George Owusu
 }
 \references{
 Moran, M. S., Clarke, T. R., Inoue, Y., & Vidal, A. 1994.
@@ -103,4 +120,6 @@ temperature and spectral vegetation index. Remote Sensing of Environment,
 \seealso{
 \code{\link{sseb}} and \code{\link{sebi}}
 }
-
+\author{
+George Owusu
+}

@@ -4,7 +4,8 @@
 \name{kumasi1960_2015}
 \alias{kumasi1960_2015}
 \title{Historical Weather data of Kumasi from 1960 to 2015}
-\format{A data frame with 20454 rows and 8 variables:
+\format{
+A data frame with 20454 rows and 8 variables:
 \describe{
   \item{DOY}{Day of the Year in dates}
   \item{Tmax}{Maximum Temperature [oC]}
@@ -14,7 +15,8 @@
   \item{n}{sunshine hours}
   \item{uz}{wind speed [m/s]}
   \item{P}{Daily precipitation [mm]}
-}}
+}
+}
 \description{
 A dataset containing Rain, maximum and minimum temperature, wind speed, sunshine hours,
 and minimum and maximum Relative Humidity.
@@ -22,4 +24,3 @@ and minimum and maximum Relative Humidity.
 \author{
 George Owusu
 }
-

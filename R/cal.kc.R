@@ -42,7 +42,7 @@
 #' goodness of fit of the local optimum values. For the explanation of calibrated model 
 #' output and optimised parameters see the return values of \code{\link{kc}}. Here, only
 #' goodness of fit tests explanations are given.
-#' \itemize{
+#' \describe{
 #' \item{mod:} { The optimised model. See return of \code{\link{kc}} for more details}
 #' \item{parameters:} { parameters of the optimised model}
 #' \item{fit:} {  Goodness of fit tests. See \code{\link{fitting}} for explanation of variables}
@@ -142,8 +142,8 @@
     EF=NULL
     para=NULL
     count=0
-    if(class(kc[[1]])=="RasterLayer"||class(kc[[2]])=="RasterLayer"
-       ||class(kc[[3]])=="RasterLayer"){
+    if(inherits(kc[[1]], "RasterLayer")||inherits(kc[[2]], "RasterLayer")
+       ||inherits(kc[[3]], "RasterLayer")){
       EF=TRUE 
     }
     

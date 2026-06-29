@@ -21,7 +21,7 @@
 #' temperature and spectral vegetation index. Remote Sensing of Environment,
 #'  49(3): 246-263.
 #' @return
-#'  \itemize{
+#'  \describe{
 #' \item{EF:} { standardised wdi excluding negatives and one plus}
 #' \item{index:} { raw wdi including negatives and more than one}
 #' }
@@ -66,19 +66,19 @@ wdi=function(Ts=NULL,Ta,NDVI,albedo=NULL,Tsmax="auto",Tsmin="auto",
     folder="/nothing454782ghf7poi8r.hope"
   }
   
-  if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
+  if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
     file.info2=TRUE
   }else{
     file.info2=file.info(folder)[["isdir"]]
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
-    if(is.null(welev)&&class(Ts)!="landsat578"){
+    if(is.null(welev)&&!inherits(Ts, "landsat578")){
       return(print("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     
-    if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
-      if(class(Ts)=="landsat578"){
+    if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
+      if(inherits(Ts, "landsat578")){
         mod=Ts
       }else{
         mod=folder
@@ -100,11 +100,11 @@ wdi=function(Ts=NULL,Ta,NDVI,albedo=NULL,Tsmax="auto",Tsmin="auto",
   
   #maximun Ts
   
-  if(class(Tsmax)=="hotTs"){
+  if(inherits(Tsmax, "hotTs")){
     Tsmax=Tsmax$Tshot
   }
   
-  if(class(Tsmin)=="coldTs"){
+  if(inherits(Tsmin, "coldTs")){
     Tsmin=Tsmin$Tscold
   }
   
@@ -122,7 +122,7 @@ wdi=function(Ts=NULL,Ta,NDVI,albedo=NULL,Tsmax="auto",Tsmin="auto",
   #minimun Ts
   
   Tacold=Tahot=Ta
-  if(class(Ta)=="RasterLayer"){
+  if(inherits(Ta, "RasterLayer")){
     Tacold=getValues(Ta)[cellFromXY(Ta,c(modcold$x,modcold$y))]
     Tahot=getValues(Ta)[cellFromXY(Ta,c(modhot$x,modhot$y))]
   }

@@ -35,4 +35,3 @@ map=invdist(longitude,latitude,var=value,ext=sebiauto$EF)
 \author{
 George Owusu
 }
-

@@ -44,7 +44,7 @@
 #' \code{\link{ETohr}}
 #' @author George Owusu
 #' @return 
-#' \itemize{
+#' \describe{
 #' \item{ETo:} { 24 hour reference ETo [mm/day]}
 #' \item{ETa:} { 24 hour actual ET. It is not NULL if EF has a numeric value}
 #' \item{ETc:} { 24 hour crop ET. It is not NULL if Kc has a numeric value}
@@ -85,7 +85,7 @@ as=0.25,bs=0.5,Rs=NULL,Rn=NULL,G=0,EF=NULL,wmo=NULL, airport=NULL,scale="evapora
 surface="grass"){
   print("Computing ETr24 or ETo24")
   thislat=sebkc.tryCatch(latitude)$value
-  if(class(thislat)[1]=="simpleError"){
+  if(inherits(thislat, "simpleError")){
     return(print("latitude is needed"))
     
   }
@@ -96,12 +96,12 @@ surface="grass"){
   if(!is.null(wmo)||!is.null(airport)){
     Tmax=sebkc.tryCatch(Tmax)$value
     
-    if(class(Tmax)[1]=="simpleError"){
+    if(inherits(Tmax, "simpleError")){
       Tmax=NULL 
     }
    #print(Tmax)
     Tmax=sebkc.tryCatch(weather(data=Tmax,airport = airport,wmo=wmo, date=DOY))$value
-    if(class(Tmax)[1]=="simpleError"){
+    if(inherits(Tmax, "simpleError")){
       return (print(Tmax)) 
     }
     Tmax= Tmax$WMO$day

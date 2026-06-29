@@ -5,12 +5,25 @@
 \alias{ssebi.default}
 \title{S-SEBI Evapotranspiration Fraction}
 \usage{
-ssebi(Ts, albedo = NULL, cluster = 100, threshold = 0.2, plot = TRUE,
-  Rn24 = NULL, folder = NULL, welev = NULL)
+ssebi(
+  Ts,
+  albedo = NULL,
+  threshold = 0.2,
+  plot = TRUE,
+  Rn24 = NULL,
+  folder = NULL,
+  welev = NULL
+)
 
-\method{ssebi}{default}(Ts = NULL, albedo = NULL, cluster = 100,
-  threshold = 0.2, plot = TRUE, Rn24 = NULL, folder = NULL,
-  welev = NULL)
+\method{ssebi}{default}(
+  Ts = NULL,
+  albedo = NULL,
+  threshold = 0.2,
+  plot = TRUE,
+  Rn24 = NULL,
+  folder = NULL,
+  welev = NULL
+)
 }
 \arguments{
 \item{Ts}{A RasterLayer data that indicates radiometric 
@@ -20,9 +33,6 @@ computer.}
 
 \item{albedo}{A RasterLayer data that has albedo values. 
 You can also provide file path or location on your computer}
-
-\item{cluster}{numeric, a value indicating the number of 
-clusters.}
 
 \item{threshold}{numeric. Albedo inflection point threshold}
 
@@ -52,15 +62,12 @@ EF, amax,bmax,amin,bmin
 #Manual data specification
 albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
-mod=ssebi(Ts=Ts,albedo=albedo,cluster=100,threshold=0,plot=TRUE)
+mod=ssebi(Ts=Ts,albedo=albedo,threshold=0,plot=TRUE)
 
 #Using landsat folder
 folder=system.file("extdata","stack",package="sebkc")
 ssebiauto=ssebi(folder=folder,welev=278)
 }
-}
-\author{
-George Owusu
 }
 \references{
 Roerink, G. J., Su, Z., & Menenti, M. 2000. S-SEBI: 
@@ -68,4 +75,6 @@ A simple remote sensing algorithm to estimate the surface energy balance.
 Physics and Chemistry of the Earth, Part B: Hydrology, Oceans and Atmosphere
 , 25(2): 147-157.
 }
-
+\author{
+George Owusu
+}

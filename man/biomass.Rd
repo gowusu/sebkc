@@ -4,9 +4,20 @@
 \alias{biomass}
 \title{Biomass and yield estimation of crops and plants}
 \usage{
-biomass(Tday = NULL, T24, Rs, latitude, longitude = NULL, HI = NULL,
-  plantdate, harvestdate, c30 = 0.0108, adaptability = 3, LAI = 5,
-  crop = NULL)
+biomass(
+  Tday = NULL,
+  T24,
+  Rs,
+  latitude,
+  longitude = NULL,
+  HI = NULL,
+  plantdate,
+  harvestdate,
+  c30 = 0.0108,
+  adaptability = 3,
+  LAI = 5,
+  crop = NULL
+)
 }
 \arguments{
 \item{Tday}{numeric. Average Day time temperature in degrees Celsius 
@@ -142,4 +153,3 @@ plot(spatialmod$yield)
 \author{
 George Owusu
 }
-

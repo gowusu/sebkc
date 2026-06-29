@@ -170,7 +170,7 @@
 #'   \item{\strong{Calibration}}{A calibration of unmeasured variables can be done with \code{cal.kc}}
 #'  }
 #' @references 
-#' \itemize{
+#' \describe{
 #' \item{}{Allen, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. (1998). 
 #' Crop Evapotranspiration (guidelines for computing crop water requirements) 
 #' FAO Irrigation and Drainage Paper No. 56: FAO.}
@@ -189,7 +189,7 @@
 #' For single and dual crop coefficient, an "output" dataframe contains variables such as
 #' TAW,RAW,Runoff,Ks,Kcb,h,Kc,ETc,DP,CR,Drend,Kr,De,AW,E,Ke,CN. In case kc is set to EF the function returns
 #' Kc,Kcxy,ETc,ETcxy,Drend,Drendxy,TAW,TAWxy,RAW,RAWxy,AW,Awcxy,Ineed,Ineedxy
-#'  \itemize{
+#'  \describe{
 #' \item{output:} {  dataframe of the return values}
 #' \item{ETc_adj:} { The soil water stress adjusted ETc  [mm]}
 #' \item{Ya_by_Ym:} {actual yield by potential yield}
@@ -349,7 +349,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   options(warn=-1)
   #get weather data
   
-  if(class(kc[1])!="numeric"){
+  if(!inherits(kc[1], "numeric")){
   if(length(kc)==3){
   if(!is.null(kc[[1]]$EF)){
     kctype=class(kc[[1]])
@@ -459,7 +459,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
     
   }
   #print(lengths)
-  if(class(ETo)=="ETo"||class(ETo)=="ETo2"){
+  if(inherits(ETo, "ETo")||inherits(ETo, "ETo2")){
     if(!is.null(ETo$ETo)){
       latitude=ETo$latitude
       u2=ETo$u2
@@ -613,8 +613,8 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
       
 #print (years[i])    
     }
-    if(class(kc[[1]])=="RasterLayer"||class(kc[[2]])=="RasterLayer"
-       ||class(kc[[3]])=="RasterLayer"){
+    if(inherits(kc[[1]], "RasterLayer")||inherits(kc[[2]], "RasterLayer")
+       ||inherits(kc[[3]], "RasterLayer")){
       factor=model
     }else{
       factor=list(output=output,yield_by_ET_decrease=yield_decrease,DL=DL,water.balance.stages=water.balance,kctype=kctype)
@@ -657,12 +657,12 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   
   EF=NULL
   allEF=NULL
-  if(class(kc[[1]])=="RasterLayer"||class(kc[[2]])=="RasterLayer"
-     ||class(kc[[3]])=="RasterLayer"){
-    if(class(kc[[1]])=="RasterLayer"){
+  if(inherits(kc[[1]], "RasterLayer")||inherits(kc[[2]], "RasterLayer")
+     ||inherits(kc[[3]], "RasterLayer")){
+    if(inherits(kc[[1]], "RasterLayer")){
       map=kc[[1]]
     }else{
-      if(class(kc[[2]])=="RasterLayer"){
+      if(inherits(kc[[2]], "RasterLayer")){
         map=kc[[2]]
       }else{
         map=kc[[3]]
@@ -2048,7 +2048,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
       if(length(report[report==i])>0&&is.null(report2)){
         thisETc2=NULL
         ETa1=ETc2
-        if(class(ETa1)!="RasterLayer"){
+        if(!inherits(ETa1, "RasterLayer")){
          thisETc2=kcss[[1]] 
          thisETc2[thisETc2>-1000,]=ETa1
          ETa1=thisETc2
@@ -2056,55 +2056,55 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
         }
         Kc1=Kci
         Drend2= Drend 
-        if(class(Drend2)!="RasterLayer"){
+        if(!inherits(Drend2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=Drend2
           Drend2=thisETc2
         }
         AW2=AW
-        if(class(AW2)!="RasterLayer"){
+        if(!inherits(AW2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=AW2
           AW2=thisETc2
           }
         TAW2=TAW
-        if(class(TAW2)!="RasterLayer"){
+        if(!inherits(TAW2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=TAW2
           TAW2=thisETc2
         }
         RAW2=RAW
-        if(class(RAW2)!="RasterLayer"){
+        if(!inherits(RAW2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=RAW2
           RAW2=thisETc2
         }
         Ineed2=Ineed
-        if(class(Ineed2)!="RasterLayer"){
+        if(!inherits(Ineed2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=Ineed2
           Ineed2=thisETc2
         }
         Runoff2=Runoff
-        if(class(Runoff2)!="RasterLayer"){
+        if(!inherits(Runoff2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=Runoff2
           Runoff2=thisETc2
         }
         CR2=CR
-        if(class(CR2)!="RasterLayer"){
+        if(!inherits(CR2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=CR2
           CR2=thisETc2
         }
         DP2=DP
-        if(class(DP2)!="RasterLayer"){
+        if(!inherits(DP2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=DP2
           DP2=thisETc2
         }
         gw=initgw
-        if(class(gw)!="RasterLayer"){
+        if(!inherits(gw, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=gw
           gw=thisETc2
@@ -2115,7 +2115,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
         #report[i]=NA
         if(!is.null(theta)){
         AW_measured2=AW_measured
-        if(class(AW_measured2)!="RasterLayer"){
+        if(!inherits(AW_measured2, "RasterLayer")){
           thisETc2=Kci 
           thisETc2[thisETc2>-1000,]=AW_measured2
           AW_measured2=thisETc2
@@ -2138,27 +2138,27 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
         
         Ineed2=stack(Ineed2,Ineed)
         
-        if(class(Runoff)=="RasterLayer"){
+        if(inherits(Runoff, "RasterLayer")){
           Runoff2=stack(Runoff2,Runoff)
         }else{
           Runoff2=rbind(Runoff2,Runoff)
         }
         
-        if(class(CR)=="RasterLayer"){
+        if(inherits(CR, "RasterLayer")){
           CR2=stack(CR2,CR)
         }else{
           CR2=rbind(CR2,CR)
         }
         
-        if(class(DP)=="RasterLayer"){
+        if(inherits(DP, "RasterLayer")){
           DP2=stack(DP2,DP)
         }else{
           DP2=rbind(DP2,DP)
         }
         #print(report[i])
         
-        if(class(initgw)=="RasterLayer"){
-          #if(class(gw)!="RasterLayer"){
+        if(inherits(initgw, "RasterLayer")){
+          #if(!inherits(gw, "RasterLayer")){
             #gw=initgw
           #}
           #print(initgw)
@@ -2169,7 +2169,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
         #print(AW_measured)
         if(!is.null(theta)){
           
-        if(class(AW_measured)=="RasterLayer"){
+        if(inherits(AW_measured, "RasterLayer")){
           AW_measured2=stack(AW_measured2,AW_measured)
         
         }else{
@@ -2206,7 +2206,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
           #print("Drend......")
           colnames(Drendxy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           
-          if(class(AW)=="RasterLayer"){
+          if(inherits(AW, "RasterLayer")){
           Awcxy=xyextract(AW,xydata[,1],xydata[,2])
           colnames(Awcxy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           }else{
@@ -2218,34 +2218,34 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
           #colnames(TAWcxy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           #RAWxy=xyextract(RAW,xydata[,1],xydata[,2])
           #colnames(RAWcxy)=c("longitude", "latitude",paste("day",day[i],sep=""))
-          if(class(Ineed)=="RasterLayer"){
+          if(inherits(Ineed, "RasterLayer")){
             Ineedxy=xyextract(Ineed,xydata[,1],xydata[,2])
           colnames(Ineedxy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           }else{
             Ineedxy= cbind(xydata[,1],xydata[,2],Ineed)
             colnames(Ineedxy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           }
-          if(class(Runoff)=="RasterLayer"){
+          if(inherits(Runoff, "RasterLayer")){
             Runoff2xy=xyextract(Runoff,xydata[,1],xydata[,2])
             colnames(Runoff2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))}else{
             Runoff2xy= cbind(xydata[,1],xydata[,2],Runoff)
             colnames(Runoff2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           }
-          if(class(CR)=="RasterLayer"){
+          if(inherits(CR, "RasterLayer")){
             CR2xy=xyextract(CR,xydata[,1],xydata[,2])
             colnames(CR2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))}else{
               CR2xy= cbind(xydata[,1],xydata[,2],CR)
               colnames(CR2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))
             }
           
-          if(class(DP)=="RasterLayer"){
+          if(inherits(DP, "RasterLayer")){
             DP2xy=xyextract(DP,xydata[,1],xydata[,2])
             colnames(DP2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))}else{
               DP2xy= cbind(xydata[,1],xydata[,2],DP)
               colnames(DP2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))
             }
           
-          if(class(initgw)=="RasterLayer"){
+          if(inherits(initgw, "RasterLayer")){
             gwxy=xyextract(initgw,xydata[,1],xydata[,2])
             colnames(gwxy)=c("longitude", "latitude",paste("day",day[i],sep=""))}else{
               gwxy= cbind(xydata[,1],xydata[,2],initgw)
@@ -2254,7 +2254,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
           
           if(!is.null(theta)){
             
-          if(class(AW_measured)=="RasterLayer"){
+          if(inherits(AW_measured, "RasterLayer")){
             AW_measuredxy=xyextract(AW_measured,xydata[,1],xydata[,2])
             colnames(AW_measuredxy)=c("longitude", "latitude",paste("day",day[i],sep=""))}else{
               AW_measuredxy= cbind(xydata[,1],xydata[,2],AW_measured)
@@ -2296,7 +2296,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
         
         
         
-        if(class(initgw)=="RasterLayer"){
+        if(inherits(initgw, "RasterLayer")){
           thisextract=xyextract(initgw,xydata[,1],xydata[,2])
           thisextract=thisextract[3]
           colnames(thisextract)=paste("day",day[i],sep="")
@@ -2305,7 +2305,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
             #colnames(gwxy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           }
         
-        if(class(Runoff)=="RasterLayer"){
+        if(inherits(Runoff, "RasterLayer")){
           thisextract=xyextract(Runoff,xydata[,1],xydata[,2])
           thisextract=thisextract[3]
           colnames(thisextract)=paste("day",day[i],sep="")
@@ -2315,7 +2315,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
             Runoff2xy=cbind(Runoff2xy,Runoff)
             #colnames(Runoff2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           }
-        if(class(CR)=="RasterLayer"){
+        if(inherits(CR, "RasterLayer")){
           thisextract=xyextract(CR,xydata[,1],xydata[,2])
           thisextract=thisextract[3]
           colnames(thisextract)=paste("day",day[i],sep="")
@@ -2323,7 +2323,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
             CR2xy=cbind(CR2xy,CR)            #colnames(CR2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           }
         
-        if(class(DP)=="RasterLayer"){
+        if(inherits(DP, "RasterLayer")){
           thisextract=xyextract(DP,xydata[,1],xydata[,2])
           thisextract=thisextract[3]
           colnames(thisextract)=paste("day",day[i],sep="")
@@ -2331,7 +2331,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
             DP2xy=cbind(DP2xy,DP)            #colnames(DP2xy)=c("longitude", "latitude",paste("day",day[i],sep=""))
           }
         if(!is.null(theta)){
-        if(class(AW_measured)=="RasterLayer"){
+        if(inherits(AW_measured, "RasterLayer")){
           thisextract=xyextract(AW_measured,xydata[,1],xydata[,2])
           thisextract=thisextract[3]
           colnames(thisextract)=paste("day",day[i],sep="")
@@ -2541,6 +2541,9 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   factor
 }
 
+#' @param horiz logical; if TRUE the legend is drawn horizontally rather than vertically.
+#' @param ... further arguments passed to the plotting functions.
+#' @method plot kc
 #' @export
 #' @rdname kc
 plot.kc<-function(x,output="AW_measured",main=NULL,cex=1,legend=TRUE,pos="top",horiz=FALSE,...)

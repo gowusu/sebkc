@@ -4,9 +4,17 @@
 \alias{weather}
 \title{Retrieval of Weather Data  from WMO and NASA Surface meteorology and Solar Energy}
 \usage{
-weather(data = NULL, wmo = NULL, airport = NULL, date = "YYYY-m-d",
-  time = NULL, latitude = NULL, longitude = NULL, NASA.SSE = list(from =
-  "YYYY-m-d", to = "YYYY-m-d"), folder = NULL)
+weather(
+  data = NULL,
+  wmo = NULL,
+  airport = NULL,
+  date = "YYYY-m-d",
+  time = NULL,
+  latitude = NULL,
+  longitude = NULL,
+  NASA.SSE = list(from = "YYYY-m-d", to = "YYYY-m-d"),
+  folder = NULL
+)
 }
 \arguments{
 \item{data}{dataframe that can contain all or part of the input data}
@@ -93,9 +101,6 @@ accrakumasi=weather(airport ="ACC", date=c("2011-08-04","2011-10-04"),
 folder="C:/Users/george/Documents/")
 }
 }
-\author{
-George Owusu
-}
 \references{
 \itemize{
 \item{}{Worldwide Station List.\url{http://www.wetterzentrale.de/klima/stnlst.html} 
@@ -105,4 +110,6 @@ George Owusu
 \item{}{Weather Underground \url{https://www.wunderground.com/} [Accessed on 2016-5-6]}
 }
 }
-
+\author{
+George Owusu
+}

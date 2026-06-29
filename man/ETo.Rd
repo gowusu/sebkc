@@ -5,17 +5,59 @@
 \alias{ETo.default}
 \title{24 Hour FAO 56 and ASCE-EWRI Reference Evapotranspiration ETo}
 \usage{
-ETo(Tmax, Tmin, DOY, latitude, longitude = NULL, z = NULL, uz = 2,
-  altitude = NULL, RHmax = NULL, RHmin = NULL, n = NULL, Krs = 0.16,
-  albedo = 0.23, as = 0.25, bs = 0.5, Rs = NULL, Rn = NULL, G = 0,
-  EF = NULL, wmo = NULL, airport = NULL, scale = "sine function",
-  Kc = NULL, surface = "grass")
+ETo(
+  Tmax,
+  Tmin,
+  DOY,
+  latitude,
+  longitude = NULL,
+  z = NULL,
+  uz = 2,
+  altitude = NULL,
+  RHmax = NULL,
+  RHmin = NULL,
+  n = NULL,
+  Krs = 0.16,
+  albedo = 0.23,
+  as = 0.25,
+  bs = 0.5,
+  Rs = NULL,
+  Rn = NULL,
+  G = 0,
+  EF = NULL,
+  wmo = NULL,
+  airport = NULL,
+  scale = "sine function",
+  Kc = NULL,
+  surface = "grass"
+)
 
-\method{ETo}{default}(Tmax, Tmin, DOY, latitude, longitude = NULL, z = NULL,
-  uz = 2, altitude = NULL, RHmax = NULL, RHmin = NULL, n = NULL,
-  Krs = 0.16, albedo = 0.23, as = 0.25, bs = 0.5, Rs = NULL,
-  Rn = NULL, G = 0, EF = NULL, wmo = NULL, airport = NULL,
-  scale = "evaporative fraction", Kc = NULL, surface = "grass")
+\method{ETo}{default}(
+  Tmax,
+  Tmin,
+  DOY,
+  latitude,
+  longitude = NULL,
+  z = NULL,
+  uz = 2,
+  altitude = NULL,
+  RHmax = NULL,
+  RHmin = NULL,
+  n = NULL,
+  Krs = 0.16,
+  albedo = 0.23,
+  as = 0.25,
+  bs = 0.5,
+  Rs = NULL,
+  Rn = NULL,
+  G = 0,
+  EF = NULL,
+  wmo = NULL,
+  airport = NULL,
+  scale = "evaporative fraction",
+  Kc = NULL,
+  surface = "grass"
+)
 }
 \arguments{
 \item{Tmax}{Numeric. Maximum air Temperature in degree Celsius}
@@ -114,9 +156,6 @@ RHmax=84,RHmin=63,n=9.25,DOY=187,latitude=50.8)
 PET24$ETo
 }
 }
-\author{
-George Owusu
-}
 \references{
 ALLEN, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. 1996. 
 Crop Evapotranspiration (guidelines for computing crop water requirements) 
@@ -125,4 +164,6 @@ FAO Irrigation and Drainage Paper No. 56: FAO.
 \seealso{
 \code{\link{ETohr}}
 }
-
+\author{
+George Owusu
+}

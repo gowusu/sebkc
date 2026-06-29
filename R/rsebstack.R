@@ -23,7 +23,7 @@
 #' See Martinuzzi et al(2009) for more details. 
 #' At the moment only landsat 5 and 7 clouds are removed.
 #' @param gap_fill Logical (TRUE or FALSE).It replaces strips in 
-#' landsat 7 or NAs in other data set. It uses  \code{\link{raster}{focal}} 
+#' landsat 7 or NAs in other data set. It uses  \code{\link[raster]{focal}} 
 #' neighbourhood approach. It is an automated Version of USGS "Gap-Filling Landsat
 #'  7 SLC-off Single Scenes Using Erdas Imagine TM". Like USGS, it also takes 
 #'  approximately one hour to complete.
@@ -58,7 +58,7 @@
 #' USGS Using Landsat 7 Data http://landsat.usgs.gov/ERDAS_Approach.php
 #'
 #' @return 
-#' \itemize{
+#' \describe{
 #' \item{data:} { raster stacked data. If crop is not NULL then  crop Extent object is returned}
 #' \item{brescale:} { brescale of the stacked data}
 #' \item{grescale:} { grescale of the stacked data}

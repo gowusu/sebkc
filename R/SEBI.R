@@ -75,7 +75,7 @@ model=model,clip=NULL,folder=NULL){
     folder="/nothing454782ghf7poi8r.hope"
   }
   
-  if(class(folder)=="landsat578"||class(albedo)=="landsat578"){
+  if(inherits(folder, "landsat578")||inherits(albedo, "landsat578")){
     file.info2=TRUE
   }else{
     file.info2=file.info(folder)[["isdir"]]
@@ -86,8 +86,8 @@ model=model,clip=NULL,folder=NULL){
                    the elavation of th weather station"))  
     }
     
-    if(class(folder)=="landsat578"||class(albedo)=="landsat578"){
-      if(class(albedo)=="landsat578"){
+    if(inherits(folder, "landsat578")||inherits(albedo, "landsat578")){
+      if(inherits(albedo, "landsat578")){
         mod=albedo
       }else{
         mod=folder
@@ -109,12 +109,12 @@ model=model,clip=NULL,folder=NULL){
   if(!is.null(wmo)||!is.null(airport)){
     mod=sebkc.tryCatch(mod)$value
     thisDOY=sebkc.tryCatch(mod$date)$value
-    if(class(thisDOY)[1]=="simpleError"){
+    if(inherits(thisDOY, "simpleError")){
       thisDOY=DOY 
     }
     ETr24=sebkc.tryCatch(ETo(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                              z=zx,Krs =Krs,altitude=welev))$value
-    if(class(ETr24)[1]=="simpleError"){
+    if(inherits(ETr24, "simpleError")){
       return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
     }
     

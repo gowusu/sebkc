@@ -16,9 +16,9 @@
 #' and qualifying for upper (Ts) and lower (NDVI) limits 
 #' (see above) are selected. The provided upper and lower probabilities
 #'  are also used to select the final Ts.
-#' @seealso \code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldT2}} 
+#' @seealso \code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldTs2}} 
 #' @return 
-#' \itemize{
+#' \describe{
 #' \item{Ts:} { The selected or input Ts}
 #' \item{Tshot:} { The Temperature of hot pixel}
 #' \item{Tscold:} { The Temperature of cold pixel}
@@ -51,7 +51,7 @@ coldhot.default=function(Tmin,Tmax,Ts=NULL,folder=NULL,welev=NULL){
   }
   
   
-  if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
+  if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
     file.info2=TRUE
   }else{
     file.info2=file.info(folder)[["isdir"]]
@@ -61,8 +61,8 @@ coldhot.default=function(Tmin,Tmax,Ts=NULL,folder=NULL,welev=NULL){
       return(print("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
-    if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
-      if(class(Ts)=="landsat578"){
+    if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
+      if(inherits(Ts, "landsat578")){
         mod=Ts
       }else{
         mod=folder

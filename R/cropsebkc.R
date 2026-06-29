@@ -1,6 +1,4 @@
 #' @title Reprojecting and cropping images
-#' 
-#' 
 #' @description This function returns the subset of x object as defined by y extent object. 
 #' See \code{\link[raster]{crop}} and \code{\link[raster]{extent}} for more details.
 #' The difference between \code{\link[raster]{crop}}  and cropsebkc is the ability for the
@@ -30,7 +28,7 @@ if(is.numeric(y)){
   yproj=y
   #print("yes")
 }else{
-  if(class(y)=="RasterLayer"){
+  if(inherits(y, "RasterLayer")){
     xy=xyFromCell(y, 1) 
     if(xy[[1]]<300||xy[[2]]<300){
       projection(y) <- CRS("+init=epsg:4326") # WGS 84
@@ -45,7 +43,7 @@ if(is.numeric(y)){
     raster1y=crop(x, yproj)
   }else{
     #extent
-    if(class(y)=="Extent"){
+    if(inherits(y, "Extent")){
       # print("Yes")
       raster1y=crop(x, y)
       yproj=y

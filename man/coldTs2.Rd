@@ -5,15 +5,40 @@
 \alias{coldTs2.default}
 \title{Optional Automatic computation of cold pixel Radiometric Surface Temperature}
 \usage{
-coldTs2(Ts, NDVI, albedo = NULL, sunangle = NULL, DEM = NULL,
-  extent = "interactive", upper = 0.2, lower = 0.1, NDVI.probs = 0.95,
-  plot = TRUE, layout = "portrait", draw = "poly", folder = NULL,
-  welev = NULL)
+coldTs2(
+  Ts,
+  NDVI,
+  albedo = NULL,
+  sunangle = NULL,
+  DEM = NULL,
+  extent = "interactive",
+  upper = 0.2,
+  lower = 0.1,
+  NDVI.probs = 0.95,
+  plot = TRUE,
+  layout = "portrait",
+  draw = "poly",
+  folder = NULL,
+  welev = NULL
+)
 
-\method{coldTs2}{default}(Ts = NULL, NDVI, albedo = NULL, sunangle = NULL,
-  DEM = NULL, cluster = 10, extent = "interactive", upper = 0.2,
-  lower = 0.1, NDVI.probs = 0.6, plot = TRUE, layout = "portrait",
-  draw = "poly", folder = NULL, welev = NULL)
+\method{coldTs2}{default}(
+  Ts = NULL,
+  NDVI,
+  albedo = NULL,
+  sunangle = NULL,
+  DEM = NULL,
+  cluster = 10,
+  extent = "interactive",
+  upper = 0.2,
+  lower = 0.1,
+  NDVI.probs = 0.6,
+  plot = TRUE,
+  layout = "portrait",
+  draw = "poly",
+  folder = NULL,
+  welev = NULL
+)
 }
 \arguments{
 \item{Ts}{A RasterLayer data that indicates radiometric 
@@ -117,9 +142,6 @@ modcold=coldTs2(Ts=Ts,NDVI=NDVI,albedo=albedo,sunangle=50,cluster=7,
 extent="auto")
 }
 }
-\author{
-George Owusu
-}
 \references{
 Allen, R. G., Burnett, B., Kramber, W., Huntington, J., 
 Kjaersgaard, J., Kilic, A., Kelly, C., & Trezza, R. 2013. Automated 
@@ -129,4 +151,6 @@ JAWRA Journal of the American Water Resources Association, 49(3): 563-576.
 \seealso{
 \code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{hotTs2}}
 }
-
+\author{
+George Owusu
+}

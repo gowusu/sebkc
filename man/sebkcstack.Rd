@@ -5,11 +5,23 @@
 \alias{sebkcstack.default}
 \title{Stacking, gap-filling, cloud removal of Landsat image ET Model}
 \usage{
-sebkcstack(folder, meta_pattern = "MTL.txt", remove_cloud = F,
-  gap_fill = F, gap_loop = 8, clip = NULL)
+sebkcstack(
+  folder,
+  meta_pattern = "MTL.txt",
+  remove_cloud = F,
+  gap_fill = F,
+  gap_loop = 8,
+  clip = NULL
+)
 
-\method{sebkcstack}{default}(folder, meta_pattern = "MTL.txt",
-  remove_cloud = F, gap_fill = F, gap_loop = 8, clip = NULL)
+\method{sebkcstack}{default}(
+  folder,
+  meta_pattern = "MTL.txt",
+  remove_cloud = F,
+  gap_fill = F,
+  gap_loop = 8,
+  clip = NULL
+)
 }
 \arguments{
 \item{folder}{The folder or directory of landsat files}
@@ -87,9 +99,6 @@ stack$data
 stack$grescale
 }
 }
-\author{
-George Owusu
-}
 \references{
 Martinuzzi, S., Gould, W.A., Ramos Gonzales, O.M. 2007.
 Creating Cloud-Free Landsat ETM+ Data Sets in Tropical Landscapes: 
@@ -98,4 +107,6 @@ Report IITF-GTR-32.
 
 USGS Using Landsat 7 Data http://landsat.usgs.gov/ERDAS_Approach.php
 }
-
+\author{
+George Owusu
+}

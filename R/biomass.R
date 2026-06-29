@@ -78,7 +78,7 @@ invdist=function(longitude,latitude,var,ext,idp = .5){
 #' var=seq(20,30,0.2)
 #' latitude=latitude[1:length(longitude)]
 #' var=var[1:length(longitude)]
-#' newlonlat=lonlatreproject(longitude,latitude,var=var,ext=temp)
+#' newlonlat=lonlatreproject(longitude,latitude,var=var,map=temp)
 #' longitude=newlonlat$longitude
 #' map=newlonlat$map
 #' 
@@ -152,7 +152,7 @@ lonlatreproject=function(x,y=NULL,var=NA,map,epsg=4326){
 #'  }
 #'  
 #'  @references 
-#' \itemize{
+#' \describe{
 #' \item{}{De Wit, C. T. (1968). Plant production Miscellaneous Papers: 
 #' Landbouw Hogeschool, Wageningen.}
 #' \item{}{Slabbers, P. J., Herrendorf, V. S., & Stapper, M. (1979). 
@@ -226,7 +226,7 @@ lonlatreproject=function(x,y=NULL,var=NA,map,epsg=4326){
 
 biomass=function(Tday=NULL,T24,Rs,latitude,longitude=NULL,HI=NULL,
 plantdate,harvestdate,c30=0.0108,adaptability=3,LAI=5,crop=NULL){
-  if(class(Tday)=="kc"){
+  if(inherits(Tday, "kc")){
     Tday=Tday$DL
     #print(Tday)
   if(!is.null(Tday$Tday)){
@@ -241,16 +241,16 @@ plantdate,harvestdate,c30=0.0108,adaptability=3,LAI=5,crop=NULL){
   }
   }
   inter=NULL
-  if(class(Tday)=="RasterLayer"){
+  if(inherits(Tday, "RasterLayer")){
     inter=Tday  
   }else{
-    if(class(Rs)=="RasterLayer"){
+    if(inherits(Rs, "RasterLayer")){
       inter=Rs  
     }else{
-      if(class(T24)=="RasterLayer"){
+      if(inherits(T24, "RasterLayer")){
         inter=T24
       }else{
-        if(class(LAI)=="RasterLayer") 
+        if(inherits(LAI, "RasterLayer")) 
           inter=LAI
       }
     }
@@ -389,21 +389,21 @@ bcin=bcin[c(1,start_date:end_date)]
 
 rdata=FALSE
 
-if(class(Tday)=="RasterLayer"){
+if(inherits(Tday, "RasterLayer")){
 inter=Tday  
 }else{
-  if(class(Rs)=="RasterLayer"){
+  if(inherits(Rs, "RasterLayer")){
     inter=Rs  
   }else{
-    if(class(T24)=="RasterLayer"){
+    if(inherits(T24, "RasterLayer")){
       inter=T24
     }else{
-    if(class(LAI)=="RasterLayer") 
+    if(inherits(LAI, "RasterLayer")) 
       inter=LAI
     }
   }
 }
-if(class(Tday)=="RasterLayer"){
+if(inherits(Tday, "RasterLayer")){
   rdata=TRUE
   
   if(is.null(longitude)&&length(latitude>1)){

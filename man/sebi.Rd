@@ -5,19 +5,71 @@
 \alias{sebi.default}
 \title{SEBI Evapotranspiration Fraction Estimation in R}
 \usage{
-sebi(albedo, Ts, Tmax, Tmin, RHmax = NULL, RHmin = NULL, latitude = NULL,
-  NDVI, SAVI, iter.max = 7, xyhot = "auto", xycold = "auto", DOY, sunelev,
-  welev, zx = 10, u = 2, zomw = 2, zom = NULL, LAI = NULL,
-  DEM = NULL, lapse = 0.0065, Rn24 = NULL, wmo = NULL, airport = NULL,
-  Krs = 0.16, surface = "grass", model = "sebi", clip = NULL,
-  folder = NULL)
+sebi(
+  albedo,
+  Ts,
+  Tmax,
+  Tmin,
+  RHmax = NULL,
+  RHmin = NULL,
+  latitude = NULL,
+  NDVI,
+  SAVI,
+  iter.max = 7,
+  xyhot = "auto",
+  xycold = "auto",
+  DOY,
+  sunelev,
+  welev,
+  zx = 10,
+  u = 2,
+  zomw = 2,
+  zom = NULL,
+  LAI = NULL,
+  DEM = NULL,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  model = "sebi",
+  clip = NULL,
+  folder = NULL
+)
 
-\method{sebi}{default}(albedo = NULL, Ts, Tmax, Tmin, RHmax = NULL,
-  RHmin = NULL, latitude = NULL, NDVI, SAVI, iter.max = 7,
-  xyhot = "auto", xycold = "auto", DOY, sunelev, welev, zx = 10, u = 2,
-  zomw = 2, zom = NULL, LAI = NULL, DEM = NULL, lapse = 0.0065,
-  Rn24 = NULL, wmo = NULL, airport = NULL, Krs = 0.16,
-  surface = "grass", model = model, clip = NULL, folder = NULL)
+\method{sebi}{default}(
+  albedo = NULL,
+  Ts,
+  Tmax,
+  Tmin,
+  RHmax = NULL,
+  RHmin = NULL,
+  latitude = NULL,
+  NDVI,
+  SAVI,
+  iter.max = 7,
+  xyhot = "auto",
+  xycold = "auto",
+  DOY,
+  sunelev,
+  welev,
+  zx = 10,
+  u = 2,
+  zomw = 2,
+  zom = NULL,
+  LAI = NULL,
+  DEM = NULL,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  model = model,
+  clip = NULL,
+  folder = NULL
+)
 }
 \arguments{
 \item{albedo}{A RasterLayer data that has albedo values. 
@@ -103,6 +155,10 @@ interior (Krs = 0.16) and coastal (Krs = 0.19) regions}
 
 \item{model}{character. The type of model. It takes either "SEBAL" or "METRIC"}
 
+\item{clip}{extent object or raster object or polygon from which an Extent 
+object can be extracted. A polygon or raster will be reprojected to 
+conform the data to be cropped. for example clip can take the form of c(xmin, xmax, ymin, ymax)}
+
 \item{folder}{An original  directory of the images that contains all 
 landsat 5,7 or 8 bands and metadata.
 At the moment only Landsat folder is supported}
@@ -152,13 +208,10 @@ modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
 modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
 xyhot=modhot$xyhot
 xycold=modcold$xycold
-#use object of \\code{\\link{coldTs}} or \\code{\\link{hotTs}} in different ways
+#use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
 modsebi=sebi(data,xyhot=modhot,xycold=xycold,welev=welev,
 Tmax=Tmax,Tmin=Tmin,RHmax=RHmax,RHmin=RHmin)
 }
-}
-\author{
-George Owusu
 }
 \references{
 Menenti, M., & Choudhury, B. 1993. Parameterization of land surface 
@@ -169,4 +222,6 @@ IAHS conference on Land Surface Processes.
 \seealso{
 \code{\link{sebal}} , \code{\link{ETo}}, \code{\link{sebs}}
 }
-
+\author{
+George Owusu
+}

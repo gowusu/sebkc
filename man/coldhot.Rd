@@ -7,8 +7,7 @@
 \usage{
 coldhot(Tmin, Tmax, Ts = NULL, folder = NULL, welev = NULL)
 
-\method{coldhot}{default}(Tmin, Tmax, Ts = NULL, folder = NULL,
-  welev = NULL)
+\method{coldhot}{default}(Tmin, Tmax, Ts = NULL, folder = NULL, welev = NULL)
 }
 \arguments{
 \item{Tmin}{Numeric. Minimum surface Temperature in  map units (eg. Kilvin) that you want computation from. 
@@ -57,9 +56,6 @@ and qualifying for upper (Ts) and lower (NDVI) limits
   spplot(model$Tscold)
   modauto=sebal(folder = folder,welev = 380,xycold=model$xycold,xyhot=model$xyhot)}
 }
-\author{
-George Owusu
-}
 \references{
 Allen, R. G., Burnett, B., Kramber, W., Huntington, J., 
 Kjaersgaard, J., Kilic, A., Kelly, C., & Trezza, R. 2013. Automated 
@@ -69,4 +65,6 @@ JAWRA Journal of the American Water Resources Association, 49(3): 563-576.
 \seealso{
 \code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldT2}}
 }
-
+\author{
+George Owusu
+}

@@ -24,7 +24,7 @@
 #' such as alfalfa, corn and wheat. Default is 1.2.
 #' @author George Owusu
 #' @return
-#'  \itemize{
+#'  \describe{
 #' \item{ET24:} { Actual 24 hour ET}
 #' \item{EF:} { ET fraction}
 #' \item{ETo:} { 24 hour reference ETo}
@@ -90,7 +90,7 @@ RHmax=NULL,RHmin=NULL,clip=NULL,folder=NULL){
     folder="/nothing454782ghf7poi8r.hope"
   }
   
-  if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
+  if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
     file.info2=TRUE
   }else{
     file.info2=file.info(folder)[["isdir"]]
@@ -101,8 +101,8 @@ RHmax=NULL,RHmin=NULL,clip=NULL,folder=NULL){
                      the elavation of th weather station"))  
     }
     
-    if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
-      if(class(Ts)=="landsat578"){
+    if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
+      if(inherits(Ts, "landsat578")){
         mod=Ts
       }else{
         mod=folder
@@ -124,12 +124,12 @@ RHmax=NULL,RHmin=NULL,clip=NULL,folder=NULL){
     if(!is.null(wmo)||!is.null(airport)){
       mod=sebkc.tryCatch(mod)$value
       thisDOY=sebkc.tryCatch(mod$date)$value
-      if(class(thisDOY)[1]=="simpleError"){
+      if(inherits(thisDOY, "simpleError")){
         thisDOY=DOY 
       }
       ETr24=sebkc.tryCatch(ETo(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                                z=zx,Krs =Krs,altitude=welev))$value
-      if(class(ETr24)[1]=="simpleError"){
+      if(inherits(ETr24, "simpleError")){
         return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
       }
       
@@ -159,11 +159,11 @@ if(!is.null(DEM)){
 Tx=Tx+(KL*DEM)
 }
 
-if(class(TH)=="hotTs"){
+if(inherits(TH, "hotTs")){
   TH=TH$Tshot
 }
 
-if(class(TC)=="coldTs"){
+if(inherits(TC, "coldTs")){
   TC=TC$Tscold
 }
 

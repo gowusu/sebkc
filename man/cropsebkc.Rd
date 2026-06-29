@@ -30,10 +30,9 @@ data=cropsebkc(stack$data,stack$data)
 }
 
 }
-\author{
-George Owusu
-}
 \seealso{
 \code{\link[raster]{crop}}
 }
-
+\author{
+George Owusu
+}

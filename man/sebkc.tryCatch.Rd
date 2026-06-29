@@ -18,4 +18,3 @@ Internal function to Catch  errors and warnings
 \examples{
 thiserror=str( sebkc.tryCatch( log( "a" ) ) )$value
 }
-

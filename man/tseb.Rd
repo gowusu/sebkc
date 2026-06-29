@@ -5,26 +5,107 @@
 \alias{tseb.default}
 \title{Computing Two Source Surface Energy Balance (TSEB) in R}
 \usage{
-tseb(albedo, Ts, LAI, DOY, xyhot = "auto", xycold = "auto", TA = "sebal",
-  Tmax, Tmin, RHmax = NULL, RHmin = NULL, n = NULL, latitude = NULL,
-  zom = NULL, NDVI, SAVI, hc = 2, DEM = NULL, viewangle = 0, sunelev,
-  welev, u = 2, s = 2, C = 90, lapse = 0.0065, Rn24 = NULL,
-  ETr = NULL, ETr24 = NULL, wmo = NULL, airport = NULL, Krs = 0.16,
-  surface = "grass", time = NULL, Lz = NULL, Lm = NULL, t1 = 1, zx,
-  zomw, xPT = 1.3, rc = c(70, 1000, 100), series = "xPT", clump = 1,
-  fg = 1, fc = "auto", network = "parallel", clip = NULL,
-  folder = NULL, iter.max = 7)
+tseb(
+  albedo,
+  Ts,
+  LAI,
+  DOY,
+  xyhot = "auto",
+  xycold = "auto",
+  TA = "sebal",
+  Tmax,
+  Tmin,
+  RHmax = NULL,
+  RHmin = NULL,
+  n = NULL,
+  latitude = NULL,
+  zom = NULL,
+  NDVI,
+  SAVI,
+  hc = 2,
+  DEM = NULL,
+  viewangle = 0,
+  sunelev,
+  welev,
+  u = 2,
+  s = 2,
+  C = 90,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  ETr = NULL,
+  ETr24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  time = NULL,
+  Lz = NULL,
+  Lm = NULL,
+  t1 = 1,
+  zx,
+  zomw,
+  xPT = 1.3,
+  rc = c(70, 1000, 100),
+  series = "xPT",
+  clump = 1,
+  fg = 1,
+  fc = "auto",
+  network = "parallel",
+  clip = NULL,
+  folder = NULL,
+  iter.max = 7
+)
 
-\method{tseb}{default}(albedo = NULL, Ts = NULL, LAI = NULL, DOY = NULL,
-  xyhot = "auto", xycold = "auto", TA = "sebal", Tmax, Tmin,
-  RHmax = NULL, RHmin = NULL, n = NULL, latitude = NULL, zom = NULL,
-  NDVI, SAVI, hc = 2, DEM = NULL, viewangle = 0, sunelev, welev, u = 2,
-  s = 2, C = 90, lapse = 0.0065, Rn24 = NULL, ETr = NULL,
-  ETr24 = NULL, wmo = NULL, airport = NULL, Krs = 0.16,
-  surface = "grass", time = NULL, Lz = NULL, Lm = NULL, t1 = 1,
-  zx = 200, zomw = 2, xPT = c(1.26, 0, 0.1), rc = c(50, 1000, 100),
-  series = "PM", clump = 1, fg = 1, fc = "auto", network = "series",
-  clip = NULL, folder = NULL, iter.max = 7)
+\method{tseb}{default}(
+  albedo = NULL,
+  Ts = NULL,
+  LAI = NULL,
+  DOY = NULL,
+  xyhot = "auto",
+  xycold = "auto",
+  TA = "sebal",
+  Tmax,
+  Tmin,
+  RHmax = NULL,
+  RHmin = NULL,
+  n = NULL,
+  latitude = NULL,
+  zom = NULL,
+  NDVI,
+  SAVI,
+  hc = 2,
+  DEM = NULL,
+  viewangle = 0,
+  sunelev,
+  welev,
+  u = 2,
+  s = 2,
+  C = 90,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  ETr = NULL,
+  ETr24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  time = NULL,
+  Lz = NULL,
+  Lm = NULL,
+  t1 = 1,
+  zx = 200,
+  zomw = 2,
+  xPT = c(1.26, 0, 0.1),
+  rc = c(50, 1000, 100),
+  series = "PM",
+  clump = 1,
+  fg = 1,
+  fc = "auto",
+  network = "series",
+  clip = NULL,
+  folder = NULL,
+  iter.max = 7
+)
 }
 \arguments{
 \item{albedo}{A RasterLayer data that has albedo values. 
@@ -127,7 +208,7 @@ time is 12.5 for a period between 12:00 and 13:00}
 
 \item{Lz}{longitude of the centre of the local time zone [degrees west of Greenwich].
 MUST BE POSITIVE
-Lz = 0° for Greenwich.}
+Lz = 0 degrees for Greenwich.}
 
 \item{Lm}{longitude of the measurement site [degrees west of Greenwich]. MUST BE POSITIVE}
 
@@ -267,9 +348,6 @@ latitude=5.6,n=6.5)
 }
 
 }
-\author{
-George Owusu
-}
 \references{
 \itemize{
 \item{}{Norman JM, Kustas WP, Humes KS (1995). A two-source approach for estimating 
@@ -297,4 +375,6 @@ sensing for land surface modeling. Agricultural and Forest Meteorology, 149,
  2071-2081.}
 }
 }
-
+\author{
+George Owusu
+}

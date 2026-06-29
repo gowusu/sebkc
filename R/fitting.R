@@ -5,7 +5,7 @@
 #' @param P Number of parameters
 #'
 #' @return
-#' \itemize{
+#' \describe{
 #' \item{r2:} {  R-square [-]}
 #'  \item{r2_adj:} { An adjusted R-square [-]}
 #' \item{d:} { Index of agreement[-]}

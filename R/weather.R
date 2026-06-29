@@ -28,7 +28,7 @@
 #' @return WMO and NASE.SSE. The WMO contains hour and day data. The NASE.SSE contains 
 #' meta and data. See example below.
 #' @references 
-#' \itemize{
+#' \describe{
 #' \item{}{Worldwide Station List.\url{http://www.wetterzentrale.de/klima/stnlst.html} 
 #' [Accessed on 2016-5-6] }
 #' \item{}{List of airports by IATA code. 
@@ -240,16 +240,16 @@ weather=function (data=NULL,wmo=NULL, airport=NULL, date="YYYY-m-d",time=NULL,
   
    hour.data=sebkc.tryCatch(read.csv(url.hr,stringsAsFactors=FALSE))$value
    #print(hour.data)
-   if(class(hour.data)[1]=="simpleError"){
+   if(inherits(hour.data, "simpleError")){
      print(paste("WMO Hourly data not available for ",wmo,airport, "on", date ))
    }
    day.data=sebkc.tryCatch(read.csv(url.day,stringsAsFactors=FALSE))$value
-   if(class(day.data)[1]=="simpleError"){
+   if(inherits(day.data, "simpleError")){
      print(paste("WMO Daily data not available for ",wmo,airport, "on", date ))
    }
    
      
-     if(class(day.data)[1]!="simpleError"){
+     if(!inherits(day.data, "simpleError")){
        thisnames=names (day.data)
        #imperial units
        if(length(grep("TemperatureF",thisnames)>0)){
@@ -297,14 +297,14 @@ weather=function (data=NULL,wmo=NULL, airport=NULL, date="YYYY-m-d",time=NULL,
      )
 
      #hour.data=hour.data[hour.data$time==time,]
-     if(class(hour.data)[1]!="simpleError"){
+     if(!inherits(hour.data, "simpleError")){
      hour.data$time2=abs(hour.data$time-time)
      thisort=sort(hour.data$time2,decreasing = FALSE)[1:2]
      hour.data2=hour.data[hour.data$time2==thisort[1]|hour.data$time2==thisort[2],]
      hour.data3= hour.data2[1,]
      for (i in 1:length(hour.data2)){
      mod=sebkc.tryCatch(lm(hour.data2[[i]]~hour.data2$time))$value
-     if(class(mod)[1]=="simpleError"){
+     if(inherits(mod, "simpleError")){
     output=paste(hour.data2[[i]][1],hour.data2[[i]][2],sep="-")  
      }else{
      slope=coef(mod)[[2]]
@@ -346,7 +346,7 @@ weather=function (data=NULL,wmo=NULL, airport=NULL, date="YYYY-m-d",time=NULL,
    }
   
    #rint(day.data)
-   if(class(day.data)[1]!="simpleError"){
+   if(!inherits(day.data, "simpleError")){
      thisnames=names (day.data)
      #imperial units
      if(length(grep("TemperatureF",thisnames)>0)){
@@ -421,7 +421,7 @@ NASA.this=NULL
    #print(meta[1:12,])
    elevation=sebkc.tryCatch(as.numeric(read.delim(link,sep=" ",stringsAsFactors = F,header=F)[4,][10][[1]]))$value
    NASA=sebkc.tryCatch(read.table(file=link,skip=23,header=TRUE))$value 
-   if(class(NASA)[1]=="simpleError"){
+   if(inherits(NASA, "simpleError")){
      print(paste("NASA SSE data not Available in ",start.date[1]))
    }
    NASA$altitude=elevation

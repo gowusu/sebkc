@@ -45,7 +45,7 @@ writesebkc<-function(object,folder=NULL,xy=NULL,overwrite=TRUE){
     folder=object$folder
   }
   
-  if(class(object)=="sebal"){
+  if(inherits(object, "sebal")){
     writeRaster(object$EF, filename=paste(folder,"EF.tif",sep="/"), format="GTiff",overwrite=overwrite)
     writeRaster(object$LE, filename=paste(folder,"LE.tif",sep="/"), format="GTiff",overwrite=overwrite)
     writeRaster(object$H, filename=paste(folder,"H.tif",sep="/"), format="GTiff",overwrite=overwrite)
@@ -69,8 +69,8 @@ writesebkc<-function(object,folder=NULL,xy=NULL,overwrite=TRUE){
     #xy=modcold$p[1:2]
   }  
   
-  if(class(object)=="sebi"||class(object)=="ssebi"||class(object)=="wdi"||
-     class(object)=="sebs"||class(object)=="sseb"){
+  if(inherits(object, "sebi")||inherits(object, "ssebi")||inherits(object, "wdi")||
+     inherits(object, "sebs")||inherits(object, "sseb")){
     writeRaster(object$EF, filename=paste(folder,"EF.tif",sep="/"), format="GTiff",overwrite=overwrite)
     if(!is.null(object$ET24)){
       writeRaster(object$ET24, filename=paste(folder,"ET24.tif",sep="/"), format="GTiff",overwrite=overwrite)
@@ -87,7 +87,7 @@ writesebkc<-function(object,folder=NULL,xy=NULL,overwrite=TRUE){
   }
   
   
-  if(class(object)=="tseb"){
+  if(inherits(object, "tseb")){
     writeRaster(object$EFc, filename=paste(folder,"EFc.tif",sep="/"), format="GTiff",overwrite=overwrite)
     writeRaster(object$EFs, filename=paste(folder,"EFs.tif",sep="/"), format="GTiff",overwrite=overwrite)
     writeRaster(object$LEc, filename=paste(folder,"LEc.tif",sep="/"), format="GTiff",overwrite=overwrite)
@@ -110,7 +110,7 @@ writesebkc<-function(object,folder=NULL,xy=NULL,overwrite=TRUE){
     }
   }
   
-  if(class(object)=="landsat578"){
+  if(inherits(object, "landsat578")){
     writeRaster(object$albedo, filename=paste(folder,"albedo.tif",sep="/"), format="GTiff",overwrite=overwrite)
     writeRaster(object$Ts, filename=paste(folder,"Ts.tif",sep="/"), format="GTiff",overwrite=overwrite)
     writeRaster(object$NDVI, filename=paste(folder,"NDVI.tif",sep="/"), format="GTiff",overwrite=overwrite)
@@ -127,7 +127,7 @@ writesebkc<-function(object,folder=NULL,xy=NULL,overwrite=TRUE){
       } 
   }
   
-  if(class(object)=="sebkcstack"){
+  if(inherits(object, "sebkcstack")){
     writeRaster(object$data, filename=paste(folder,"sebkcstack.tif",sep="/"), 
                 format="GTiff",bandorder='BIL',overwrite=overwrite)
     if(!is.null(object$band8)){
@@ -141,7 +141,7 @@ writesebkc<-function(object,folder=NULL,xy=NULL,overwrite=TRUE){
     }
   }
   
-  if(class(object)=="ETo"){
+  if(inherits(object, "ETo")){
     writeRaster(object$ETa, filename=paste(folder,"ETa.tif",sep="/"), 
                 format="GTiff",overwrite=overwrite)
     

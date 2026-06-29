@@ -5,19 +5,67 @@
 \alias{sseb.default}
 \title{Simplified Surface Energy Balance}
 \usage{
-sseb(Ts, welev = NULL, TH = "auto", TC = "auto", sunelev = NULL,
-  NDVI = NULL, DEM = NULL, albedo = NULL, NDVImax = 0.7, cc = 0.65,
-  KL = 0.0065, ETo = NULL, wmo = NULL, airport = NULL, Krs = 0.16,
-  surface = "grass", x = 1, Tmax = NULL, Tmin = NULL, zx = NULL,
-  u = 2, DOY = NULL, latitude = NULL, n = NULL, RHmax = NULL,
-  RHmin = NULL, clip = NULL, folder = NULL)
+sseb(
+  Ts,
+  welev = NULL,
+  TH = "auto",
+  TC = "auto",
+  sunelev = NULL,
+  NDVI = NULL,
+  DEM = NULL,
+  albedo = NULL,
+  NDVImax = 0.7,
+  cc = 0.65,
+  KL = 0.0065,
+  ETo = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  x = 1,
+  Tmax = NULL,
+  Tmin = NULL,
+  zx = NULL,
+  u = 2,
+  DOY = NULL,
+  latitude = NULL,
+  n = NULL,
+  RHmax = NULL,
+  RHmin = NULL,
+  clip = NULL,
+  folder = NULL
+)
 
-\method{sseb}{default}(Ts = NULL, welev = NULL, TH = "auto",
-  TC = "auto", sunelev = NULL, NDVI = NULL, DEM = NULL, albedo = NULL,
-  NDVImax = 0.7, cc = 0.65, KL = 0.0065, ETo = NULL, wmo = NULL,
-  airport = NULL, Krs = 0.16, surface = "grass", x = 1.2, Tmax = NULL,
-  Tmin = NULL, zx = NULL, u = 2, DOY = NULL, latitude = NULL,
-  n = NULL, RHmax = NULL, RHmin = NULL, clip = NULL, folder = NULL)
+\method{sseb}{default}(
+  Ts = NULL,
+  welev = NULL,
+  TH = "auto",
+  TC = "auto",
+  sunelev = NULL,
+  NDVI = NULL,
+  DEM = NULL,
+  albedo = NULL,
+  NDVImax = 0.7,
+  cc = 0.65,
+  KL = 0.0065,
+  ETo = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  x = 1.2,
+  Tmax = NULL,
+  Tmin = NULL,
+  zx = NULL,
+  u = 2,
+  DOY = NULL,
+  latitude = NULL,
+  n = NULL,
+  RHmax = NULL,
+  RHmin = NULL,
+  clip = NULL,
+  folder = NULL
+)
 }
 \arguments{
 \item{Ts}{A RasterLayer data that indicates radiometric 
@@ -139,7 +187,7 @@ modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
 modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
 xyhot=modhot$Tshot
 xycold=modcold$Tscold
-#use object of \\code{\\link{coldTs}} or \\code{\\link{hotTs}} in different ways
+#use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
 modsseb=sseb(Ts=Ts,TH=xyhot,TC=modcold,sunelev=50,NDVI=NDVI,DEM=NULL,
 albedo=albedo,NDVImax=0.7,cc=0.65,KL=0.0065,
 ETo="auto",x=1.2,Tmax=31,Tmin=28,zx=10,
@@ -147,13 +195,12 @@ u=2,DOY=37,latitude=5.6,n=NULL,
 RHmax=NULL,RHmin=NULL)
 }
 }
-\author{
-George Owusu
-}
 \references{
 Senay, G. B., Budde, M. E., & Verdin, J. P. 2011. 
 Enhancing the Simplified Surface Energy Balance (SSEB) approach 
 for estimating landscape ET: Validation with the METRIC model. 
 Agricultural Water Management, 98(4): 606-618.
 }
-
+\author{
+George Owusu
+}

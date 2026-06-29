@@ -30,4 +30,3 @@ LAI=raster(system.file("extdata","LAI.grd",package="sebkc"))
 \author{
 George Owusu
 }
-

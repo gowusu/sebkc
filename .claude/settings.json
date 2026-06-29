@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($git = \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\GitHubDesktop\\\\app-3.6.1\\\\resources\\\\app\\\\git\\\\cmd\\\\git.exe\"; & $git add \"R/ETohr.R\"; & $git commit -m \"Fix invalid UTF-8 byte in ETohr.R roxygen comment \\(degree sign -> 'degrees'\\)\"; if \\($?\\) { & $git push origin master; Write-Output \"PUSH_EXIT:$LASTEXITCODE\" })"
+    ]
+  }
+}

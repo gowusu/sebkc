@@ -35,6 +35,9 @@ fitting(obs, est, P = 1)
 \item{MPE:} { Mean Percentage error}
 }
 }
+\description{
+Goodness of fit Test
+}
 \examples{
 file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 data=read.table(file,header=TRUE)  
@@ -44,4 +47,3 @@ P=4
 mod=fitting(obs,est,P)
 r2=mod$r2
 }
-

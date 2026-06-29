@@ -38,4 +38,3 @@ Tsdata=xyextract(Ts,longitude,latitude)
 \author{
 George Owusu
 }
-

@@ -16,9 +16,9 @@
 #' and qualifying for upper (Ts) and lower (NDVI) limits 
 #' (see above) are selected. The provided upper and lower probabilities
 #'  are also used to select the final Ts.
-#' @seealso \code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldT2}} 
+#' @seealso \code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldTs2}} 
 #' @return 
-#' \itemize{
+#' \describe{
 #' \item{Ts:} { The selected or input Ts}
 #' \item{Tshot:} { The Temperature of hot pixel}
 #' \item{TX:} { The average temperature of the hot pixels}
@@ -58,7 +58,7 @@
 #' @rdname hotTs2
 #'
  
-hotTs2<-function(Ts,NDVI,albedo=NULL,sunangle=NULL,DEM=NULL,
+hotTs2<-function(Ts,NDVI,albedo=NULL,sunangle=NULL,DEM=NULL,cluster=10,
                 extent="interactive",upper=0.95,
 lower=0.8,NDVI.probs=0.1,plot=TRUE,layout="portrait",draw="poly",
 folder=NULL,welev=NULL) UseMethod ("hotTs2")
@@ -73,7 +73,7 @@ lower=0.8,NDVI.probs=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,wel
   }
   
   
-  if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
+  if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
     file.info2=TRUE
   }else{
     file.info2=file.info(folder)[["isdir"]]
@@ -83,8 +83,8 @@ lower=0.8,NDVI.probs=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,wel
       return(print("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
-    if(class(folder)=="landsat578"||class(Ts)=="landsat578"){
-      if(class(Ts)=="landsat578"){
+    if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
+      if(inherits(Ts, "landsat578")){
         mod=Ts
       }else{
         mod=folder
@@ -105,13 +105,13 @@ lower=0.8,NDVI.probs=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,wel
   
 ext=extent
 albedothre=0.02
-if(class(NDVI)!="RasterLayer"){
+if(!inherits(NDVI, "RasterLayer")){
 NDVI=raster(NDVI)
 }
-if(class(Ts)!="RasterLayer"){
+if(!inherits(Ts, "RasterLayer")){
 Ts=raster(Ts)
 }
-if(class(albedo)!="RasterLayer"&&!is.null(albedo)){
+if(!inherits(albedo, "RasterLayer")&&!is.null(albedo)){
 albedo=raster(albedo)
 }
 

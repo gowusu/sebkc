@@ -4,18 +4,61 @@
 \alias{cal.kc}
 \title{Calibration of crop coefficients}
 \usage{
-cal.kc(ETo, P, RHmin, soil, crop, I = 0, CNII = c(30, 100, 1), u2 = 2,
-  FC = NULL, WP = NULL, h = NULL, Zr = NULL, Ze = c(0.1, 0.15, 0.01),
-  kc = c(c(0.1, 0.3, 0.05), c(0.1, 1, 0.1), c(0.1, 1, 0.1)), p = c(0.1, 1,
-  0.1), lengths = NULL, fw = 0.8, fc = NULL, kctype = "dual",
-  region = NULL, regexpr = "sweet", initgw = 50, LAI = 3, rc = NULL,
-  Kb = 0, Rn = NULL, hmodel = "gaussian", Zrmodel = "linear",
-  xydata = NULL, REW = c(2, 12, 0.5), a1 = 360, b1 = c(-1, 1, 0.1),
-  a2 = 240, b2 = c(-1, 1, 0.1), a3 = c(-2, 1, 0.1), b3 = 6.6,
-  a4 = 4.6, b4 = c(-1.5, 1, 0.1), ETa = NULL, report = "stages",
-  time = "06:00", HWR = 1, latitude = NULL, density = "full",
-  DOY = NULL, slope = NULL, y = NULL, r1 = 100, nongrowing = "weeds",
-  theta = NULL, profile = "variable", Kcmin = 0.15, Ky = NULL)
+cal.kc(
+  ETo,
+  P,
+  RHmin,
+  soil,
+  crop,
+  I = 0,
+  CNII = c(30, 100, 1),
+  u2 = 2,
+  FC = NULL,
+  WP = NULL,
+  h = NULL,
+  Zr = NULL,
+  Ze = c(0.1, 0.15, 0.01),
+  kc = c(c(0.1, 0.3, 0.05), c(0.1, 1, 0.1), c(0.1, 1, 0.1)),
+  p = c(0.1, 1, 0.1),
+  lengths = NULL,
+  fw = 0.8,
+  fc = NULL,
+  kctype = "dual",
+  region = NULL,
+  regexpr = "sweet",
+  initgw = 50,
+  LAI = 3,
+  rc = NULL,
+  Kb = 0,
+  Rn = NULL,
+  hmodel = "gaussian",
+  Zrmodel = "linear",
+  xydata = NULL,
+  REW = c(2, 12, 0.5),
+  a1 = 360,
+  b1 = c(-1, 1, 0.1),
+  a2 = 240,
+  b2 = c(-1, 1, 0.1),
+  a3 = c(-2, 1, 0.1),
+  b3 = 6.6,
+  a4 = 4.6,
+  b4 = c(-1.5, 1, 0.1),
+  ETa = NULL,
+  report = "stages",
+  time = "06:00",
+  HWR = 1,
+  latitude = NULL,
+  density = "full",
+  DOY = NULL,
+  slope = NULL,
+  y = NULL,
+  r1 = 100,
+  nongrowing = "weeds",
+  theta = NULL,
+  profile = "variable",
+  Kcmin = 0.15,
+  Ky = NULL
+)
 }
 \arguments{
 \item{ETo}{Numeric. Reference evapotranspiration [mm]. This can be estimated with \code{\link{ETo}}}
@@ -292,10 +335,9 @@ ETcxy=cal$mod$ETcxy
 TAW=cal$mod$TAW
 }
 }
-\author{
-George Owusu
-}
 \seealso{
 \code{\link{kc}}
 }
-
+\author{
+George Owusu
+}

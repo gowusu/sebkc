@@ -47,4 +47,3 @@ map=newlonlat$map
 \author{
 George Owusu
 }
-

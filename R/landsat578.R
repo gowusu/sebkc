@@ -63,7 +63,7 @@
 #'  The defaults values are for landsat 5 and 7. 
 #' For landsat 8, use the meta data. 
 #' @return 
-#'  \itemize{
+#'  \describe{
 #' \item{albedo:} { albedo values}
 #' \item{Ts:} { Surface Temperature}
 #' \item{NDVI:} { NDVI values}
@@ -73,7 +73,7 @@
 #' \item{reflectance:} { TOA reflectance}
 #' }
 #' @references 
-#'  \itemize{
+#'  \describe{
 #' \item{}{Chander, G., Markham, B. L., & Helder, D. L. 2009. 
 #' Summary of current radiometric calibration coefficients for 
 #' Landsat MSS, TM, ETM+, and EO-1 ALI sensors. 
@@ -122,15 +122,15 @@ Ap=NULL,K1=NULL,K2=NULL,Rp=0.91,Rsky=1.32,tNB=0.886,DOY=NULL,clip=NULL,folder=NU
       }
   folder=NULL
 
-  if(class(data)[1]=="character"||class(data)=="sebkcstack"){
+  if(inherits(data, "character")||inherits(data, "sebkcstack")){
     folder=data
-    if(class(data)=="sebkcstack"){
+    if(inherits(data, "sebkcstack")){
       file.info2=TRUE
     }else{
       file.info2=file.info(folder)[["isdir"]]
     }
     if(file.info2==TRUE&&!is.na(file.info2)){
-      if(class(data)=="sebkcstack"){
+      if(inherits(data, "sebkcstack")){
         stack=data
       }else{
         stack=sebkcstack(data,clip=clip) 

@@ -4,6 +4,9 @@
 ^README\.RMD$
 ^README\.Rmd$
 ^cran-comments\.md$
+^CRAN_READINESS\.md$
+^\.claude$
+^fix\.txt$
 ^doc$
 ^Meta$
 ^\.github$

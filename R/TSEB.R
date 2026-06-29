@@ -39,7 +39,7 @@
 #' Example is rc=c(0,1000,100). Unlike xPT, this is positively incremented.
 #' @author George Owusu
 #' @references 
-#' \itemize{
+#' \describe{
 #' \item{}{Norman JM, Kustas WP, Humes KS (1995). A two-source approach for estimating 
 #' soil and vegetation energy fluxes from observations of directional 
 #' radiometric surface temperature. Agric For Meteorol 1995;77:263-93.}
@@ -80,7 +80,7 @@
 #'  set based on literature }
 #'  }
 #' @return 
-#' \itemize{
+#' \describe{
 #' \item{LEc:} { canopy latent heat flux [W/m2]}
 #' \item{LEs:} { Soil latent heat flux[W/m2]}
 #' \item{T24:} { 24 hour Transpiration [mm/day]}
@@ -176,14 +176,14 @@ fc="auto",network="series",clip=NULL,folder=NULL,iter.max = 7){
     folder="/nothing454782ghf7poi8r.hope"
   }
   
-  if(class(folder)=="landsat578"||class(albedo)=="landsat578"){
+  if(inherits(folder, "landsat578")||inherits(albedo, "landsat578")){
     file.info2=TRUE
   }else{
     file.info2=file.info(folder)[["isdir"]]
   }
   
   if(file.info2==TRUE&&!is.na(file.info2)){
-    if(class(albedo)!="landsat578"){
+    if(!inherits(albedo, "landsat578")){
       
     if(is.null(welev)){
       return(print("Please provide the parameter welev: 
@@ -191,8 +191,8 @@ fc="auto",network="series",clip=NULL,folder=NULL,iter.max = 7){
     }
   }
     
-    if(class(folder)=="landsat578"||class(albedo)=="landsat578"){
-      if(class(albedo)=="landsat578"){
+    if(inherits(folder, "landsat578")||inherits(albedo, "landsat578")){
+      if(inherits(albedo, "landsat578")){
         mod=albedo
         welev=mod$welev
       }else{
@@ -219,12 +219,12 @@ fc="auto",network="series",clip=NULL,folder=NULL,iter.max = 7){
     if(!is.null(wmo)||!is.null(airport)){
       mod=sebkc.tryCatch(mod)$value
       thisDOY=sebkc.tryCatch(mod$date)$value
-      if(class(thisDOY)[1]=="simpleError"){
+      if(inherits(thisDOY, "simpleError")){
         thisDOY=DOY 
       }
       ETr24=sebkc.tryCatch(ETo(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                                z=zx,Krs =Krs,altitude=welev))$value
-      if(class(ETr24)[1]=="simpleError"){
+      if(inherits(ETr24, "simpleError")){
         return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
       }
       Rn24=ETr24$Rn
@@ -234,14 +234,14 @@ fc="auto",network="series",clip=NULL,folder=NULL,iter.max = 7){
       ETr24= ETr24$ETo
      
       thistime=sebkc.tryCatch(mod$time)$value
-      if(class(thistime)[1]=="simpleError"){
+      if(inherits(thistime, "simpleError")){
         thistime=time 
       }
       #print(ETr24)
       if(is.null(ETr)){
         ETr=sebkc.tryCatch(ETohr(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                                  z=zx,Krs =Krs,altitude=welev,time= thistime,Lz=Lz,t1=t1,Lm=Lm))$value
-        if(class(ETr)[1]=="simpleError"){
+        if(inherits(ETr, "simpleError")){
           return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo or time or Lz or Lm or t1",ETr))) 
         }
         #return(print(ETr$ETo))
@@ -471,7 +471,6 @@ LEs=rastercon(LEs<0,0,LEs)
  LEs2=NULL
  #H2=NULL
  #G2=NULL
- print(paste("network =",netwok))
   i=thisxPT[1]
   while(i>=thisxPT[2]){
     print(paste("Trying PT=",i,"to correct soil surface latent heat"))
