@@ -9,7 +9,7 @@
 #' @param RH Hourly Mean Relative Humidity in percent
 #' @param Lz longitude of the centre of the local time zone [degrees west of Greenwich].
 #' MUST BE POSITIVE
-#' Lz = 0° for Greenwich.
+#' Lz = 0 degrees for Greenwich.
 #' @param Lm longitude of the measurement site [degrees west of Greenwich]. MUST BE POSITIVE
 #' @param t1 The length of the calculation period in hour; 1 for hour, 0.5 for 30 minutes
 #' 0.25 for 15 minutes. 
