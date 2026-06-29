@@ -15,24 +15,24 @@ fitting(obs, est, P = 1)
 }
 \value{
 \describe{
-\item{r2:} {  R-square [-]}
- \item{r2_adj:} { An adjusted R-square [-]}
-\item{d:} { Index of agreement[-]}
-\item{p_value:} { p value}
-\item{sse:} { Sum of square error}
-\item{sst:} { Sum of square total}
-\item{AIC:} { AIC}
-\item{BIC:} { BIC}
-\item{RMSE:} { Root Mean Square Error}
-\item{RMSE_adj:} { adjusted Root Mean Square Error}
-\item{NRMSE} { Normalised Root Mean Square Error}
-\item{NRMSE_adj:} { adjusted Normalised Root Mean Square Error}
-\item{E:} { Nash Sutcliffe Coefficient}
-\item{b:} { coefficients of regression}
-\item{AAE:} { average absolute error}
-\item{ARE:} { average relative error}
-\item{MBE:} { Mean Bias  error}
-\item{MPE:} { Mean Percentage error}
+\item{r2:}{  R-square [-]}
+ \item{r2_adj:}{ An adjusted R-square [-]}
+\item{d:}{ Index of agreement[-]}
+\item{p_value:}{ p value}
+\item{sse:}{ Sum of square error}
+\item{sst:}{ Sum of square total}
+\item{AIC:}{ AIC}
+\item{BIC:}{ BIC}
+\item{RMSE:}{ Root Mean Square Error}
+\item{RMSE_adj:}{ adjusted Root Mean Square Error}
+\item{NRMSE}{ Normalised Root Mean Square Error}
+\item{NRMSE_adj:}{ adjusted Normalised Root Mean Square Error}
+\item{E:}{ Nash Sutcliffe Coefficient}
+\item{b:}{ coefficients of regression}
+\item{AAE:}{ average absolute error}
+\item{ARE:}{ average relative error}
+\item{MBE:}{ Mean Bias  error}
+\item{MPE:}{ Mean Percentage error}
 }
 }
 \description{

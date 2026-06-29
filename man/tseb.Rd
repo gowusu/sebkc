@@ -258,15 +258,15 @@ At the moment only Landsat folder is supported}
 }
 \value{
 \describe{
-\item{LEc:} { canopy latent heat flux [W/m2]}
-\item{LEs:} { Soil latent heat flux[W/m2]}
-\item{T24:} { 24 hour Transpiration [mm/day]}
-\item{E24:} { 24 hour Evaporation [mm/day]}
-\item{ET24:} { 24 hour Evapotranspiration [mm/day]}
-\item{EF:} { ET24 (daily Evapotranspiration) Evaporative Fraction. 
+\item{LEc:}{ canopy latent heat flux [W/m2]}
+\item{LEs:}{ Soil latent heat flux[W/m2]}
+\item{T24:}{ 24 hour Transpiration [mm/day]}
+\item{E24:}{ 24 hour Evaporation [mm/day]}
+\item{ET24:}{ 24 hour Evapotranspiration [mm/day]}
+\item{EF:}{ ET24 (daily Evapotranspiration) Evaporative Fraction. 
 EF corresponds to the type of scaling method used: see \code{ETohr} for details}
-\item{EFs:} { E(Evaporation) Evaporative Fraction}
-\item{EFc: } { T (Transpiration) Evaporative Fraction}
+\item{EFs:}{ E(Evaporation) Evaporative Fraction}
+\item{EFc: }{ T (Transpiration) Evaporative Fraction}
 }
 }
 \description{
@@ -349,30 +349,30 @@ latitude=5.6,n=6.5)
 
 }
 \references{
-\describe{
-\item{}{Norman JM, Kustas WP, Humes KS (1995). A two-source approach for estimating 
+\itemize{
+\item Norman JM, Kustas WP, Humes KS (1995). A two-source approach for estimating 
 soil and vegetation energy fluxes from observations of directional 
-radiometric surface temperature. Agric For Meteorol 1995;77:263-93.}
-\item{}{Colaizzi, Paul; Kustas, William P.; Anderson, Martha C.; 
+radiometric surface temperature. Agric For Meteorol 1995;77:263-93.
+\item Colaizzi, Paul; Kustas, William P.; Anderson, Martha C.; 
 Agam, Nurit; Tolk, Judy A.; Evett, Steven R.; Howell, Terry A.; 
 Gowda, Prasanna H.; and O'Shaughnessy, Susan A., 
 "Two-source energy balance model estimates of evapotranspiration using 
 component and composite surface temperatures" (2012). Publications 
 from USDA-ARS / UNL Faculty. Paper 1147.
-http://digitalcommons.unl.edu/usdaarsfacpub/1147}
-\item{}{Grace, J., 1981. Some effects of wind on plants. 
+http://digitalcommons.unl.edu/usdaarsfacpub/1147
+\item Grace, J., 1981. Some effects of wind on plants. 
 In: J. Grace, E.D. Ford and P.G. Jarvis (Editors), Plants and
-their Atmospheric Environment. Blackwell Scientific, London, pp. 31-56.}
-\item{}{Ronglin Tang, Zhao-Liang Li, Yuanyuan Jia, Chuanrong Li, 
+their Atmospheric Environment. Blackwell Scientific, London, pp. 31-56.
+\item Ronglin Tang, Zhao-Liang Li, Yuanyuan Jia, Chuanrong Li, 
 Kun-Shan Chen, Xiaomin Sun & Jinyong Lou (2012): 
 Evaluating one- and two-source energy balance models in
 estimating surface evapotranspiration from Landsat-derived 
 surface temperature and field
 measurements, International Journal of Remote Sensing.
-http://dx.doi.org/10.1080/01431161.2012.716529}
-\item{}{KUSTAS, W. & ANDERSON, M. 2009. Advances in thermal infrared remote 
+http://dx.doi.org/10.1080/01431161.2012.716529
+\item KUSTAS, W. & ANDERSON, M. 2009. Advances in thermal infrared remote 
 sensing for land surface modeling. Agricultural and Forest Meteorology, 149,
- 2071-2081.}
+ 2071-2081.
 }
 }
 \author{

@@ -130,15 +130,15 @@ You can also respectively use "evaporative" or "solar" or "sine".}
 }
 \value{
 \describe{
-\item{ETo:} { 24 hour reference ETo [mm/day]}
-\item{ETa:} { 24 hour actual ET. It is not NULL if EF has a numeric value}
-\item{ETc:} { 24 hour crop ET. It is not NULL if Kc has a numeric value}
-\item{Rn:} { Net daily Radiation  [W/m2] }
-\item{Rn_mj_m2_day:} { Net daily Radiation [MJ/m2/day]}
-\item{y:} { psychrometric constant [kPa/degree Celsius]}
-\item{slope:} { slope of saturation vapour pressure 
+\item{ETo:}{ 24 hour reference ETo [mm/day]}
+\item{ETa:}{ 24 hour actual ET. It is not NULL if EF has a numeric value}
+\item{ETc:}{ 24 hour crop ET. It is not NULL if Kc has a numeric value}
+\item{Rn:}{ Net daily Radiation  [W/m2] }
+\item{Rn_mj_m2_day:}{ Net daily Radiation [MJ/m2/day]}
+\item{y:}{ psychrometric constant [kPa/degree Celsius]}
+\item{slope:}{ slope of saturation vapour pressure 
 curve [kPa/degree Celsius]}
-\item{vpd:} { Vapour pressure deficit[kPa]}
+\item{vpd:}{ Vapour pressure deficit[kPa]}
 }
 }
 \description{

@@ -66,8 +66,8 @@ Tmax and Tmin.
 }
 \value{
 \describe{
-\item{EF:} { standardised wdi excluding negatives and one plus}
-\item{index:} { raw wdi including negatives and more than one}
+\item{EF:}{ standardised wdi excluding negatives and one plus}
+\item{index:}{ raw wdi including negatives and more than one}
 }
 }
 \description{

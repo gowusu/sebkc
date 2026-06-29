@@ -56,20 +56,20 @@ conform the data to be cropped. for example clip can take the form of c(xmin, xm
 }
 \value{
 \describe{
-\item{data:} { raster stacked data. If crop is not NULL then  crop Extent object is returned}
-\item{brescale:} { brescale of the stacked data}
-\item{grescale:} { grescale of the stacked data}
-\item{sunelev:} { sun elevation for stacked data}
-\item{date:} { Acquired date of the raster stacked data}
-\item{viewangle:} { view angle of landsat 8}
-\item{azimuth:} { azimuth angle of the image}
-\item{sensor:} { Type of satellite}
-\item{K1:} { K1 of landsat 8 thermal band 10}
-\item{K2:} { K2 of landsat 8 thermal band 10}
-\item{cc:} { cloud cover percentage}
-\item{quality:} { Image quality}
-\item{row:} { WRS_ROW of the image }
-\item{path:} { WRS_PATH of the image}
+\item{data:}{ raster stacked data. If crop is not NULL then  crop Extent object is returned}
+\item{brescale:}{ brescale of the stacked data}
+\item{grescale:}{ grescale of the stacked data}
+\item{sunelev:}{ sun elevation for stacked data}
+\item{date:}{ Acquired date of the raster stacked data}
+\item{viewangle:}{ view angle of landsat 8}
+\item{azimuth:}{ azimuth angle of the image}
+\item{sensor:}{ Type of satellite}
+\item{K1:}{ K1 of landsat 8 thermal band 10}
+\item{K2:}{ K2 of landsat 8 thermal band 10}
+\item{cc:}{ cloud cover percentage}
+\item{quality:}{ Image quality}
+\item{row:}{ WRS_ROW of the image }
+\item{path:}{ WRS_PATH of the image}
 }
 }
 \description{

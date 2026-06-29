@@ -101,12 +101,12 @@ conform the data to be cropped. for example clip can take the form of c(xmin, xm
 }
 \value{
 \describe{
-\item{Ts:} { The selected or input Ts [K]}
-\item{Tscold:} { The Temperature of cold pixe [K] }
-\item{TC:} { The average temperature of the cold pixels [K]}
-\item{x:} { The x cordinate of the cold pixel}
-\item{y:} { The y cordinate of the cold pixel}
-\item{xycold: } {combined x and y coordinates}
+\item{Ts:}{ The selected or input Ts [K]}
+\item{Tscold:}{ The Temperature of cold pixe [K] }
+\item{TC:}{ The average temperature of the cold pixels [K]}
+\item{x:}{ The x cordinate of the cold pixel}
+\item{y:}{ The y cordinate of the cold pixel}
+\item{xycold: }{combined x and y coordinates}
 \item{candidates:}{ The similiar candidates' pixels that can be used}
 }
 }

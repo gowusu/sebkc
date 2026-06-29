@@ -178,16 +178,16 @@ At the moment only Landsat folder is supported}
 }
 \value{
 \describe{
-\item{LE:} {  latent heat flux [W/m2]}
-\item{Rn:} { Net Radiation [W/m2]}
-\item{H: } { Sensible Heat Flux [W/m2]}
-\item{G:} { Soil heat flux [W/m2]}
-\item{ETins:} { instantaneous ET if model = "METRIC" [mm/hr]}
-\item{ET24:} { 24 hour Evapotranspiration only if Rn24 is not NULL [mm/day]}
-\item{ETrF:} { METRIC ET fraction [dimensionless]}
-\item{EF:} {  ET fraction [dimensionless]}
-\item{Ta:} { Air temperature = Ts-dT [K]}
-\item{iter.coef:} { Parameters from sensible heat iteration}
+\item{LE:}{  latent heat flux [W/m2]}
+\item{Rn:}{ Net Radiation [W/m2]}
+\item{H: }{ Sensible Heat Flux [W/m2]}
+\item{G:}{ Soil heat flux [W/m2]}
+\item{ETins:}{ instantaneous ET if model = "METRIC" [mm/hr]}
+\item{ET24:}{ 24 hour Evapotranspiration only if Rn24 is not NULL [mm/day]}
+\item{ETrF:}{ METRIC ET fraction [dimensionless]}
+\item{EF:}{  ET fraction [dimensionless]}
+\item{Ta:}{ Air temperature = Ts-dT [K]}
+\item{iter.coef:}{ Parameters from sensible heat iteration}
 }
 }
 \description{
@@ -264,24 +264,24 @@ modsebal=sebal(folder=data,xyhot=xyhot,xycold=xycold,welev=welev)
 }
 }
 \references{
-\describe{
-\item{}{Bastiaanssen, W. G. M., Menenti, M., Feddes, R. A., & Holtslag,
+\itemize{
+\item Bastiaanssen, W. G. M., Menenti, M., Feddes, R. A., & Holtslag,
  A. A. M. 1998. A remote sensing surface energy balance algorithm for  
  land (SEBAL), part 1: formulation. Journal of 
- Hydrology: 212-213: 198-212.}
-\item{}{Bastiaanssen, W. G. M., Pelgrum, H., Wang, J., Ma, Y., Moreno,
+ Hydrology: 212-213: 198-212.
+\item Bastiaanssen, W. G. M., Pelgrum, H., Wang, J., Ma, Y., Moreno,
  J. F., Roerink, G. J., & van der Wal, T. 1998. A remote sensing 
  surface energy balance algorithm for land (SEBAL).: Part 2: 
- Validation. Journal of Hydrology, 212-213(0): 213-229.}
- \item{}{Allen, R., Tasumi, M., & Trezza, R. 2007. Satellite-Based 
+ Validation. Journal of Hydrology, 212-213(0): 213-229.
+ \item Allen, R., Tasumi, M., & Trezza, R. 2007. Satellite-Based 
 Energy Balance for Mapping Evapotranspiration with Internalized 
 Calibration (METRIC)-Model. Journal of Irrigation and Drainage 
-Engineering, 133(4): 380-394.}
-\item{}{Allen, R., Tasumi, M., Morse, A., Trezza, R., Wright, J., 
+Engineering, 133(4): 380-394.
+\item Allen, R., Tasumi, M., Morse, A., Trezza, R., Wright, J., 
 Bastiaanssen, W., Kramber, W., Lorite, I., & Robison, C. 2007. 
 Satellite-Based Energy Balance for Mapping Evapotranspiration 
 with Internalized Calibration (METRIC)-Applications. 
-Journal of Irrigation and Drainage Engineering, 133(4): 395-406.}
+Journal of Irrigation and Drainage Engineering, 133(4): 395-406.
 }
 }
 \author{

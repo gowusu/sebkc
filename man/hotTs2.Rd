@@ -96,12 +96,12 @@ At the moment only Landsat folder is supported}
 }
 \value{
 \describe{
-\item{Ts:} { The selected or input Ts}
-\item{Tshot:} { The Temperature of hot pixel}
-\item{TX:} { The average temperature of the hot pixels}
-\item{x:} { The x cordinate of the hot pixel}
-\item{y:} { The y cordinate of the hot pixel}
-\item{xyhot: } {combined x and y coordinates}
+\item{Ts:}{ The selected or input Ts}
+\item{Tshot:}{ The Temperature of hot pixel}
+\item{TX:}{ The average temperature of the hot pixels}
+\item{x:}{ The x cordinate of the hot pixel}
+\item{y:}{ The y cordinate of the hot pixel}
+\item{xyhot: }{combined x and y coordinates}
 \item{candidates:}{ The similar candidates' pixels that can be used}
 }
 }

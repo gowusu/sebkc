@@ -232,9 +232,9 @@ goodness of fit of the local optimum values. For the explanation of calibrated m
 output and optimised parameters see the return values of \code{\link{kc}}. Here, only
 goodness of fit tests explanations are given.
 \describe{
-\item{mod:} { The optimised model. See return of \code{\link{kc}} for more details}
-\item{parameters:} { parameters of the optimised model}
-\item{fit:} {  Goodness of fit tests. See \code{\link{fitting}} for explanation of variables}
+\item{mod:}{ The optimised model. See return of \code{\link{kc}} for more details}
+\item{parameters:}{ parameters of the optimised model}
+\item{fit:}{  Goodness of fit tests. See \code{\link{fitting}} for explanation of variables}
 }
 }
 \description{

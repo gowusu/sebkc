@@ -323,51 +323,51 @@ For single and dual crop coefficient, an "output" dataframe contains variables s
 TAW,RAW,Runoff,Ks,Kcb,h,Kc,ETc,DP,CR,Drend,Kr,De,AW,E,Ke,CN. In case kc is set to EF the function returns
 Kc,Kcxy,ETc,ETcxy,Drend,Drendxy,TAW,TAWxy,RAW,RAWxy,AW,Awcxy,Ineed,Ineedxy
  \describe{
-\item{output:} {  dataframe of the return values}
-\item{ETc_adj:} { The soil water stress adjusted ETc  [mm]}
-\item{Ya_by_Ym:} {actual yield by potential yield}
-\item{yield_decrease:} {The relative yield decrease: 1-Ya/Ym}
-\item{ETdecrease:} {The relative evapotranspiration deficit :1- ETc_adj/ETc}
-\item{yield_by_ET_decrease:} {he relative yield decrease: 1-Ya/Ym and 
+\item{output:}{  dataframe of the return values}
+\item{ETc_adj:}{ The soil water stress adjusted ETc  [mm]}
+\item{Ya_by_Ym:}{actual yield by potential yield}
+\item{yield_decrease:}{The relative yield decrease: 1-Ya/Ym}
+\item{ETdecrease:}{The relative evapotranspiration deficit :1- ETc_adj/ETc}
+\item{yield_by_ET_decrease:}{he relative yield decrease: 1-Ya/Ym and 
 the relative evapotranspiration deficit in one dataframe}
-\item{Awcxy:} { Available Soil water for each location at each time step [mm]}
-\item{CR:} { capillary rise [mm/day]}
-\item{GW:} { Updated ground water depth}
-\item{CN:} { Curve Number}
-\item{De:} { cumulative depth of evaporation (depletion) 
+\item{Awcxy:}{ Available Soil water for each location at each time step [mm]}
+\item{CR:}{ capillary rise [mm/day]}
+\item{GW:}{ Updated ground water depth}
+\item{CN:}{ Curve Number}
+\item{De:}{ cumulative depth of evaporation (depletion) 
 from the soil surface layer [mm] at the end of the day [mm/day]}
-\item{DP:} { Deep Percolation [mm/day]}
-\item{Drend:} { cumulative depth of evapotranspiration (depletion) 
+\item{DP:}{ Deep Percolation [mm/day]}
+\item{Drend:}{ cumulative depth of evapotranspiration (depletion) 
 from the root zone at the end of the day [mm]. 
 This is equal to the amount of water needed to bring soil water to field capacity}
-\item{Drendxy:} { cumulative depth of evapotranspiration (depletion) 
+\item{Drendxy:}{ cumulative depth of evapotranspiration (depletion) 
 from the root zone at the end of the day [mm] for each xydata location at each time step. 
 This is equal to the amount of water needed to bring soil water to field capacity}
-\item{E:} { evaporation [mm/day]}
-\item{ETc:} { crop evapotranspiration [mm/day]. 
+\item{E:}{ evaporation [mm/day]}
+\item{ETc:}{ crop evapotranspiration [mm/day]. 
 If water stress coefficient (Ks) is less than 1, 
 ETc is crop evapotranspiration under non-standard conditions else ETc is
 crop evapotranspiration under standard conditions}
-\item{ETcxy:} { crop evapotranspiration [mm/day] for each location at each time step.
+\item{ETcxy:}{ crop evapotranspiration [mm/day] for each location at each time step.
 crop evapotranspiration under standard conditions}
-\item{h:} { crop height [m]}
-\item{Ineed:} { Amount of soil water that is below maximum allowed depletion [mm]}
-\item{Ineedxy:} { Amount of soil water that is below maximum allowed depletion 
+\item{h:}{ crop height [m]}
+\item{Ineed:}{ Amount of soil water that is below maximum allowed depletion [mm]}
+\item{Ineedxy:}{ Amount of soil water that is below maximum allowed depletion 
 for each xydata location at each time step [mm] }
-\item{Kc:} { standard crop coefficient [-]}
-\item{Kc_adj:} { adjusted crop coefficient [-]}
-\item{EF:} { Evaporation Fraction [-]}
-\item{EFxy:} { Evaporation Fraction for each monitored location [-]}
-\item{kcb:} { basal crop coefficient for the growing season [-]}
-\item{Kcxy:} { crop coefficient for each location at each time step [-]}
-\item{Ke:} { soil evaporation coefficient}
-\item{Kr: } { soil evaporation reduction coefficient [-]}
-\item{Ks:} { Water stress coefficient [-]}
-\item{RAW: } { Readily Available Water [mm]}
-\item{RAwcxy:} { Readily Available Soil water for each xydata location at each time step [mm]}
-\item{Runoff:} { Runoff [mm/day]}
-\item{TAW:} { Total Available Water [mm] }
-\item{TAwcxy:} { Total Available Soil water for each location at each time step [mm]}
+\item{Kc:}{ standard crop coefficient [-]}
+\item{Kc_adj:}{ adjusted crop coefficient [-]}
+\item{EF:}{ Evaporation Fraction [-]}
+\item{EFxy:}{ Evaporation Fraction for each monitored location [-]}
+\item{kcb:}{ basal crop coefficient for the growing season [-]}
+\item{Kcxy:}{ crop coefficient for each location at each time step [-]}
+\item{Ke:}{ soil evaporation coefficient}
+\item{Kr: }{ soil evaporation reduction coefficient [-]}
+\item{Ks:}{ Water stress coefficient [-]}
+\item{RAW: }{ Readily Available Water [mm]}
+\item{RAwcxy:}{ Readily Available Soil water for each xydata location at each time step [mm]}
+\item{Runoff:}{ Runoff [mm/day]}
+\item{TAW:}{ Total Available Water [mm] }
+\item{TAwcxy:}{ Total Available Soil water for each location at each time step [mm]}
 }
 }
 \description{
@@ -496,17 +496,17 @@ FAOExample43$output$Kcb
 }
 }
 \references{
-\describe{
-\item{}{Allen, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. (1998). 
+\itemize{
+\item Allen, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. (1998). 
 Crop Evapotranspiration (guidelines for computing crop water requirements) 
-FAO Irrigation and Drainage Paper No. 56: FAO.}
-\item{}{Allen, R.G., Wright, J.L., Pruitt, W.O., Pereira, L.S., Jensen, M.E., 2007. Water requirements.
+FAO Irrigation and Drainage Paper No. 56: FAO.
+\item Allen, R.G., Wright, J.L., Pruitt, W.O., Pereira, L.S., Jensen, M.E., 2007. Water requirements.
 In: Hoffman, G.J., Evans, R.G., Jensen, M.E., Martin, D.L., Elliot, R.L. (Eds.),
 Design and Operation of Farm Irrigation Systems. , 2nd edition. ASABE, St. Joseph,
-MI, pp. 208-288.}
-\item{}{Liu, Y., Pereira, L.S., Fernando, R.M., 2006. Fluxes through the bottom boundary of 
+MI, pp. 208-288.
+\item Liu, Y., Pereira, L.S., Fernando, R.M., 2006. Fluxes through the bottom boundary of 
 the root zone in silty soils: parametric approaches to estimate groundwater 
-contribution and percolation. Agric. Water Manage. 84, 27-40.}
+contribution and percolation. Agric. Water Manage. 84, 27-40.
  
 }
 }

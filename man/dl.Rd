@@ -37,15 +37,15 @@ Tmin=26
 mod=dl(latitude,DOY,model,Tmax,Tmin=Tmin)
 }
 \references{
-\describe{
-\item{}{Schoolfield R. (1982). Expressing daylength as a function of latitude and Julian date.}
-\item{}{Running S. W. and Coughlan J. C. (1988). A general model of forest ecosystem processes 
+\itemize{
+\item Schoolfield R. (1982). Expressing daylength as a function of latitude and Julian date.
+\item Running S. W. and Coughlan J. C. (1988). A general model of forest ecosystem processes 
 for regional applications I. Hydrologic balance, canopy gas exchange and primary production 
-processes. Ecological Modelling, 42(2), 125-154 http://dx.doi.org/10.1016/0304-3800(88)90112-3.}
-\item{}{Ritchie J. T. (1991). Wheat Phasic Development. Modeling Plant and Soil Systems. 
- Agronomy Monograph, 31.}
-\item{}{Allen R. G., Pereira L. S., Raes D. and Smith M. (1998). Crop evapotranspiration: 
-Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper, 56, 300.}
+processes. Ecological Modelling, 42(2), 125-154 http://dx.doi.org/10.1016/0304-3800(88)90112-3.
+\item Ritchie J. T. (1991). Wheat Phasic Development. Modeling Plant and Soil Systems. 
+ Agronomy Monograph, 31.
+\item Allen R. G., Pereira L. S., Raes D. and Smith M. (1998). Crop evapotranspiration: 
+Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper, 56, 300.
 }
 }
 \author{

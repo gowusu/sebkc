@@ -152,9 +152,9 @@ At the moment only Landsat folder is supported}
 }
 \value{
 \describe{
-\item{ET24:} { Actual 24 hour ET}
-\item{EF:} { ET fraction}
-\item{ETo:} { 24 hour reference ETo}
+\item{ET24:}{ Actual 24 hour ET}
+\item{EF:}{ ET fraction}
+\item{ETo:}{ 24 hour reference ETo}
 }
 }
 \description{

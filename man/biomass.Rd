@@ -80,15 +80,15 @@ data if longitude and latitude are provided. See datails and examples below.
  }
  
  @references 
-\describe{
-\item{}{De Wit, C. T. (1968). Plant production Miscellaneous Papers: 
-Landbouw Hogeschool, Wageningen.}
-\item{}{Slabbers, P. J., Herrendorf, V. S., & Stapper, M. (1979). 
+\itemize{
+\item De Wit, C. T. (1968). Plant production Miscellaneous Papers: 
+Landbouw Hogeschool, Wageningen.
+\item Slabbers, P. J., Herrendorf, V. S., & Stapper, M. (1979). 
 Evaluation of simplified water-crop yield models. 
 Agricultural Water Management, 2(2), 95-129. 
-doi: http://dx.doi.org/10.1016/0378-3774(79)90026-X}
-\item{}{FAO (1981). Report on the Agro-ecological Zones Project: 
-Food and Agriculture Organization of the United Nations.}
+doi: http://dx.doi.org/10.1016/0378-3774(79)90026-X
+\item FAO (1981). Report on the Agro-ecological Zones Project: 
+Food and Agriculture Organization of the United Nations.
 }
 }
 \examples{
