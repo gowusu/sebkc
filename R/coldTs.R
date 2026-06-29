@@ -202,7 +202,13 @@ Ts.kmeans <- kmeans(v, centers=cluster, iter.max = iter.max, nstart = 3)
   
 kmeansraster <- raster(Ts)
 i <- attr(v, "na.action")
+#when Ts has no NA cells, na.omit() does not set "na.action" so i is NULL;
+#(-NULL) raises "invalid argument to unary operator". Guard against it.
+if(is.null(i)){
+j <- 1:ncell(Ts)
+}else{
 j <- (1:ncell(Ts))[-i]
+}
 kmeansraster[j] <- Ts.kmeans$cluster
 #Ts.kmeans <- kmeans(na.omit(Ts[]), cluster, iter.max = iter.max, nstart = 3)
 #kmeansraster<-raster(Ts)
