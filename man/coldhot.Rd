@@ -28,7 +28,7 @@ At the moment only Landsat folder is supported}
 \item{welev}{Weather station elevation in meters}
 }
 \value{
-\itemize{
+\describe{
 \item{Ts:} { The selected or input Ts}
 \item{Tshot:} { The Temperature of hot pixel}
 \item{Tscold:} { The Temperature of cold pixel}
@@ -63,7 +63,7 @@ Calibration of the METRIC-Landsat Evapotranspiration Process.
 JAWRA Journal of the American Water Resources Association, 49(3): 563-576.
 }
 \seealso{
-\code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldT2}}
+\code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldTs2}}
 }
 \author{
 George Owusu

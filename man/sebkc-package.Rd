@@ -11,6 +11,12 @@ Computes and integrates surface energy balance components of
 evapotranspiration into the FAO56 water balance model, providing the
 SEBAL, METRIC, SEBI, SSEB, SEBS and TSEB models.
 }
+\details{
+Generics that the 'raster' package also provides as methods (such as plot,
+hist, quantile, text, lines and points) are intentionally not imported
+here, because they are made available through import(raster); importing
+them again would trigger "replacing previous import" warnings.
+}
 \seealso{
 Useful links:
 \itemize{
@@ -28,41 +34,4 @@ Authors:
 }
 
 }
-\keyword{"replacing}
-\keyword{(e.g.}
-\keyword{Base-package}
-\keyword{Generics}
-\keyword{NOT}
-\keyword{\code{import(raster)};}
-\keyword{\pkg{raster}}
-\keyword{again}
-\keyword{also}
-\keyword{are}
-\keyword{arrive}
-\keyword{as}
-\keyword{because}
-\keyword{functions}
-\keyword{here}
-\keyword{hist,}
-\keyword{import"}
-\keyword{imported}
-\keyword{importing}
-\keyword{intentionally}
 \keyword{internal}
-\keyword{internally.}
-\keyword{lines,}
-\keyword{methods}
-\keyword{plot,}
-\keyword{points)}
-\keyword{previous}
-\keyword{provides}
-\keyword{quantile,}
-\keyword{text,}
-\keyword{that}
-\keyword{them}
-\keyword{they}
-\keyword{trigger}
-\keyword{used}
-\keyword{via}
-\keyword{warnings.}
-\keyword{would}

@@ -145,9 +145,11 @@ You can use the  Worldwide Station List at
 \item{map}{spatial raster data for inverse distance interpolation}
 
 \item{surface}{character. It is either "grass" or "alfalfa"}
+
+\item{period}{character. Time of day for the calculation: "daytime" or "nighttime". The default is "daytime".}
 }
 \value{
-\itemize{
+\describe{
 \item{ETo:} {hour reference ETo [mm/hr]}
 \item{ETa:} {hour actual ET. It is not NULL if EF has a numeric value}
 \item{ETc:} {hour crop ET. It is not NULL if Kc has a numeric value}
@@ -178,7 +180,7 @@ ET1hr$ETo
 }
 }
 \references{
-\itemize{ 
+\describe{ 
 \item{}{ALLEN, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. 1998. 
 Crop Evapotranspiration (guidelines for computing crop water requirements) 
 FAO Irrigation and Drainage Paper No. 56: FAO.}

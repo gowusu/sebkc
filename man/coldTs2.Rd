@@ -11,6 +11,7 @@ coldTs2(
   albedo = NULL,
   sunangle = NULL,
   DEM = NULL,
+  cluster = 10,
   extent = "interactive",
   upper = 0.2,
   lower = 0.1,
@@ -57,6 +58,9 @@ You can also provide file path or location on your computer}
 
 \item{DEM}{A digital elevation model[m]}
 
+\item{cluster}{numeric, a value indicating the number of 
+clusters.}
+
 \item{extent}{A subset of the raster file than include 
 c(xmin, xmax; serastercond row: ymin, ymax). You can set it to "interactive"
 where you can digitise polygon. You can set to "auto" where it will be
@@ -89,12 +93,9 @@ landsat 5,7 or 8 bands and metadata.
 At the moment only Landsat folder is supported}
 
 \item{welev}{Weather station elevation in meters}
-
-\item{cluster}{numeric, a value indicating the number of 
-clusters.}
 }
 \value{
-\itemize{
+\describe{
 \item{Ts:} { The selected or input Ts [K]}
 \item{Tscold:} { The Temperature of cold pixel [K] }
 \item{TC:} { The average temperature of the cold pixels [K]}

@@ -117,7 +117,7 @@ kc(
   Ky = NULL
 )
 
-plot.kc(
+\method{plot}{kc}(
   x,
   output = "AW_measured",
   main = NULL,
@@ -312,13 +312,17 @@ Vlaues: "horiz";    logical: if TRUE, set the legend horizontally rather than ve
 \item{pos}{the position of legend. It takes one of the following 'top', 'topright',
 'topleft', 'bottom', 'bottomright' 'bottomleft', 'center'. This must be set so that
 the legend should not obscure the main plot.}
+
+\item{horiz}{logical; if TRUE the legend is drawn horizontally rather than vertically.}
+
+\item{...}{further arguments passed to the plotting functions.}
 }
 \value{
 The output of the function depends of the kctype and kc data type.
 For single and dual crop coefficient, an "output" dataframe contains variables such as
 TAW,RAW,Runoff,Ks,Kcb,h,Kc,ETc,DP,CR,Drend,Kr,De,AW,E,Ke,CN. In case kc is set to EF the function returns
 Kc,Kcxy,ETc,ETcxy,Drend,Drendxy,TAW,TAWxy,RAW,RAWxy,AW,Awcxy,Ineed,Ineedxy
- \itemize{
+ \describe{
 \item{output:} {  dataframe of the return values}
 \item{ETc_adj:} { The soil water stress adjusted ETc  [mm]}
 \item{Ya_by_Ym:} {actual yield by potential yield}
@@ -492,7 +496,7 @@ FAOExample43$output$Kcb
 }
 }
 \references{
-\itemize{
+\describe{
 \item{}{Allen, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. (1998). 
 Crop Evapotranspiration (guidelines for computing crop water requirements) 
 FAO Irrigation and Drainage Paper No. 56: FAO.}

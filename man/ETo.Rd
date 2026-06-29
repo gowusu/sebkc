@@ -129,7 +129,7 @@ You can also respectively use "evaporative" or "solar" or "sine".}
 \item{surface}{character. It is either "grass" or "alfalfa"}
 }
 \value{
-\itemize{
+\describe{
 \item{ETo:} { 24 hour reference ETo [mm/day]}
 \item{ETa:} { 24 hour actual ET. It is not NULL if EF has a numeric value}
 \item{ETc:} { 24 hour crop ET. It is not NULL if Kc has a numeric value}

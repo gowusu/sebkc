@@ -38,7 +38,7 @@ longitude=seq(-1.211,-1.187,0.001)
 var=seq(20,30,0.2)
 latitude=latitude[1:length(longitude)]
 var=var[1:length(longitude)]
-newlonlat=lonlatreproject(longitude,latitude,var=var,ext=temp)
+newlonlat=lonlatreproject(longitude,latitude,var=var,map=temp)
 longitude=newlonlat$longitude
 map=newlonlat$map
 

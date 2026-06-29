@@ -37,7 +37,7 @@ Tmin=26
 mod=dl(latitude,DOY,model,Tmax,Tmin=Tmin)
 }
 \references{
-\itemize{
+\describe{
 \item{}{Schoolfield R. (1982). Expressing daylength as a function of latitude and Julian date.}
 \item{}{Running S. W. and Coughlan J. C. (1988). A general model of forest ecosystem processes 
 for regional applications I. Hydrologic balance, canopy gas exchange and primary production 

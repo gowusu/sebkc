@@ -102,7 +102,7 @@ folder="C:/Users/george/Documents/")
 }
 }
 \references{
-\itemize{
+\describe{
 \item{}{Worldwide Station List.\url{http://www.wetterzentrale.de/klima/stnlst.html} 
 [Accessed on 2016-5-6] }
 \item{}{List of airports by IATA code. 

@@ -65,7 +65,7 @@ Tmax and Tmin.
  You can also point to raster file on your computer}
 }
 \value{
-\itemize{
+\describe{
 \item{EF:} { standardised wdi excluding negatives and one plus}
 \item{index:} { raw wdi including negatives and more than one}
 }

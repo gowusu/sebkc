@@ -28,12 +28,12 @@
 #' @return WMO and NASE.SSE. The WMO contains hour and day data. The NASE.SSE contains 
 #' meta and data. See example below.
 #' @references 
-#' \describe{
-#' \item{}{Worldwide Station List.\url{http://www.wetterzentrale.de/klima/stnlst.html} 
-#' [Accessed on 2016-5-6] }
-#' \item{}{List of airports by IATA code. 
-#' \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code} [Accessed on 2016-5-6]} 
-#' \item{}{Weather Underground \url{https://www.wunderground.com/} [Accessed on 2016-5-6]}
+#' \itemize{
+#' \item Worldwide Station List.\url{http://www.wetterzentrale.de/klima/stnlst.html} 
+#' [Accessed on 2016-5-6] 
+#' \item List of airports by IATA code. 
+#' \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code} [Accessed on 2016-5-6] 
+#' \item Weather Underground \url{https://www.wunderground.com/} [Accessed on 2016-5-6]
 #' }
 #' @export
 #'

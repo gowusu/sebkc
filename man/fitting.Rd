@@ -14,7 +14,7 @@ fitting(obs, est, P = 1)
 \item{P}{Number of parameters}
 }
 \value{
-\itemize{
+\describe{
 \item{r2:} {  R-square [-]}
  \item{r2_adj:} { An adjusted R-square [-]}
 \item{d:} { Index of agreement[-]}

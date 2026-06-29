@@ -64,25 +64,25 @@
 #' For landsat 8, use the meta data. 
 #' @return 
 #'  \describe{
-#' \item{albedo:} { albedo values}
-#' \item{Ts:} { Surface Temperature}
-#' \item{NDVI:} { NDVI values}
-#' \item{SAVI:} { SAVI values}
-#' \item{fc:} { Fractional vegetation cover}
-#' \item{radiance:} { radiance values}
-#' \item{reflectance:} { TOA reflectance}
+#' \item{albedo:}{ albedo values}
+#' \item{Ts:}{ Surface Temperature}
+#' \item{NDVI:}{ NDVI values}
+#' \item{SAVI:}{ SAVI values}
+#' \item{fc:}{ Fractional vegetation cover}
+#' \item{radiance:}{ radiance values}
+#' \item{reflectance:}{ TOA reflectance}
 #' }
 #' @references 
-#'  \describe{
-#' \item{}{Chander, G., Markham, B. L., & Helder, D. L. 2009. 
+#'  \itemize{
+#' \item Chander, G., Markham, B. L., & Helder, D. L. 2009. 
 #' Summary of current radiometric calibration coefficients for 
 #' Landsat MSS, TM, ETM+, and EO-1 ALI sensors. 
-#' Remote Sensing of Environment, 113(5): 893-903.}
-#' \item{}{Waters, R. 2002. SEBAL: Surface Energy Balance Algorithms for Land. 
+#' Remote Sensing of Environment, 113(5): 893-903.
+#' \item Waters, R. 2002. SEBAL: Surface Energy Balance Algorithms for Land. 
 #' Idaho Implementation, Advanced Training and Users Manual. Kimberly, Idaho: 
-#' University of Idaho.}
-#' \item{}{Survey, U. S. G. 2015. Landsat 8 (L8) data users handbook: 97p.
-#'  from https://landsat.usgs.gov/documents/Landsat8DataUsersHandbook.pdf}
+#' University of Idaho.
+#' \item Survey, U. S. G. 2015. Landsat 8 (L8) data users handbook: 97p.
+#'  from https://landsat.usgs.gov/documents/Landsat8DataUsersHandbook.pdf
 #' }
 #' @examples
 #' \dontrun{

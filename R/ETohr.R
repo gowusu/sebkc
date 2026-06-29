@@ -36,15 +36,15 @@
 #' @param period character. Time of day for the calculation: "daytime" or "nighttime". The default is "daytime".
 #' @return 
 #' \describe{
-#' \item{ETo:} {hour reference ETo [mm/hr]}
-#' \item{ETa:} {hour actual ET. It is not NULL if EF has a numeric value}
-#' \item{ETc:} {hour crop ET. It is not NULL if Kc has a numeric value}
-#' \item{Rn:} { Net  Radiation  [W/m2] }
-#' \item{Rnwm_2:} { Net Radiation [MJ/m2/hr] }
-#' \item{y:} { psychrometric constant [kPa/degree Celsius]}
-#' \item{slope:} { slope of saturation vapour pressure 
+#' \item{ETo:}{hour reference ETo [mm/hr]}
+#' \item{ETa:}{hour actual ET. It is not NULL if EF has a numeric value}
+#' \item{ETc:}{hour crop ET. It is not NULL if Kc has a numeric value}
+#' \item{Rn:}{ Net  Radiation  [W/m2] }
+#' \item{Rnwm_2:}{ Net Radiation [MJ/m2/hr] }
+#' \item{y:}{ psychrometric constant [kPa/degree Celsius]}
+#' \item{slope:}{ slope of saturation vapour pressure 
 #' curve [kPa/degree Celsius]}
-#' \item{vpd:} { Vapour pressure deficit[kPa]}
+#' \item{vpd:}{ Vapour pressure deficit[kPa]}
 #' }
 #' @examples
 #' \dontrun{
@@ -53,27 +53,27 @@
 #' ET1hr$ETo
 #' }
 #' @references
-#' \describe{ 
-#' \item{}{ALLEN, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. 1998. 
+#' \itemize{ 
+#' \item ALLEN, R. G., PEREIRA, L. S., RAES, D., & SMITH, M. 1998. 
 #' Crop Evapotranspiration (guidelines for computing crop water requirements) 
-#' FAO Irrigation and Drainage Paper No. 56: FAO.}
+#' FAO Irrigation and Drainage Paper No. 56: FAO.
 #' 
-#' \item{}{Jackson, R. D., Hatfield, J. L., Reginato, R. J., Idso, S. B., & Pinter Jr, P. J. (1983). 
+#' \item Jackson, R. D., Hatfield, J. L., Reginato, R. J., Idso, S. B., & Pinter Jr, P. J. (1983). 
 #' Estimation of daily evapotranspiration from one time-of-day measurements. 
-#' Agricultural Water Management, 7(1-3), 351-362. doi: http://dx.doi.org/10.1016/0378-3774(83)90095-1}
+#' Agricultural Water Management, 7(1-3), 351-362. doi: http://dx.doi.org/10.1016/0378-3774(83)90095-1
 #' 
-#' \item{}{French, A. N., Fitzgerald, G., Hunsaker, D., Barnes, E., Clarke, T., Lesch, S., . . .
+#' \item French, A. N., Fitzgerald, G., Hunsaker, D., Barnes, E., Clarke, T., Lesch, S., . . .
 #'  Pinter, P. (2005). 
 #' Estimating spatially distributed cotton water use from thermal infrared aerial imagery. 
 #' Paper presented at the World Water Congress 2005: 
 #' Impacts of Global Climate Change - Proceedings of the 2005 World Water and 
-#' Environmental Resources Congress, Reston, Va.}
+#' Environmental Resources Congress, Reston, Va.
 #' 
-#' \item{}{Colaizzi, P. D., Kustas, W. P., Anderson, M. C., Agam, N., Tolk, J. A., 
+#' \item Colaizzi, P. D., Kustas, W. P., Anderson, M. C., Agam, N., Tolk, J. A., 
 #' Evett, S. R., . . . O'Shaughnessy, S. A. (2012). Two-source energy balance model
 #'  estimates of evapotranspiration using component and composite surface temperatures. 
 #'  Advances in Water Resources, 50, 134-151. 
-#'  doi: http://dx.doi.org/10.1016/j.advwatres.2012.06.004}
+#'  doi: http://dx.doi.org/10.1016/j.advwatres.2012.06.004
 #'  }
 #' @export
 #' @rdname ETohr 

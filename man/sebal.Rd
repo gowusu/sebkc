@@ -177,7 +177,7 @@ landsat 5,7 or 8 bands and metadata.
 At the moment only Landsat folder is supported}
 }
 \value{
-\itemize{
+\describe{
 \item{LE:} {  latent heat flux [W/m2]}
 \item{Rn:} { Net Radiation [W/m2]}
 \item{H: } { Sensible Heat Flux [W/m2]}
@@ -264,7 +264,7 @@ modsebal=sebal(folder=data,xyhot=xyhot,xycold=xycold,welev=welev)
 }
 }
 \references{
-\itemize{
+\describe{
 \item{}{Bastiaanssen, W. G. M., Menenti, M., Feddes, R. A., & Holtslag,
  A. A. M. 1998. A remote sensing surface energy balance algorithm for  
  land (SEBAL), part 1: formulation. Journal of 

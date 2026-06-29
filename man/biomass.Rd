@@ -80,7 +80,7 @@ data if longitude and latitude are provided. See datails and examples below.
  }
  
  @references 
-\itemize{
+\describe{
 \item{}{De Wit, C. T. (1968). Plant production Miscellaneous Papers: 
 Landbouw Hogeschool, Wageningen.}
 \item{}{Slabbers, P. J., Herrendorf, V. S., & Stapper, M. (1979). 

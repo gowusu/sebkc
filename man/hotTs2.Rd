@@ -11,6 +11,7 @@ hotTs2(
   albedo = NULL,
   sunangle = NULL,
   DEM = NULL,
+  cluster = 10,
   extent = "interactive",
   upper = 0.95,
   lower = 0.8,
@@ -57,6 +58,9 @@ You can also provide file path or location on your computer}
 
 \item{DEM}{A digital elevation model[m]}
 
+\item{cluster}{numeric, a value indicating the number of 
+clusters.}
+
 \item{extent}{A subset of the raster file than include 
 c(xmin, xmax; serastercond row: ymin, ymax). You can set it to "interactive"
 where you can digitise polygon. You can set to "auto" where it will be
@@ -89,12 +93,9 @@ landsat 5,7 or 8 bands and metadata.
 At the moment only Landsat folder is supported}
 
 \item{welev}{Weather station elevation in meters}
-
-\item{cluster}{numeric, a value indicating the number of 
-clusters.}
 }
 \value{
-\itemize{
+\describe{
 \item{Ts:} { The selected or input Ts}
 \item{Tshot:} { The Temperature of hot pixel}
 \item{TX:} { The average temperature of the hot pixels}
@@ -146,7 +147,7 @@ Calibration of the METRIC-Landsat Evapotranspiration Process.
 JAWRA Journal of the American Water Resources Association, 49(3): 563-576.
 }
 \seealso{
-\code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldT2}}
+\code{\link{coldTs}},  \code{\link{hotTs}}, \code{\link{coldTs2}}
 }
 \author{
 George Owusu

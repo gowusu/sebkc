@@ -100,7 +100,7 @@ conform the data to be cropped. for example clip can take the form of c(xmin, xm
 \item{iter.max}{The number iterations that kmeans cluster should use.}
 }
 \value{
-\itemize{
+\describe{
 \item{Ts:} { The selected or input Ts [K]}
 \item{Tscold:} { The Temperature of cold pixe [K] }
 \item{TC:} { The average temperature of the cold pixels [K]}

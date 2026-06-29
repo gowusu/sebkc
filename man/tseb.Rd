@@ -257,7 +257,7 @@ At the moment only Landsat folder is supported}
 \item{iter.max}{maximum iterations of sensible heat calculation.}
 }
 \value{
-\itemize{
+\describe{
 \item{LEc:} { canopy latent heat flux [W/m2]}
 \item{LEs:} { Soil latent heat flux[W/m2]}
 \item{T24:} { 24 hour Transpiration [mm/day]}
@@ -349,7 +349,7 @@ latitude=5.6,n=6.5)
 
 }
 \references{
-\itemize{
+\describe{
 \item{}{Norman JM, Kustas WP, Humes KS (1995). A two-source approach for estimating 
 soil and vegetation energy fluxes from observations of directional 
 radiometric surface temperature. Agric For Meteorol 1995;77:263-93.}

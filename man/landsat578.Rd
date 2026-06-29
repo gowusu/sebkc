@@ -130,7 +130,7 @@ landsat 5,7 or 8 bands and metadata.
 At the moment only Landsat folder is supported}
 }
 \value{
-\itemize{
+\describe{
 \item{albedo:} { albedo values}
 \item{Ts:} { Surface Temperature}
 \item{NDVI:} { NDVI values}
@@ -174,7 +174,7 @@ albedo=mod$albedo
 }
 }
 \references{
-\itemize{
+\describe{
 \item{}{Chander, G., Markham, B. L., & Helder, D. L. 2009. 
 Summary of current radiometric calibration coefficients for 
 Landsat MSS, TM, ETM+, and EO-1 ALI sensors. 

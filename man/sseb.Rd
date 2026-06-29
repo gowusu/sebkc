@@ -151,7 +151,7 @@ landsat 5,7 or 8 bands and metadata.
 At the moment only Landsat folder is supported}
 }
 \value{
-\itemize{
+\describe{
 \item{ET24:} { Actual 24 hour ET}
 \item{EF:} { ET fraction}
 \item{ETo:} { 24 hour reference ETo}

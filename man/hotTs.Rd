@@ -95,7 +95,7 @@ conform the data to be cropped. for example clip can take the form of c(xmin, xm
 \item{iter.max}{maximum iterations of sensible heat calculation.}
 }
 \value{
-\itemize{
+\describe{
 \item{Ts:} { The selected or input Ts}
 \item{Tshot:} { The Temperature of hot pixel}
 \item{TX:} { The average temperature of the hot pixels}
