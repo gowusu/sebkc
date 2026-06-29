@@ -137,7 +137,7 @@ retrieve instantaneous ET estimates. This helps to estimate ET24, T24, E24, EF, 
 \item{wmo}{numeric. World Meteorological Organization weather station code.
 You can use the  Worldwide Station List at 
 \url{https://www.wunderground.com/}  [Accessed on 2016-5-6] or 
-\url{https://www.wetterzentrale.de/klima/stnlst.html} [Accessed on 2016-5-6]}
+\url{https://www.wetterzentrale.de/} [Accessed on 2016-5-6]}
 
 \item{airport}{numeric. IATA or ICAO code. They are alphabetically  listed at 
 \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A} [Accessed on 2016-5-6]}

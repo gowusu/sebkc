@@ -22,7 +22,7 @@ weather(
 \item{wmo}{numeric. World Meteorological Organization weather station code.
 You can use the  Worldwide Station List at 
 \url{https://www.wunderground.com/}  [Accessed on 2016-5-6] or 
-\url{https://www.wetterzentrale.de/klima/stnlst.html} [Accessed on 2016-5-6]}
+\url{https://www.wetterzentrale.de/} [Accessed on 2016-5-6]}
 
 \item{airport}{numeric. IATA or ICAO code. They are alphabetically  listed at 
 \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A} [Accessed on 2016-5-6]}
@@ -103,7 +103,7 @@ folder="C:/Users/george/Documents/")
 }
 \references{
 \itemize{
-\item Worldwide Station List.\url{https://www.wetterzentrale.de/klima/stnlst.html} 
+\item Worldwide Station List.\url{https://www.wetterzentrale.de/} 
 [Accessed on 2016-5-6] 
 \item List of airports by IATA code. 
 \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code} [Accessed on 2016-5-6] 
