@@ -8,8 +8,8 @@
 #' @param data dataframe that can contain all or part of the input data 
 #' @param wmo numeric. World Meteorological Organization weather station code.
 #' You can use the  Worldwide Station List at 
-#' \url{https://www.wunderground.com/about/faq/international_cities.asp}  [Accessed on 2016-5-6] or 
-#' \url{http://www.wetterzentrale.de/klima/stnlst.html} [Accessed on 2016-5-6]
+#' \url{https://www.wunderground.com/}  [Accessed on 2016-5-6] or 
+#' \url{https://www.wetterzentrale.de/klima/stnlst.html} [Accessed on 2016-5-6]
 #' @param airport numeric. IATA or ICAO code. They are alphabetically  listed at 
 #' \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A} [Accessed on 2016-5-6]
 #' @param date date in the form of "YYYY-mm-dd" for example "2016-01-01"
@@ -17,7 +17,7 @@
 #' @param NASA.SSE list of  NASA SSE data dates in the form of "YYYY-mm-dd".
 #' For example NASA.SSE=list(from=""2001-01-01"", to="2001-04-01"). Note that SSE date
 #' is from 1983 to 2005: 
-#' \url{https://eosweb.larc.nasa.gov/cgi-bin/sse/sse.cgi?skip@larc.nasa.gov+s01#s01}
+#' \url{https://power.larc.nasa.gov/}
 #' [Accessed on 2016-5-6] 
 #' if the  parameter is not provided, date parameter will be used 
 #' provided longitude and latitude are provided.
@@ -29,7 +29,7 @@
 #' meta and data. See example below.
 #' @references 
 #' \itemize{
-#' \item Worldwide Station List.\url{http://www.wetterzentrale.de/klima/stnlst.html} 
+#' \item Worldwide Station List.\url{https://www.wetterzentrale.de/klima/stnlst.html} 
 #' [Accessed on 2016-5-6] 
 #' \item List of airports by IATA code. 
 #' \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code} [Accessed on 2016-5-6] 

@@ -69,8 +69,8 @@
 #'  \item{\strong{Theory}}{This function separately computes LEs, LEs using
 #'  Net radiation (Rn), sensible heat flux (H) and soil heat flux (G).
 #'  The Rn was first computed with \code{sebal}. The soil net radiation computed
-#'  as  \eqn{Rns=(sebal$Rn*exp(0.9*log(1-fc)))} . The canopy radiation was computed 
-#'  as  \eqn{Rnc=sebal$Rn-Rns} . The G was computed from \code{sebal}. 
+#'  as  \code{Rns=(sebal$Rn*exp(0.9*log(1-fc)))} . The canopy radiation was computed 
+#'  as  \code{Rnc=sebal$Rn-Rns} . The G was computed from \code{sebal}. 
 #'  The canopy sensible heat (Hc) and soil sensible heat (Hs) were computed
 #'  based on corresponding canopy Temperature (Tc) and soil temperature (Tsoil).
 #'  Two different approaches were employed to sensible heat fluxes. The first
