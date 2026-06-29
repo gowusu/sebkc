@@ -5,7 +5,7 @@ Title: Surface Energy Balance and Crop Coefficient Evapotranspiration
 Version: 1.0-2
 Date: 2026-06-29
 Authors@R: person(given = "George", family = "Owusu",
-    email = "gowusu@gmail.com", role = c("aut", "cre"))
+    email = "owusugeorge@ug.edu.gh", role = c("aut", "cre"))
 Description: Computes and integrates surface energy balance components of
     evapotranspiration (ET), sensible heat (H), soil heat flux (G) and
     net radiation (Rn) into the FAO56 water balance model. The package can
