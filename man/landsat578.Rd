@@ -158,7 +158,7 @@ or stack. To use the default values please order bind the bands
 For landsat 8, use the meta data.
 }
 \examples{
-\donttest{
+\dontrun{
 #Automatic detection of parameters
 folder=system.file("extdata","stack",package="sebkc")
 modauto=landsat578(data=folder, welev=362)

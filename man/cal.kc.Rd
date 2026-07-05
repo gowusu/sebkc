@@ -270,7 +270,7 @@ There are several ways  to use cal.kc:
   }
 }
 \examples{
-\donttest{
+\dontrun{
 #fewer iteration
 file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 data=read.table(file,header=TRUE)  

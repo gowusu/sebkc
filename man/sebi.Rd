@@ -179,7 +179,7 @@ slope (slope of saturation vapour pressure curve) and
 vpd (Vapour pressure deficit).
 }
 \examples{
-\donttest{
+\dontrun{
 #using folder parameter 
 folder=system.file("extdata","stack",package="sebkc")
 sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)

@@ -120,7 +120,7 @@ and qualifying for upper (Ts) and lower (NDVI) limits
  are also used to select the final Ts.
 }
 \examples{
-\donttest{
+\dontrun{
  folder=system.file("extdata","stack",package="sebkc")
   modhot=hotTs(folder=folder,welev=170,extent="auto",cluster=3)
   

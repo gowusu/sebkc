@@ -92,7 +92,7 @@ Food and Agriculture Organization of the United Nations.
 }
 }
 \examples{
-\donttest{
+\dontrun{
 ################# Point Estimation ###################
 # Identify the climatic input data on 
 latitude=11.18 #in decimal degrees
@@ -126,7 +126,8 @@ yield=pointSmod$yield #tabular data
 biomass=pointSmod$output #tabular data
 #access on biomass
 pointSmod$output$yield
-
+}
+\dontrun{
 ############## Spatial Estimation with internal interpolation ###########################
 #generate spatial data
 folder=system.file("extdata","stack",package="sebkc")

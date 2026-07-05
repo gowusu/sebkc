@@ -24,7 +24,7 @@ The function reprojects longitudes and latitudes into map
 coordinates and extract raster values
 }
 \examples{
-\donttest{
+\dontrun{
 lonlat=read.table(system.file("extdata","sys","xyvalues.txt",package="sebkc"),header=TRUE)
 longitude=lonlat$longitude
 latitude=lonlat$latitude

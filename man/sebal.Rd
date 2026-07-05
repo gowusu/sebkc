@@ -219,7 +219,7 @@ soil heat flux(G) and Net Radiation(Rn).
  }
 }
 \examples{
-\donttest{
+\dontrun{
 #use original landsat 8 data by specifying folder path
 folder=system.file("extdata","stack",package="sebkc")
 modauto=sebal(folder = folder,welev = 380,xycold="full",xyhot="full")

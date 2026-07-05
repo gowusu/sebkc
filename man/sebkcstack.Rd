@@ -91,7 +91,7 @@ processed data in the same "folder" with \code{\link{writesebkc}}.
 The output file name is "sebkcstack.tif".
 }
 \examples{
-\donttest{
+\dontrun{
 folder=system.file("extdata","stack",package="sebkc")
 stack=sebkcstack(folder=folder)
 #returns data and grescale

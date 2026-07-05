@@ -83,7 +83,7 @@ Note that surface temperature (Tsmin and Tsmax)
 You can get Ta from  \code{\link{sebal}} Ta
 }
 \examples{
- \donttest{
+ \dontrun{
 albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
 NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))

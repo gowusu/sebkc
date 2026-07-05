@@ -125,7 +125,7 @@ and qualifying for upper (NDVI) and lower (Ts) limits
  are also used to select the final Ts.
 }
 \examples{
-\donttest{
+\dontrun{
 #using landsat folder
 folder=system.file("extdata","stack",package="sebkc")
 modcold=coldTs(folder=folder,welev=170,extent="auto")

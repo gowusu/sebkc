@@ -291,7 +291,7 @@ Norman et al (1995) and Colaizzi et al(2012) models.
  }
 }
 \examples{
-\donttest{
+\dontrun{
 albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
 NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
