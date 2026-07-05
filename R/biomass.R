@@ -200,7 +200,8 @@ lonlatreproject=function(x,y=NULL,var=NA,map,epsg=4326){
 #' biomass=pointSmod$output #tabular data
 #' #access on biomass
 #' pointSmod$output$yield
-#' 
+#' }
+#' \dontrun{
 #' ############## Spatial Estimation with internal interpolation ###########################
 #' #generate spatial data
 #' folder=system.file("extdata","stack",package="sebkc")
@@ -346,22 +347,22 @@ outputdata=data.frame()
   }else{
   
 Ndays=as.numeric(as.Date(harvestdate, "%Y/%m/%d")-as.Date(plantdate, "%Y/%m/%d"))
-if(is.na(Ndays)){
+if(any(is.na(Ndays))){
   Ndays=as.numeric(as.Date(harvestdate, "%d-%m-%Y")-as.Date(plantdate, "%d-%m-%Y"))
   
 }
-if(is.na(Ndays)){
+if(any(is.na(Ndays))){
   Ndays=as.numeric(as.Date(harvestdate, "%d/%m/%Y")-as.Date(plantdate, "%d/%m/%Y"))
   
 }
-if(is.na(Ndays)){
+if(any(is.na(Ndays))){
   Ndays=as.numeric(as.Date(harvestdate, "%m/%d/%Y")-as.Date(plantdate, "%m/%d/%Y"))
 }
 
-if(is.na(Ndays)){
+if(any(is.na(Ndays))){
   Ndays=as.numeric(as.Date(harvestdate, "%m-%d-%Y")-as.Date(plantdate, "%m-%d-%Y"))
 }
-if(is.na(Ndays)){
+if(any(is.na(Ndays))){
   Ndays=as.numeric(as.Date(harvestdate, "%Y-%m-%d")-as.Date(plantdate, "%Y-%m-%d"))
 }
 #print(Ndays)
