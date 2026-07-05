@@ -47,7 +47,7 @@
 #' \item{vpd:}{ Vapour pressure deficit[kPa]}
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #FAO56 Example 19 14:00-15:00 h using Cd = 0.24 instead 0.34 in FAO56
 #' ET1hr=ETohr(Tmean=38,RH=52,DOY=274,Lz=15,t1=1,time=14.5,Lm=16.25,latitude=16.22,uz=3.3,Rs=2.450)
 #' ET1hr$ETo
@@ -89,7 +89,7 @@ ETohr.default=function(Tmean,RH,DOY,Lz,t1=1,time,Lm,latitude,longitude=NULL,n=NU
   ETins=NULL,ETr24=NULL,wmo=NULL, airport=NULL,map=NULL,surface="grass",period="daytime"){
   filedata=NULL
   timestep="hour"
-  print("Computing ETr")
+  message("Computing ETr")
     if(!is.null(wmo)||!is.null(airport)){
    Tmean=sebkc.tryCatch(Tmean)$value
    
@@ -103,7 +103,7 @@ ETohr.default=function(Tmean,RH,DOY,Lz,t1=1,time,Lm,latitude,longitude=NULL,n=NU
    }
    Tmean=sebkc.tryCatch(weather(data=Tmean,airport = airport,wmo=wmo, date=DOY,time=time))$value
    if(inherits(Tmean, "simpleError")){
-    return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",Tmean))) 
+    return (message(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",Tmean))) 
    }
    Tmean= Tmean$WMO$hour
    
@@ -295,7 +295,7 @@ N=(24/pi)*ws
 if(is.null(Rs)){
 if(is.null(n)){
 if(is.null(Tmax)||is.null(Tmin)||is.null(Krs)){
- print("daily Tmax, Tmin and Krs needed, please") 
+ message("daily Tmax, Tmin and Krs needed, please") 
 }  
   Rs=Krs*sqrt(Tmax-Tmin)*Ra  
 }else{  

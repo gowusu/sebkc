@@ -15,7 +15,7 @@
 #' @return Writes output to a folder
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' folder=system.file("extdata","stack",package="sebkc")
 #' stack=landsat578(data=folder, welev=362)
 #' writesebkc(stack)

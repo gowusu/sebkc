@@ -21,7 +21,7 @@
 #' @author George Owusu
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #define Input data
 #' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 #' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
@@ -29,7 +29,7 @@
 #' LAI=raster(system.file("extdata","LAI.grd",package="sebkc"))
 #' Tmax=31
 #' Tmin=28
-#' RHmax=84,
+#' RHmax=84
 #' RHmin=63
 #' #perform simulation
 #' modsebs=sebs(albedo=albedo,Ts=Ts,Tmax=Tmax,Tmin=Tmin,RHmax=RHmax,
@@ -50,9 +50,9 @@
 #' data=landsat578(rawdata,welev=welev)
 #'  #perform semi-auto simulation 
 #' #Determine xyhot. Digitize polygon on the Ts map
-#' modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+#' modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #' #determine the cold. Digitize polygon on the Ts map
-#' modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+#' modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 #' xyhot=modhot$xyhot
 #' xycold=modcold$xycold
 #' #use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
@@ -86,7 +86,7 @@ model="SEBS",clip=NULL,folder=NULL){
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     
@@ -119,7 +119,7 @@ model="SEBS",clip=NULL,folder=NULL){
       ETr24=sebkc.tryCatch(ETo(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                                z=zx,Krs =Krs,altitude=welev))$value
       if(inherits(ETr24, "simpleError")){
-        return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
+        return (message(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
       }
       
       Tmin=ETr24$data$Tmin
@@ -163,7 +163,7 @@ vpd=PET$vpd
 slope=PET$slope
 Hdry=data$Rn_hot-data$G_hot
 Hwet=((data$Rn_cold-data$G_cold)-((data$paircold*cp)/data$rah_cold)*(vpd/y))/((1+slope/y))
-print ("computing EF" )
+message("computing EF" )
 EFr=1-((mod$H-Hwet)/(Hdry-Hwet))
 EF=1.1*((EFr*data$LEcold)/(mod$Rn-mod$G))
 EF[EF<0,]=0
@@ -172,7 +172,7 @@ EF[EF>1.1,]=1.1
 ET24=NULL
 #print(Rn24)
 if(!is.null(Rn24)){
-  print ("computing ETa" )
+  message("computing ETa" )
   ET24=EF*Rn24*0.035
 }
 factor<-list(EF=EF,ET24=ET24,folder=folder)

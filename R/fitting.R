@@ -58,7 +58,7 @@ fitting<-function(obs,est,P=1)
   df=summary(mod)$fstatistic[[3]]
   r2=summary(mod)[[8]]
   f <- summary(mod)$fstatistic
-  p <- pf(f[1],f[2],f[3],lower.tail=F)
+  p <- pf(f[1],f[2],f[3],lower.tail=FALSE)
   attributes(p) <- NULL
   #Nash-Sutcliffe efficiency rating for model estiamtes https://github.com/USGS-R/rloadest/blob/master/R/nashSutcliffe.R
   #nashSutcliffe <- function(obs, est, na.rm=TRUE) {

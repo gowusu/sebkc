@@ -117,7 +117,7 @@
 #' }
 #' @import raster
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #use original landsat 8 data by specifying folder path
 #' folder=system.file("extdata","stack",package="sebkc")
 #' modauto=sebal(folder = folder,welev = 380,xycold="full",xyhot="full")
@@ -153,9 +153,9 @@
 #'  data=landsat578(rawdata,welev=welev)
 #'  #perform semi-auto simulation mod=sebal(data,welev=welev)
 #' # Determine xyhot. Digitize polygon on the Ts map
-#' modhot=hotTs(data,welev=welev,extent="digitize",cluster=2)
+#' modhot=hotTs(data,welev=welev,extent="auto",cluster=2)
 #' #determine the cold. Digitize polygon on the Ts map
-#' modcold=coldTs(data,welev=welev,extent="digitize",cluster=2)
+#' modcold=coldTs(data,welev=welev,extent="auto",cluster=2)
 #' xyhot=modhot$xyhot
 #' xycold=modcold$xycold
 #' modsebal=sebal(folder=data,xyhot=xyhot,xycold=xycold,welev=welev)
@@ -195,7 +195,7 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(!inherits(albedo, "landsat578")){
     if(is.null(welev)){
-        return(print("Please provide the parameter welev: 
+        return(message("Please provide the parameter welev: 
                      the elavation of th weather station"))  
     }
     }
@@ -232,7 +232,7 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
     ETr24=sebkc.tryCatch(ETo(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                              z=zx,Krs =Krs,altitude=welev))$value
     if(inherits(ETr24, "simpleError")){
-      return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
+      return (message(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
     }
     Rn24=ETr24$Rn
     ETr24= ETr24$ETo
@@ -246,7 +246,7 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
     ETr=sebkc.tryCatch(ETohr(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
     z=zx,Krs =Krs,altitude=welev,time= thistime,Lz=Lz,t1=t1,Lm=Lm))$value
     if(inherits(ETr, "simpleError")){
-      return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo or time or Lz or Lm or t1",ETr))) 
+      return (message(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo or time or Lz or Lm or t1",ETr))) 
     }
     #return(print(ETr$ETo))
     ETr=ETr$ETo
@@ -341,13 +341,13 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
   tsw=(0.75+2*0.00001*welev)^2
   ea=0.85*(-log(tsw))^0.09
   stefan=5.67E-08
-  print("computing incoming shortwave solar radiation")
+  message("computing incoming shortwave solar radiation")
   Rs_in=1367*cos_teta*dr*tsw
   sunangle=sunelev
   if(is.null(DEM)){
     pressure=101.325
   }else{
-    print("Computing air pressure with DEM")
+    message("Computing air pressure with DEM")
     pressure=101.325*((293-(0.0065*DEM))/293)^5.26
     Ts=Ts+(lapse*DEM)
   }
@@ -378,23 +378,23 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
   }
  
   e0=rastercon( NDVI<0 & albedo<0.47,0.985,rastercon(LAI>=3,0.98,0.95+(LAI*0.01)))
-  print("Computing Vaporaisation with Surface Temperature")
+  message("Computing Vaporaisation with Surface Temperature")
   vaporisation=(2.501-(0.00236*(Ts-273.15)))*10^6
-  print("Computing outgoing longwave radiation")
+  message("Computing outgoing longwave radiation")
   RL_out=e0*stefan*(Ts^4)
   Ts_cold=getValues(Ts)[cellFromXY(Ts,c(xcold,ycold))]
-  print("Computing incoming longwave radiation")
+  message("Computing incoming longwave radiation")
   RL_in=ea*stefan*(Ts_cold^4)
   #Net radiation
   Rn=((1-albedo)*Rs_in)+RL_in-RL_out-((1-e0)*RL_in)
   #Soil Heat flux
-  print("Computing Soil heat flux")
+  message("Computing Soil heat flux")
   G_by_Rn=(Ts-273.15)*(0.0038+0.007*albedo)*(1-0.98*NDVI^4)
   G_by_Rn[NDVI<0,]=0.5
   G_by_Rn[Ts-273.15<4&albedo>0.45,]=0.5
   G=G_by_Rn*Rn
   
-  print("Computing surface roughness[zom]")
+  message("Computing surface roughness[zom]")
   #sensible Heat
   if(is.null(zom)){
     zom=0.018*LAI #surface roughness
@@ -418,14 +418,14 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
   Rn_hot=getValues(Rn)[cellFromXY(Rn,c(xhot,yhot))]
   G_cold=getValues(G)[cellFromXY(G,c(xcold,ycold))]
   G_hot=getValues(G)[cellFromXY(G,c(xhot,yhot))]
-  print("Computing sensible heat flux........................")
+  message("Computing sensible heat flux........................")
   
   i=1
   rah_hot_change=-10000
   coldDT=0
   while (i<=iter.max)
   {
-    print(paste("Monin-Obukhov length iteration",i,"of",iter.max))
+    message(paste("Monin-Obukhov length iteration",i,"of",iter.max))
     
     #change in temerature at the hot pixel
     rah_hot=getValues(rah)[cellFromXY(rah,c(xhot,yhot))]
@@ -459,7 +459,7 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
     
     if(model=="METRIC"){
       if(is.null(ETr)){
-        return(print("ETr is needed"))
+        return(message("ETr is needed"))
       }
       LE_cold=1.05*ETr*getValues(pair)[cellFromXY(pair,c(xcold,ycold))]
       H_cold=(Rn_cold-LE_cold-G_cold)/3600
@@ -505,7 +505,7 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
     i=i+1
   }
   #H=Con(H<0,0,H)
-  print ("computing latent heat flux" )
+  message("computing latent heat flux" )
   LE=Rn-G-H
   #LE=Con(LE<0,0,LE)
   ETrF=NULL

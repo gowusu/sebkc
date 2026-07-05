@@ -26,7 +26,7 @@
 #' \item{candidates:}{ The similar candidates' pixels that can be used}
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'  folder=system.file("extdata","stack",package="sebkc")
 #'   model=coldhot(Tmin=300,Tmax=310,folder=folder,welev=170)
 #'   spplot(model$Tshot)
@@ -58,7 +58,7 @@ coldhot.default=function(Tmin,Tmax,Ts=NULL,folder=NULL,welev=NULL){
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){

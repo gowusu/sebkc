@@ -28,7 +28,7 @@
 #' \item{candidates:}{ The similar candidates' pixels that can be used}
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'  folder=system.file("extdata","stack",package="sebkc")
 #'   modhot=hotTs2(folder=folder,welev=170,extent="auto",cluster=3)
 #'   
@@ -80,7 +80,7 @@ lower=0.8,NDVI.probs=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,wel
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
@@ -100,7 +100,7 @@ lower=0.8,NDVI.probs=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,wel
     }
   
   if(is.null(sunangle)){
-    return (print("sunangle is needed"))
+    return (message("sunangle is needed"))
   }
   
 ext=extent
@@ -182,7 +182,9 @@ x=p3$x
 y=p3$y
 ndvi=getValues(NDVI2)[cellFromXY(NDVI2,c(x,y))]
 
-if(plot==TRUE||plot==T){
+if(plot==TRUE||plot==TRUE){
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar), add = TRUE)
 par(mfrow=c(1,2))
 hist(Ts,main="Ts[Hot/Dry]",xlab="Temperature")
 abline(v=p3,col="red")

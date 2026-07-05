@@ -50,7 +50,7 @@
 #' \item{candidates:}{ The similiar candidates' pixels that can be used}
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #using landsat folder
 #' folder=system.file("extdata","stack",package="sebkc")
 #' modcold=coldTs(folder=folder,welev=170,extent="auto")
@@ -92,7 +92,7 @@ cluster=8,extent="interactive",upper=0.95,
 lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL
 ,clip=NULL,
 iter.max=100){
-  print("Selecting cold pixel")
+  message("Selecting cold pixel")
   
   
   if(is.null(folder)){
@@ -107,7 +107,7 @@ iter.max=100){
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
@@ -127,7 +127,7 @@ iter.max=100){
     }
   
   if(is.null(sunangle)){
-    return (print("sunangle is needed"))
+    return (message("sunangle is needed"))
   }
   
 ext=extent
@@ -197,6 +197,10 @@ lower1=quantile(Ts,probs=0.05)
 #Ts[Ts<lower1[[1]],]=NA
 
 v <- na.omit(getValues(Ts))
+if(exists(".Random.seed", envir = .GlobalEnv)){
+oldseed <- get(".Random.seed", envir = .GlobalEnv)
+on.exit(assign(".Random.seed", oldseed, envir = .GlobalEnv), add = TRUE)
+}
 set.seed(99)
 Ts.kmeans <- kmeans(v, centers=cluster, iter.max = iter.max, nstart = 3)
   
@@ -304,7 +308,9 @@ x=p3$x
 y=p3$y
 ndvi=getValues(NDVI2)[cellFromXY(NDVI2,c(x,y))]
 
-if(plot==TRUE||plot==T){
+if(plot==TRUE||plot==TRUE){
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar), add = TRUE)
 par(mfrow=c(1,2))
 hist(Ts,main="Ts[Cold/Wet]",xlab="Temperature")
 abline(v=p3,col="red")

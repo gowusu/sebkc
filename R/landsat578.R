@@ -85,7 +85,7 @@
 #'  from https://landsat.usgs.gov/documents/Landsat8DataUsersHandbook.pdf
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #Automatic detection of parameters
 #' folder=system.file("extdata","stack",package="sebkc")
 #' modauto=landsat578(data=folder, welev=362)
@@ -118,7 +118,7 @@ Ap=NULL,K1=NULL,K2=NULL,Rp=0.91,Rsky=1.32,tNB=0.886,DOY=NULL,clip=NULL,folder=NU
    data=folder 
   }
   if(is.null(data)&&is.null(folder)){
-  return(print("Please provide data or folder path"))
+  return(message("Please provide data or folder path"))
       }
   folder=NULL
 
@@ -248,7 +248,7 @@ if(is.numeric(brescale)){
 Brescale=brescale
 
 }
-print("Computing Radiance: this may take several minutes........")
+message("Computing Radiance: this may take several minutes........")
 
 radiance=(Grescale*data)+Brescale
 
@@ -257,7 +257,7 @@ if(ESUNx!="auto"){
 ESUN=ESUNx
 }
 
-print("Computing Reflectance")
+message("Computing Reflectance")
 
 if(satellite==8||satellite=="8"){
 weight=weights8
@@ -278,24 +278,24 @@ weight=weights
 }
 weights=reflection*weight
 
-print("Computing Albedo")
+message("Computing Albedo")
 #albedo toa
 albedo_toa=sum(weights)
 
 #albedo
 albedo=(albedo_toa-0.03)/(tsw^2)
 
-print("Computing NDVI")
+message("Computing NDVI")
 
 NDVI=(reflection[[4]]-reflection[[3]])/(reflection[[4]]+reflection[[3]])
 fc=((NDVI-cellStats(NDVI,min))/(cellStats(NDVI,max)-cellStats(NDVI,min)))^2
 NDVI=rastercon(NDVI< (-1),-1,rastercon(NDVI>1,1,NDVI))
-print("Computing SAVI")
+message("Computing SAVI")
 SAVI=(1.5*(reflection[[4]]-reflection[[3]]))/
 (0.5+(reflection[[4]]+reflection[[3]]))
-print("Computing LAI")
+message("Computing LAI")
 LAI=(5.434*SAVI)+1.5416
-print("Computing emissivities")
+message("Computing emissivities")
 eNB=rastercon( NDVI<0 & albedo<0.47,0.99,rastercon(LAI>=3,0.98,0.97+
                                                      (LAI*0.0033)))
 #Rc=radiance[[6]]
@@ -309,9 +309,9 @@ radiance6=radiance[[7]]
 radiance6=radiance[[6]]  
 }
 if(!is.null(K1)&&!is.null(K2)){
-  print("Computing corrected thermal radiance")
+  message("Computing corrected thermal radiance")
 Rc=((radiance6-Rp)/tNB)-(1-eNB)*Rsky
-print("Computing Surface temperature")
+message("Computing Surface temperature")
 Ts=K2/(log(((eNB*K1)/Rc)+1))
 }
 

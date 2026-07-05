@@ -76,7 +76,7 @@
 #' }
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' folder=system.file("extdata","stack",package="sebkc")
 #' stack=sebkcstack(folder=folder)
 #' #returns data and grescale
@@ -85,16 +85,16 @@
 #' }
 #' @export
 #' @rdname sebkcstack
-sebkcstack<-function(folder,meta_pattern="MTL.txt",remove_cloud=F,
-    gap_fill=F,gap_loop=8,clip=NULL) UseMethod ("sebkcstack")
+sebkcstack<-function(folder,meta_pattern="MTL.txt",remove_cloud=FALSE,
+    gap_fill=FALSE,gap_loop=8,clip=NULL) UseMethod ("sebkcstack")
 #' @export
 #' @rdname sebkcstack
-sebkcstack.default<-function(folder,meta_pattern="MTL.txt",remove_cloud=F,
-                            gap_fill=F,gap_loop=8,clip=NULL){
+sebkcstack.default<-function(folder,meta_pattern="MTL.txt",remove_cloud=FALSE,
+                            gap_fill=FALSE,gap_loop=8,clip=NULL){
   
 crop=clip
 metafile=list.files(folder,meta_pattern,full.names = TRUE)
-metadata=read.delim(metafile,sep="=",stringsAsFactors = F,skipNul = TRUE)
+metadata=read.delim(metafile,sep="=",stringsAsFactors = FALSE,skipNul = TRUE)
 SPACECRAFT_ID=(metadata[grep("SPACECRAFT_ID",metadata$GROUP),][[2]])
 sensor=as.numeric(strsplit(SPACECRAFT_ID, "_")[[1]][2])
 raster1crop=NULL
@@ -253,7 +253,7 @@ if(sensor==8){
 name1=names(data)
 
 #clousd masking
-if((remove_cloud!=FALSE||remove_cloud!=F)&sensor!=8){
+if((remove_cloud!=FALSE||remove_cloud!=FALSE)&sensor!=8){
   
   if(remove_cloud==2){
   mask<-(data[[1]]>120&data[[1]]<255)|(data[[6]]>=102&data[[6]]<128)
@@ -266,7 +266,7 @@ if((remove_cloud!=FALSE||remove_cloud!=F)&sensor!=8){
 }
 
 #strips replacing
-if(gap_fill==TRUE||gap_fill==T){
+if(gap_fill==TRUE||gap_fill==TRUE){
   #system.time()
   
   band1[band1==0]=NA

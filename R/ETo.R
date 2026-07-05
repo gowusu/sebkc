@@ -56,7 +56,7 @@
 #' \item{vpd:}{ Vapour pressure deficit[kPa]}
 #' }
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #with minimal data
 #' PET=ETo(Tmax=31,Tmin=28,latitude=5.6,DOY="6-2-2001")
 #' PET$ETo
@@ -83,10 +83,10 @@ ETo.default=function(Tmax,Tmin,DOY,latitude,longitude=NULL,z=NULL,uz=2,altitude=
 RHmax=NULL,RHmin=NULL,n=NULL,Krs=0.16,albedo=0.23,
 as=0.25,bs=0.5,Rs=NULL,Rn=NULL,G=0,EF=NULL,wmo=NULL, airport=NULL,scale="evaporative fraction",Kc=NULL,
 surface="grass"){
-  print("Computing ETr24 or ETo24")
+  message("Computing ETr24 or ETo24")
   thislat=sebkc.tryCatch(latitude)$value
   if(inherits(thislat, "simpleError")){
-    return(print("latitude is needed"))
+    return(message("latitude is needed"))
     
   }
   filedata=NULL
@@ -102,7 +102,7 @@ surface="grass"){
    #print(Tmax)
     Tmax=sebkc.tryCatch(weather(data=Tmax,airport = airport,wmo=wmo, date=DOY))$value
     if(inherits(Tmax, "simpleError")){
-      return (print(Tmax)) 
+      return (message(Tmax)) 
     }
     Tmax= Tmax$WMO$day
     
@@ -285,7 +285,7 @@ nN=n/N
 if(is.null(Rs)){
 if(is.null(n)){
   if(is.null(Tmax)||is.null(Tmin)||is.null(Krs)){
-    print("daily Tmax, Tmin and Krs needed, please") 
+    message("daily Tmax, Tmin and Krs needed, please") 
   } 
 Rs=Krs*sqrt(Tamax-Tamin)*Ra
 }else{

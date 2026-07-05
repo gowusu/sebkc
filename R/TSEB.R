@@ -92,7 +92,7 @@
 #' \item{EFc: }{ T (Transpiration) Evaporative Fraction}
 #' } 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 #' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
 #' NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
@@ -133,9 +133,9 @@
 #'  data=landsat578(rawdata,welev=welev)
 #'  #perform semi-auto simulation 
 #' # Determine xyhot. Digitize polygon on the Ts map
-#' modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+#' modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #' #determine the cold. Digitize polygon on the Ts map
-#' modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+#' modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 #' xyhot=modhot$xyhot
 #' xycold=modcold$xycold
 #' modTSEB2=tseb(data,Tmax=31,Tmin=28,
@@ -186,7 +186,7 @@ fc="auto",network="series",clip=NULL,folder=NULL,iter.max = 7){
     if(!inherits(albedo, "landsat578")){
       
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
   }
@@ -225,7 +225,7 @@ fc="auto",network="series",clip=NULL,folder=NULL,iter.max = 7){
       ETr24=sebkc.tryCatch(ETo(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                                z=zx,Krs =Krs,altitude=welev))$value
       if(inherits(ETr24, "simpleError")){
-        return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
+        return (message(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
       }
       Rn24=ETr24$Rn
       Tmin=ETr24$data$Tmin
@@ -242,7 +242,7 @@ fc="auto",network="series",clip=NULL,folder=NULL,iter.max = 7){
         ETr=sebkc.tryCatch(ETohr(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                                  z=zx,Krs =Krs,altitude=welev,time= thistime,Lz=Lz,t1=t1,Lm=Lm))$value
         if(inherits(ETr, "simpleError")){
-          return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo or time or Lz or Lm or t1",ETr))) 
+          return (message(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo or time or Lz or Lm or t1",ETr))) 
         }
         #return(print(ETr$ETo))
         if(thisTA=="Tmean"){
@@ -264,7 +264,7 @@ d=0.65*hc
 ZM=hc/8
 ZM=0.018*LAI
 cp=1004.14
-iteration=F
+iteration=FALSE
 mod=sebal(albedo=albedo,Ts=Ts,NDVI=NDVI,SAVI=SAVI,iter.max=iter.max,
 xyhot=xyhot,xycold=xycold,DOY=DOY,sunelev=sunelev,welev=welev,
 zx=zx,u=u,zomw=zomw,zom=zom,LAI=LAI,DEM=DEM,lapse=lapse,
@@ -300,19 +300,19 @@ pair=mod$pair
 wm=mod$wm
 ladt=0.5
 angle=viewangle
-print("Computing fc based on LAI, angle, clump, etc")
+message("Computing fc based on LAI, angle, clump, etc")
 
 if(fc=="auto"||!is.numeric(fc)){
 fc=min(1-exp((-ladt*clump*LAI)/(cos(angle*(pi/180)))),1)
 }
-print("Computing Soil surface net radiation")
+message("Computing Soil surface net radiation")
 
 Rns=(mod$Rn*exp(0.9*log(1-fc)))
 
 G=mod$G_by_Rn*Rns
-print("Computing canopy net radiation")
+message("Computing canopy net radiation")
 Rnc=mod$Rn-Rns
-print("Computing transport resistance (Rs)and  wind speed above surface (Us)")
+message("Computing transport resistance (Rs)and  wind speed above surface (Us)")
 
 Uc=U*(log((hc-d)/ZM)/(log((zu-d)/ZM)-wm))
 a=0.28*LAI^(2/3)*hc^(1/3)*s^(-1/3)
@@ -322,9 +322,9 @@ Udzm=Uc*exp(-1*a*(1-((d+ZM)/hc)))
 Rx=(C/LAI)*((s/Udzm)^0.5)
 steady=NULL
 if(network=="series"){
-  print("Network series started")
+  message("Network series started")
 if(series=="PT"||series=="xPT"){
-  print("series = xPT or PT:Priestley-Taylor")
+  message("series = xPT or PT:Priestley-Taylor")
   
   thisxPT=xPT
 if(is.na(xPT[2])){
@@ -333,7 +333,7 @@ if(is.na(xPT[2])){
   H2=NULL
   i=thisxPT[1]
   while(i>=thisxPT[2]){
-    print(paste("Trying PT=",i,"to correct soil surface latent heat"))
+    message(paste("Trying PT=",i,"to correct soil surface latent heat"))
     
 TClin=((TA/RA)+(Ts/(Rs*(1-fc)))+((Rnc*Rx)/(pair*cp))*
 (1-(i*fg*(slope/(slope+y))))*((1/RA)+(1/Rs)+(1/Rx)))/
@@ -394,11 +394,11 @@ if(series=="PM"||series=="penman-monteith"||series=="pm"){
     thisrc=c(rc,rc,rc)
   }
   #H2=NULL
-  print("series = PM:Penman-Monteith")
+  message("series = PM:Penman-Monteith")
   
   i=thisrc[1]
   while(i<=thisrc[2]){
-    print(paste("Trying rc=",i,"to correct soil surface latent heat"))
+    message(paste("Trying rc=",i,"to correct soil surface latent heat"))
     
 y_star=y*(1+(i/RA))
 #print(i)
@@ -473,7 +473,7 @@ LEs=rastercon(LEs<0,0,LEs)
  #G2=NULL
   i=thisxPT[1]
   while(i>=thisxPT[2]){
-    print(paste("Trying PT=",i,"to correct soil surface latent heat"))
+    message(paste("Trying PT=",i,"to correct soil surface latent heat"))
     
 LEc=i*fg*(slope/(slope+y))*Rnc
 Hc=Rnc*(1-(i*fg*(slope/(slope+y))))
@@ -534,7 +534,7 @@ EFc=EFs=EF=NULL
 #LE=mod$Rn-G-H
 LE=LEc+LEs
 #print(spplot(LE-LE2))
-print ("computing E, T and ET" )
+message("computing E, T and ET" )
 
 if(is.null(ETr)){
 EFc=1.1*(LEc/Rnc)

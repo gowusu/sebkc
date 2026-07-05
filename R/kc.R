@@ -242,7 +242,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #FAO56 Example 32: Calculation of the crop coefficient (Kcb + Ke) under sprinkler irrigation
 #' FAO56Example32=kc(ETo=7,P=0,RHmin=20,soil="sandy loam",crop="Broccoli",I=10,
 #' kctype = "dual",u2=3,kc=c(0.9,0,0),h=1,Zr=0.1)
@@ -346,7 +346,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
                      y=NULL,r1=100,nongrowing="weeds",theta=NULL,profile="variable",
         Kcmin=0.15,Ky=NULL)
 {
-  options(warn=-1)
+  invisible(NULL)
   #get weather data
   
   if(!inherits(kc[1], "numeric")){
@@ -618,7 +618,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
       factor=model
     }else{
       factor=list(output=output,yield_by_ET_decrease=yield_decrease,DL=DL,water.balance.stages=water.balance,kctype=kctype)
-    }#print(thisdata$Tmax)
+    }#message(thisdata$Tmax)
     
   }else{
   ##The main model starts here
@@ -673,7 +673,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   
   
   if(!is.null(EF)&&is.null(Rn)){
-    return(print("Daily net radiation (Rn) is needed"))
+    return(message("Daily net radiation (Rn) is needed"))
   }
   ##preparing interpolation files
   Pinter=NULL
@@ -826,7 +826,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
     latitude=wpdata[2]
     var=wpdata[3]
     CNII= invdist(longitude=longitude,latitude=latitude,var=var,ext=map) 
-    print(CNII)
+    message(CNII)
   }
   if(is.null(Zr)||is.null(p)){
     crop= crop_H_Zr[(grep(crop2,crop_H_Zr$crop,ignore.case=TRUE)),] 
@@ -835,7 +835,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
       crop= crop[(grep((regexpr),(crop),ignore.case=TRUE)),] 
     }
     if(nrow(crop)==0){
-      return (print(paste(crop2," not found [for crop type name]"))) 
+      return (message(paste(crop2," not found [for crop type name]"))) 
     }
     if(is.null(Zr)){
       Zr=mean(c(as.numeric(strsplit(crop$Zr, "-")[[1]][1]),as.numeric(strsplit(crop$Zr, "-")[[1]][2])))
@@ -887,7 +887,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   soil=toupper(soil)
   soil=soilwater[(grep(soil2,soilwater$type,ignore.case=TRUE)),]
   if(nrow(soil)==0){
-    return (print(paste(soil2," not found: check soil"))) 
+    return (message(paste(soil2," not found: check soil"))) 
   }
   
   #lengths of crop growth stages
@@ -899,7 +899,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
     }
     
     if(nrow(stages2)==0){
-      return (print(paste(crop2," not found crop growth stages"))) 
+      return (message(paste(crop2," not found crop growth stages"))) 
     }
     init=mean(as.numeric(stages2$init))
     dev=mean(as.numeric(stages2$dev))
@@ -922,7 +922,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
     }
     
     if(nrow(kcs)==0){
-      return (print(paste(" Kc not found for", crop2))) 
+      return (message(paste(" Kc not found for", crop2))) 
     }
     kcbini=mean(as.numeric(kcs$Kcbini))
     kcbmid=mean(as.numeric(kcs$Kcbmid))
@@ -962,7 +962,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   if(is.null(h)){
     h= singlekc[(grep((crop2),(singlekc$crop),ignore.case=TRUE)),] 
     if(nrow(h)==0){
-      return (print(paste(" h not found for", crop2))) 
+      return (message(paste(" h not found for", crop2))) 
     }
     if(nrow(h)>1){
       h= h[(grep((regexpr),(h$crop),ignore.case=TRUE)),] 
@@ -1165,7 +1165,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
     TSW_measured=NA
     AW_measured2=NA
     if(is.null(Zr)||is.null(p)||is.null(h)){
-      return(print("These input parameters are needed Zr, p, and h "))
+      return(message("These input parameters are needed Zr, p, and h "))
       
     }
     #check kcini
@@ -1559,7 +1559,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
       }
       if(!is.null(latitude2)&&density2!="full"&&!is.null(DOY2)){
         if((is.null(latitude2)||is.null(DOY2))&&(nongrowing=="weeds"||nongrowing=="grass")){
-          return (print("latitude and DOY needed"))
+          return (message("latitude and DOY needed"))
         }
         
         
@@ -2038,7 +2038,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
     
     #print(RAW)
     #print(AW_measured)
-    print (paste("Day", i,"of", max(day)))
+    message(paste("Day", i,"of", max(day)))
     Ineed[Ineed<=0]=0
     if(!is.null(EF)){
      # print(day)
@@ -2548,9 +2548,11 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
 #' @rdname kc
 plot.kc<-function(x,output="AW_measured",main=NULL,cex=1,legend=TRUE,pos="top",horiz=FALSE,...)
 {
+  oldpar <- par(no.readonly = TRUE)
+  on.exit(par(oldpar))
   #print(x$output$)
   if(is.null(x$EFxy)){
-    #par(xpd = T, mar = par()$mar + c(0,0,0,7))
+    #par(xpd = TRUE, mar = par()$mar + c(0,0,0,7))
     refine="black"
     dots="p"
     label1="Measured"

@@ -31,7 +31,7 @@
 #' }
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 #' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
 #' NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
@@ -51,9 +51,9 @@
 #' data=landsat578(rawdata,welev=welev)
 #' #perform semi-auto simulation 
 #' #Determine xyhot. Digitize polygon on the Ts map
-#' modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+#' modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #' #determine the cold. Digitize polygon on the Ts map
-#' modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+#' modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 #' xyhot=modhot$Tshot
 #' xycold=modcold$Tscold
 #' #use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
@@ -97,7 +97,7 @@ RHmax=NULL,RHmin=NULL,clip=NULL,folder=NULL){
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                      the elavation of th weather station"))  
     }
     
@@ -130,7 +130,7 @@ RHmax=NULL,RHmin=NULL,clip=NULL,folder=NULL){
       ETr24=sebkc.tryCatch(ETo(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                                z=zx,Krs =Krs,altitude=welev))$value
       if(inherits(ETr24, "simpleError")){
-        return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
+        return (message(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
       }
       
       Tmin=ETr24$data$Tmin
@@ -202,7 +202,7 @@ if(!is.null(testcold)){
                  DEM=DEM,extent=TC,upper=0.95,lower=0.1)
   TC=modcold$TC
 }
-print ("computing ETf" )
+message("computing ETf" )
 ETf=(TH-Tx)/(TH-TC)
 
 if(!is.null(NDVI)){
@@ -211,7 +211,7 @@ ETf=(((1-cc)*(NDVI/threshold)+(cc)))*ETf
 if(is.null(ETo)||ETo=="auto"){
 if(is.null(Tmax)||is.null(Tmin)||is.null(DOY)
 ||is.null(latitude)){
-return(print("The following variables are needed:
+return(message("The following variables are needed:
 Tmax,Tmin,DOY,latitude for estimation of ETo"))
 
 }
@@ -227,10 +227,10 @@ ETo=PET$ETo
 ETf[ETf>1.1,]=1.1
 ETf[ETf<0,]=0
 
-print ("computing ETm" )
+message("computing ETm" )
 
 ETm=multiplier*ETo
-print ("computing ETa" )
+message("computing ETa" )
 
 ETa=ETf*ETm
 factor<-list(ET24=ETa, EF=ETf,ETo=ETo,folder=folder)

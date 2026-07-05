@@ -75,7 +75,7 @@
 #' #retrieve daily data for a specific period i.e 1 month
 #' lincoln=weather(airport = "KLNK", date=c("2011-08-04","2011-09-04"))
 #' #kumasi and accra data for a time slice. May not work for different 
-#' geographical regions due different nummber of paramters. Write the results to a file
+#' #geographical regions; write the results to a file
 #' accrakumasi=weather(airport ="ACC", date=c("2011-08-04","2011-10-04"),
 #' folder="C:/Users/george/Documents/")
 #' }
@@ -85,7 +85,7 @@
 #kumasi.now$WMO$hour
 weather=function (data=NULL,wmo=NULL, airport=NULL, date="YYYY-m-d",time=NULL,
   latitude=NULL,longitude=NULL,NASA.SSE=list(from="YYYY-m-d",to="YYYY-m-d"),folder=NULL){
-  options(warn=-1)
+  invisible(NULL)
   if(!is.null(data)){
     if(!is.null(data$date)){
       date=unique(data$date)
@@ -241,11 +241,11 @@ weather=function (data=NULL,wmo=NULL, airport=NULL, date="YYYY-m-d",time=NULL,
    hour.data=sebkc.tryCatch(read.csv(url.hr,stringsAsFactors=FALSE))$value
    #print(hour.data)
    if(inherits(hour.data, "simpleError")){
-     print(paste("WMO Hourly data not available for ",wmo,airport, "on", date ))
+     message(paste("WMO Hourly data not available for ",wmo,airport, "on", date ))
    }
    day.data=sebkc.tryCatch(read.csv(url.day,stringsAsFactors=FALSE))$value
    if(inherits(day.data, "simpleError")){
-     print(paste("WMO Daily data not available for ",wmo,airport, "on", date ))
+     message(paste("WMO Daily data not available for ",wmo,airport, "on", date ))
    }
    
      
@@ -417,12 +417,12 @@ NASA.this=NULL
    
    sensor=strsplit(html, "<a href=")
    link=paste("https://eosweb.larc.nasa.gov",strsplit(sensor[[1]][9],"\"")[[1]][2],sep="")
-   meta=sebkc.tryCatch(read.delim(link,sep=" ",stringsAsFactors = F,header=F))$value[1:12,]
+   meta=sebkc.tryCatch(read.delim(link,sep=" ",stringsAsFactors = FALSE,header=FALSE))$value[1:12,]
    #print(meta[1:12,])
-   elevation=sebkc.tryCatch(as.numeric(read.delim(link,sep=" ",stringsAsFactors = F,header=F)[4,][10][[1]]))$value
+   elevation=sebkc.tryCatch(as.numeric(read.delim(link,sep=" ",stringsAsFactors = FALSE,header=FALSE)[4,][10][[1]]))$value
    NASA=sebkc.tryCatch(read.table(file=link,skip=23,header=TRUE))$value 
    if(inherits(NASA, "simpleError")){
-     print(paste("NASA SSE data not Available in ",start.date[1]))
+     message(paste("NASA SSE data not Available in ",start.date[1]))
    }
    NASA$altitude=elevation
    NASA$Tmax=NASA$T10MX

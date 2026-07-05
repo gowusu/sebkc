@@ -10,7 +10,7 @@
 #' @export 
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lonlat=read.table(system.file("extdata","sys","xyvalues.txt",package="sebkc"),header=TRUE)
 #' longitude=lonlat$longitude
 #' latitude=lonlat$latitude
@@ -56,8 +56,8 @@ xyextract=function(map,longitude,latitude){
 
 #Tsdata2[5]=rev(Tsdata2[5])
 #Ts=data$Ts
-#Px=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/sebkc/inst/extdata/sys/P.txt",header=T)
-#ETOI=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/sebkc/inst/extdata/sys/ETOI.txt",header=T)
+#Px=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/sebkc/inst/extdata/sys/P.txt",header=TRUE)
+#ETOI=read.table("C:/Users/GeoKings/Documents/George Owusu/UG PhD/lectures/remote sensing/model/sebkc/inst/extdata/sys/ETOI.txt",header=TRUE)
 # I=ETOI$I
 #ETo=ETOI$Eto
 #mapmatrix(Px,1,map)
@@ -75,7 +75,7 @@ xyextract=function(map,longitude,latitude){
 #' @author George Owusu
 #' @export 
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' folder=system.file("extdata","stack",package="sebkc")
 #' sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)
 #' points=sampleRandom(sebiauto$EF,100,sp=TRUE)

@@ -32,7 +32,7 @@
 #' }
 #' @import raster
 #' @examples
-#' \dontrun{
+#' \donttest{
 #'  folder=system.file("extdata","stack",package="sebkc")
 #'   modhot=hotTs(folder=folder,welev=170,extent="auto",cluster=3)
 #'   
@@ -70,7 +70,7 @@ hotTs=function(Ts,NDVI,albedo=NULL,DEM=NULL,
 hotTs.default=function(Ts=NULL,NDVI,albedo=NULL,DEM=NULL,
 cluster=8,extent="interactive",upper=0.80,
 lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL,iter.max = 500){
-  print("Selecting hot pixel")
+  message("Selecting hot pixel")
   if(is.null(Ts)&&!is.null(folder)){
     #Ts=folder 
   }
@@ -85,7 +85,7 @@ lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NU
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     if(inherits(folder, "landsat578")||inherits(Ts, "landsat578")){
@@ -167,6 +167,10 @@ if(!is.null(albedo)){
 albedo2=crop(albedo, ext)
 }
 v <- na.omit(getValues(Ts))
+if(exists(".Random.seed", envir = .GlobalEnv)){
+oldseed <- get(".Random.seed", envir = .GlobalEnv)
+on.exit(assign(".Random.seed", oldseed, envir = .GlobalEnv), add = TRUE)
+}
 set.seed(99)
 Ts.kmeans <- kmeans(v, centers=cluster, iter.max = iter.max, nstart = 3)
   
@@ -256,7 +260,9 @@ x=p3$x
 y=p3$y
 ndvi=getValues(NDVI2)[cellFromXY(NDVI2,c(x,y))]
 
-if(plot==TRUE||plot==T){
+if(plot==TRUE||plot==TRUE){
+oldpar <- par(no.readonly = TRUE)
+on.exit(par(oldpar), add = TRUE)
 par(mfrow=c(1,2))
 hist(Ts,main="Ts[Hot]",xlab="Temperature")
 abline(v=p3,col="red")

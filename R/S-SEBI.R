@@ -14,7 +14,7 @@
 #' Physics and Chemistry of the Earth, Part B: Hydrology, Oceans and Atmosphere
 #' , 25(2): 147-157.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #Manual data specification
 #' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 #' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
@@ -47,7 +47,7 @@ ssebi.default=function(Ts=NULL,albedo=NULL,
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     
@@ -109,7 +109,7 @@ EF=(((bmax*albedo)+amax)-Ts)/(((bmax*albedo)+amax)-((bmin*albedo)+amin))
 EF[EF<0]=0
 EF[EF>1]=1
 
-if(plot==T||plot==TRUE){
+if(plot==TRUE||plot==TRUE){
 #plot(albedo,Ts, maxpixels=5000000,xlab="Albedo",ylab="Surface Tempearture[Ts]")
 plot(albedo,Ts,maxpixels=ncell(albedo),xlab="Albedo",ylab="Surface Tempearture[Ts]")
 

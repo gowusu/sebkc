@@ -50,7 +50,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #fewer iteration
 #' file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 #' data=read.table(file,header=TRUE)  
@@ -126,7 +126,7 @@
     y=NULL,r1=100,nongrowing="weeds",theta=NULL,profile="variable",Kcmin=0.15,Ky=NULL){
     
     if(is.null(ETa)&&is.null(theta)){
-      return  (print("Observation data ETa or theta is needed"))
+      return  (message("Observation data ETa or theta is needed"))
     }
     
     soilwater=read.csv(system.file("extdata","sys","soilwater2.csv",package="sebkc"),header=TRUE,stringsAsFactors=FALSE)
@@ -164,7 +164,7 @@
         crop= crop[(grep((regexpr),(crop),ignore.case=TRUE)),] 
       }
       if(nrow(crop)==0){
-        return (print(paste(crop2," not found [for crop type name]"))) 
+        return (message(paste(crop2," not found [for crop type name]"))) 
       }
       if(is.null(Zr)){
         Zr=mean(c(as.numeric(strsplit(crop$Zr, "-")[[1]][1]),as.numeric(strsplit(crop$Zr, "-")[[1]][2])))
@@ -184,7 +184,7 @@
       }
       
       if(nrow(kcs)==0){
-        return (print(paste(" Kcs not found for", crop2))) 
+        return (message(paste(" Kcs not found for", crop2))) 
       }
       kcbini=mean(as.numeric(kcs$Kcbini))
       kcbmid=mean(as.numeric(kcs$Kcbmid))
@@ -197,7 +197,7 @@
     if(is.null(h)){
       h= singlekc[(grep((crop2),(singlekc$crop),ignore.case=TRUE)),] 
       if(nrow(h)==0){
-        return (print(paste(" h not found for", crop2))) 
+        return (message(paste(" h not found for", crop2))) 
       }
       if(nrow(h)>1){
         h= h[(grep((regexpr),(h$crop),ignore.case=TRUE)),] 
@@ -437,7 +437,7 @@
       }
     }
     candidate=NULL
-    print("Iteration Started. Kindly wait.................")
+    message("Iteration Started. Kindly wait.................")
     pnames=names(data.frame(para))
     count=length(pnames)
     #return(list(para=para))
@@ -584,7 +584,7 @@
                                         #print()
                                         
                                         para2=parameters[pnames]
-                                            print(data.frame(para2))
+                                            message(data.frame(para2))
                                             if(is.null(candidate)){
                                               candidate=cbind(para2,fit)
                                             }else{
@@ -594,7 +594,7 @@
                                           r2=fit$r2
                                           thismod2=mod
                                           thisfit=cbind(crop=crop2,para2,fit)
-                                          print(thisfit)
+                                          message(thisfit)
                                           
                                           }
                                           Zr1=Zr1+Zr[3]

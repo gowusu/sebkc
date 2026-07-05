@@ -26,7 +26,7 @@
 #' \item{index:}{ raw wdi including negatives and more than one}
 #' }
 #' @examples 
-#'  \dontrun{
+#'  \donttest{
 #' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 #' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
 #' NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
@@ -44,9 +44,9 @@
 #' data=landsat578(rawdata,welev=welev)
 #' #perform semi-auto simulation 
 #' #Determine xyhot. Digitize polygon on the Ts map
-#' modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+#' modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #' #determine the cold. Digitize polygon on the Ts map
-#' modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+#' modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 #' Tsmax=modhot$Tshot
 #' Tsmin=modcold$Tscold
 #' #use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
@@ -73,7 +73,7 @@ wdi=function(Ts=NULL,Ta,NDVI,albedo=NULL,Tsmax="auto",Tsmin="auto",
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)&&!inherits(Ts, "landsat578")){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     

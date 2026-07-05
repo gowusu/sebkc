@@ -21,7 +21,7 @@
 #' @author George Owusu
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' #using folder parameter 
 #' folder=system.file("extdata","stack",package="sebkc")
 #' sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)
@@ -45,9 +45,9 @@
 #' data=landsat578(rawdata,welev=welev)
 #'  #perform semi-auto simulation 
 #' #Determine xyhot. Digitize polygon on the Ts map
-#' modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+#' modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #' #determine the cold. Digitize polygon on the Ts map
-#' modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+#' modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 #' xyhot=modhot$xyhot
 #' xycold=modcold$xycold
 #' #use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
@@ -82,7 +82,7 @@ model=model,clip=NULL,folder=NULL){
   }
   if(file.info2==TRUE&&!is.na(file.info2)){
     if(is.null(welev)){
-      return(print("Please provide the parameter welev: 
+      return(message("Please provide the parameter welev: 
                    the elavation of th weather station"))  
     }
     
@@ -115,7 +115,7 @@ model=model,clip=NULL,folder=NULL){
     ETr24=sebkc.tryCatch(ETo(DOY=thisDOY,airport = airport,wmo=wmo,latitude=latitude,
                              z=zx,Krs =Krs,altitude=welev))$value
     if(inherits(ETr24, "simpleError")){
-      return (print(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
+      return (message(paste("Invalid DOY [YYYY-mm-dd] or airport or wmo",ETr24))) 
     }
     
     Tmin=ETr24$data$Tmin
@@ -150,14 +150,14 @@ vpd=PET$vpd
 slope=PET$slope
 dTmax=(data$rah_hot/(data$pairhot*cp))*(data$Rn_hot+data$G_hot)
 dTmin=((data$rah_cold/(data$paircold*cp))*(data$Rn_cold+data$G_cold)-(1/y)*vpd)/(1+(slope/y))
-print ("computing EF" )
+message("computing EF" )
 dT=(mod$H*mod$rah)/((mod$pair*cp))
 EF=1-(((dT/mod$rah)-(dTmin/data$rah_cold))/((dTmax/data$rah_hot)-(dTmin/data$rah_cold)))
 EF[EF<0,]=0
 EF[EF>1.1,]=1.1
 ET24=NULL
 if(!is.null(Rn24)){
-  print ("computing ETa" )
+  message("computing ETa" )
   
   ET24=EF*Rn24*0.035
 }
