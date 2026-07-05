@@ -85,7 +85,7 @@
 #'  from https://landsat.usgs.gov/documents/Landsat8DataUsersHandbook.pdf
 #' }
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' #Automatic detection of parameters
 #' folder=system.file("extdata","stack",package="sebkc")
 #' modauto=landsat578(data=folder, welev=362)

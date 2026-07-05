@@ -58,7 +58,7 @@ EF, amax,bmax,amin,bmin
  remote sensing algorithm to estimate the surface energy balance.
 }
 \examples{
-\dontrun{
+\donttest{
 #Manual data specification
 albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))

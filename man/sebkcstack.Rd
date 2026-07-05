@@ -8,8 +8,8 @@
 sebkcstack(
   folder,
   meta_pattern = "MTL.txt",
-  remove_cloud = F,
-  gap_fill = F,
+  remove_cloud = FALSE,
+  gap_fill = FALSE,
   gap_loop = 8,
   clip = NULL
 )
@@ -17,8 +17,8 @@ sebkcstack(
 \method{sebkcstack}{default}(
   folder,
   meta_pattern = "MTL.txt",
-  remove_cloud = F,
-  gap_fill = F,
+  remove_cloud = FALSE,
+  gap_fill = FALSE,
   gap_loop = 8,
   clip = NULL
 )
@@ -91,7 +91,7 @@ processed data in the same "folder" with \code{\link{writesebkc}}.
 The output file name is "sebkcstack.tif".
 }
 \examples{
-\dontrun{
+\donttest{
 folder=system.file("extdata","stack",package="sebkc")
 stack=sebkcstack(folder=folder)
 #returns data and grescale

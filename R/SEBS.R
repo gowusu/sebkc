@@ -21,7 +21,7 @@
 #' @author George Owusu
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' #define Input data
 #' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 #' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))

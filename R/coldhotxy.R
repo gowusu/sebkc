@@ -26,7 +26,7 @@
 #' \item{candidates:}{ The similar candidates' pixels that can be used}
 #' }
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'  folder=system.file("extdata","stack",package="sebkc")
 #'   model=coldhot(Tmin=300,Tmax=310,folder=folder,welev=170)
 #'   spplot(model$Tshot)

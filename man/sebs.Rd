@@ -182,7 +182,7 @@ vpd (Vapour pressure deficit). For information on data input procedure
 see 'details' at \code{\link{sebal}}
 }
 \examples{
-\dontrun{
+\donttest{
 #define Input data
 albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
@@ -190,7 +190,7 @@ NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
 LAI=raster(system.file("extdata","LAI.grd",package="sebkc"))
 Tmax=31
 Tmin=28
-RHmax=84,
+RHmax=84
 RHmin=63
 #perform simulation
 modsebs=sebs(albedo=albedo,Ts=Ts,Tmax=Tmax,Tmin=Tmin,RHmax=RHmax,
@@ -211,9 +211,9 @@ welev=278
 data=landsat578(rawdata,welev=welev)
  #perform semi-auto simulation 
 #Determine xyhot. Digitize polygon on the Ts map
-modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #determine the cold. Digitize polygon on the Ts map
-modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 xyhot=modhot$xyhot
 xycold=modcold$xycold
 #use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways

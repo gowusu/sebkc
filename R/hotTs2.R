@@ -28,7 +28,7 @@
 #' \item{candidates:}{ The similar candidates' pixels that can be used}
 #' }
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'  folder=system.file("extdata","stack",package="sebkc")
 #'   modhot=hotTs2(folder=folder,welev=170,extent="auto",cluster=3)
 #'   

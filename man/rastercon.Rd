@@ -20,7 +20,7 @@ Return True or False
 It computes equivalent of logical if function in R
 }
 \examples{
-\dontrun{
+\donttest{
 NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
 albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 LAI=raster(system.file("extdata","LAI.grd",package="sebkc"))

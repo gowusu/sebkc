@@ -96,7 +96,7 @@ kumasi.now$WMO$hour
 #retrieve daily data for a specific period i.e 1 month
 lincoln=weather(airport = "KLNK", date=c("2011-08-04","2011-09-04"))
 #kumasi and accra data for a time slice. May not work for different 
-geographical regions due different nummber of paramters. Write the results to a file
+#geographical regions; write the results to a file
 accrakumasi=weather(airport ="ACC", date=c("2011-08-04","2011-10-04"),
 folder="C:/Users/george/Documents/")
 }

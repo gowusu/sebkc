@@ -145,7 +145,7 @@ curve [kPa/degree Celsius]}
 24 Hour FAO 56 and ASCE-EWRI Reference Evapotranspiration ETo
 }
 \examples{
-\dontrun{
+\donttest{
 #with minimal data
 PET=ETo(Tmax=31,Tmin=28,latitude=5.6,DOY="6-2-2001")
 PET$ETo

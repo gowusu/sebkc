@@ -45,7 +45,7 @@
 #' \item{candidates:}{ The similar candidates' pixels that can be used}
 #' }
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' #using landsat folder
 #' folder=system.file("extdata","stack",package="sebkc")
 #' modcold=coldTs2(folder=folder,welev=170,extent="auto")

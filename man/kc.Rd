@@ -417,7 +417,7 @@ spatial modelling is integrated using Evaporation fractions from
  }
 }
 \examples{
-\dontrun{
+\donttest{
 #FAO56 Example 32: Calculation of the crop coefficient (Kcb + Ke) under sprinkler irrigation
 FAO56Example32=kc(ETo=7,P=0,RHmin=20,soil="sandy loam",crop="Broccoli",I=10,
 kctype = "dual",u2=3,kc=c(0.9,0,0),h=1,Zr=0.1)

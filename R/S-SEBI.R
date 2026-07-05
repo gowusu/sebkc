@@ -14,7 +14,7 @@
 #' Physics and Chemistry of the Earth, Part B: Hydrology, Oceans and Atmosphere
 #' , 25(2): 147-157.
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' #Manual data specification
 #' albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 #' Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))

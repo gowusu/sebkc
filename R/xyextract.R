@@ -10,7 +10,7 @@
 #' @export 
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' lonlat=read.table(system.file("extdata","sys","xyvalues.txt",package="sebkc"),header=TRUE)
 #' longitude=lonlat$longitude
 #' latitude=lonlat$latitude
@@ -75,7 +75,7 @@ xyextract=function(map,longitude,latitude){
 #' @author George Owusu
 #' @export 
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' folder=system.file("extdata","stack",package="sebkc")
 #' sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)
 #' points=sampleRandom(sebiauto$EF,100,sp=TRUE)

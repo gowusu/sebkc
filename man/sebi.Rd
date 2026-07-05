@@ -179,7 +179,7 @@ slope (slope of saturation vapour pressure curve) and
 vpd (Vapour pressure deficit).
 }
 \examples{
-\dontrun{
+\donttest{
 #using folder parameter 
 folder=system.file("extdata","stack",package="sebkc")
 sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)
@@ -203,9 +203,9 @@ welev=278
 data=landsat578(rawdata,welev=welev)
  #perform semi-auto simulation 
 #Determine xyhot. Digitize polygon on the Ts map
-modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #determine the cold. Digitize polygon on the Ts map
-modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 xyhot=modhot$xyhot
 xycold=modcold$xycold
 #use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways

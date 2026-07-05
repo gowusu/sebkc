@@ -29,7 +29,7 @@ This function performs inverse distance interpolation based
 on projection and geometry of input spatial data 'ext'.
 }
 \examples{
- \dontrun{
+ \donttest{
 #Get ext data
 folder=system.file("extdata","stack",package="sebkc")
 data=landsat578(data=folder, welev=362)

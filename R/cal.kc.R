@@ -50,7 +50,7 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' #fewer iteration
 #' file=system.file("extdata","sys","irrigation.txt",package="sebkc")
 #' data=read.table(file,header=TRUE)  

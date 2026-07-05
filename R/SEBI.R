@@ -21,7 +21,7 @@
 #' @author George Owusu
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' #using folder parameter 
 #' folder=system.file("extdata","stack",package="sebkc")
 #' sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)

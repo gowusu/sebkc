@@ -173,7 +173,7 @@ The daily ET is implemented in \code{\link{ETo}}.
 \code{\link{tseb}}
 }
 \examples{
-\dontrun{
+\donttest{
 #FAO56 Example 19 14:00-15:00 h using Cd = 0.24 instead 0.34 in FAO56
 ET1hr=ETohr(Tmean=38,RH=52,DOY=274,Lz=15,t1=1,time=14.5,Lm=16.25,latitude=16.22,uz=3.3,Rs=2.450)
 ET1hr$ETo

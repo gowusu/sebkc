@@ -219,7 +219,7 @@ soil heat flux(G) and Net Radiation(Rn).
  }
 }
 \examples{
-\dontrun{
+\donttest{
 #use original landsat 8 data by specifying folder path
 folder=system.file("extdata","stack",package="sebkc")
 modauto=sebal(folder = folder,welev = 380,xycold="full",xyhot="full")
@@ -255,9 +255,9 @@ welev=278
  data=landsat578(rawdata,welev=welev)
  #perform semi-auto simulation mod=sebal(data,welev=welev)
 # Determine xyhot. Digitize polygon on the Ts map
-modhot=hotTs(data,welev=welev,extent="digitize",cluster=2)
+modhot=hotTs(data,welev=welev,extent="auto",cluster=2)
 #determine the cold. Digitize polygon on the Ts map
-modcold=coldTs(data,welev=welev,extent="digitize",cluster=2)
+modcold=coldTs(data,welev=welev,extent="auto",cluster=2)
 xyhot=modhot$xyhot
 xycold=modcold$xycold
 modsebal=sebal(folder=data,xyhot=xyhot,xycold=xycold,welev=welev)

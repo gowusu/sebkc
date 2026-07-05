@@ -20,7 +20,7 @@ map
 Internal function for doing interpolation
 }
 \examples{
-\dontrun{
+\donttest{
 folder=system.file("extdata","stack",package="sebkc")
 sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)
 points=sampleRandom(sebiauto$EF,100,sp=TRUE)

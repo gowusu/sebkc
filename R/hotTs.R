@@ -32,7 +32,7 @@
 #' }
 #' @import raster
 #' @examples
-#' \donttest{
+#' \dontrun{
 #'  folder=system.file("extdata","stack",package="sebkc")
 #'   modhot=hotTs(folder=folder,welev=170,extent="auto",cluster=3)
 #'   

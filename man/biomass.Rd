@@ -92,7 +92,7 @@ Food and Agriculture Organization of the United Nations.
 }
 }
 \examples{
-\dontrun{
+\donttest{
 ################# Point Estimation ###################
 # Identify the climatic input data on 
 latitude=11.18 #in decimal degrees

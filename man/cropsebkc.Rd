@@ -23,7 +23,7 @@ The difference between \code{\link[raster]{crop}}  and cropsebkc is the ability 
 latter to reproject y object with x object projection.
 }
 \examples{
-\dontrun{
+\donttest{
 folder=system.file("extdata","stack",package="sebkc")
 stack=sebkcstack(folder=folder)
 data=cropsebkc(stack$data,stack$data)

@@ -162,7 +162,7 @@ Senay etal (2011) Simplified Surface Energy Balance (SSEB)
 approach for estimating landscape ET
 }
 \examples{
-\dontrun{
+\donttest{
 albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
 NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
@@ -182,9 +182,9 @@ welev=278
 data=landsat578(rawdata,welev=welev)
 #perform semi-auto simulation 
 #Determine xyhot. Digitize polygon on the Ts map
-modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #determine the cold. Digitize polygon on the Ts map
-modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 xyhot=modhot$Tshot
 xycold=modcold$Tscold
 #use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways

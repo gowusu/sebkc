@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#'  \donttest{
+#'  \dontrun{
 #' #Get ext data
 #' folder=system.file("extdata","stack",package="sebkc")
 #' data=landsat578(data=folder, welev=362)
@@ -166,7 +166,7 @@ lonlatreproject=function(x,y=NULL,var=NA,map,epsg=4326){
 #' @export
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' ################# Point Estimation ###################
 #' # Identify the climatic input data on 
 #' latitude=11.18 #in decimal degrees

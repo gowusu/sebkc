@@ -49,7 +49,7 @@ and qualifying for upper (Ts) and lower (NDVI) limits
  are also used to select the final Ts.
 }
 \examples{
-\dontrun{
+\donttest{
  folder=system.file("extdata","stack",package="sebkc")
   model=coldhot(Tmin=300,Tmax=310,folder=folder,welev=170)
   spplot(model$Tshot)

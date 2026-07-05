@@ -83,7 +83,7 @@ Note that surface temperature (Tsmin and Tsmax)
 You can get Ta from  \code{\link{sebal}} Ta
 }
 \examples{
- \dontrun{
+ \donttest{
 albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
 Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
 NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
@@ -101,9 +101,9 @@ welev=278
 data=landsat578(rawdata,welev=welev)
 #perform semi-auto simulation 
 #Determine xyhot. Digitize polygon on the Ts map
-modhot=hotTs(data,welev=300,extent="digitize",cluster=2)
+modhot=hotTs(data,welev=300,extent="auto",cluster=2)
 #determine the cold. Digitize polygon on the Ts map
-modcold=coldTs(data,welev=275,extent="digitize",cluster=2)
+modcold=coldTs(data,welev=275,extent="auto",cluster=2)
 Tsmax=modhot$Tshot
 Tsmin=modcold$Tscold
 #use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
