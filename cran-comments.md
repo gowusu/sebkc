@@ -1,21 +1,22 @@
 ## Submission summary
 
-Resubmission of sebkc 1.0-4.
+Resubmission of sebkc 1.0-5.
 
-This fixes the invalid URL reported by Uwe Ligges for 1.0-3:
-the FAO crop-information page returned HTTP 404. The two URLs in kc.Rd /
-cal.kc.Rd have been removed and replaced with a plain-text citation
-(FAO Irrigation and Drainage Papers 33 and 56), so there is no URL to check.
+Fixes the second NOTE from the 1.0-4 pre-test: a non-standard file
+'CRAN-SUBMISSION' (created by devtools::submit_cran) had been bundled into
+the tarball. It is now listed in .Rbuildignore so it is excluded from the
+build. The only remaining NOTE is the expected "New submission" (the
+flagged words are model acronyms, author names and "et al.").
 
-## Earlier review (Konstanze Lauseker), addressed in 1.0-3 and retained
+## History
 
-* Explained all acronyms in the Description.
-* Replaced T/F with TRUE/FALSE; print() with message(); removed
-  options(warn=-1); restore par() and the user's RNG state via on.exit();
-  fixed unexecutable example code and a length-1 bug in biomass().
-* Pure-numeric FAO-56 examples (ETo, ETohr) run under \donttest{}. The
-  remaining examples stay in \dontrun{} because they need internet
-  (weather) or process a full Landsat scene taking minutes each.
+* 1.0-4: removed an FAO URL that returned HTTP 404; cite FAO papers instead.
+* 1.0-3: addressed the review by Konstanze Lauseker -- explained acronyms;
+  T/F -> TRUE/FALSE; print() -> message(); removed options(warn=-1);
+  restore par() and RNG state via on.exit(); fixed unexecutable example
+  code and a length-1 bug in biomass(). Pure-numeric FAO-56 examples (ETo,
+  ETohr) run under \donttest{}; heavy satellite / internet examples remain
+  in \dontrun{}.
 
 ## Test environments
 

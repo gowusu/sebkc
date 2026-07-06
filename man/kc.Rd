@@ -288,9 +288,9 @@ maximum root length.}
 
 \item{Ky}{list or array. yield response factor [-] in the form of 
 c(initial Ky,crop dev't Ky, mid season Ky, late season Ky, total season Ky). 
-For instance Maize Ky is c(0.4,0.4,1.3,0.5,1.25) and it is available at
- \url{https://www.fao.org/land-water/databases-and-software/crop-information/en/}.
-Other crops Ky can be found at \url{https://www.fao.org/land-water/databases-and-software/crop-information/en/}
+For instance Maize Ky is c(0.4,0.4,1.3,0.5,1.25). Ky values for other crops
+are tabulated in FAO Irrigation and Drainage Paper 33 (Doorenbos and Kassam,
+1979) and Paper 56 (Allen et al., 1998).
 If only one Ky value is supplied it will be repeated for all the seasons.}
 
 \item{x}{a return object of the function.}
