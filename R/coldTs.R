@@ -27,8 +27,11 @@
 #' west-east (landscape) or north-south direction (portraite)
 #' @param draw interactive. The method of digitisation if extent is set "auto". 
 #' It takes "poly" or "rect"
-#' @param iter.max The number iterations that kmeans cluster should use. 
-#' @seealso \code{\link{hotTs}} 
+#' @param iter.max The number iterations that kmeans cluster should use.
+#' @param seed optional single number. Passed to \code{\link[base]{set.seed}}
+#'   before the k-means clustering so the pixel selection is reproducible.
+#'   The default \code{NULL} leaves the random-number stream untouched.
+#' @seealso \code{\link{hotTs}}
 #' @inheritParams sebal
 #' @inheritParams ETohr
 #' @inheritParams weather
@@ -84,14 +87,14 @@ coldTs<-function(Ts,NDVI,albedo=NULL,sunangle=NULL,DEM=NULL,
                 cluster=8,extent="interactive",upper=0.95,
 lower=0.2,plot=TRUE,layout="portrait",draw="poly",
 folder=NULL,welev=NULL,clip=NULL,
-iter.max=100) UseMethod ("coldTs")
+iter.max=100,seed=NULL) UseMethod ("coldTs")
 #' @export
 #' @rdname coldTs
 coldTs.default=function(Ts=NULL,NDVI,albedo=NULL,sunangle=NULL,DEM=NULL,
 cluster=8,extent="interactive",upper=0.95,
 lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL
 ,clip=NULL,
-iter.max=100){
+iter.max=100,seed=NULL){
   message("Selecting cold pixel")
   
   
@@ -201,7 +204,7 @@ if(exists(".Random.seed", envir = .GlobalEnv)){
 oldseed <- get(".Random.seed", envir = .GlobalEnv)
 on.exit(assign(".Random.seed", oldseed, envir = .GlobalEnv), add = TRUE)
 }
-set.seed(99)
+if(!is.null(seed)) set.seed(seed)
 Ts.kmeans <- kmeans(v, centers=cluster, iter.max = iter.max, nstart = 3)
   
 kmeansraster <- raster(Ts)

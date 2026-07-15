@@ -19,8 +19,11 @@
 #' and qualifying for upper (Ts) and lower (NDVI) limits 
 #' (see above) are selected. The provided upper and lower probabilities
 #'  are also used to select the final Ts.
-#' @seealso \code{\link{coldTs}} 
-#' @return 
+#' @param seed optional single number. Passed to \code{\link[base]{set.seed}}
+#'   before the k-means clustering so the pixel selection is reproducible.
+#'   The default \code{NULL} leaves the random-number stream untouched.
+#' @seealso \code{\link{coldTs}}
+#' @return
 #' \describe{
 #' \item{Ts:}{ The selected or input Ts}
 #' \item{Tshot:}{ The Temperature of hot pixel}
@@ -63,13 +66,13 @@
 #'
 hotTs=function(Ts,NDVI,albedo=NULL,DEM=NULL,
       cluster=8,extent="interactive",upper=0.80,
-    lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL,iter.max = 500) 
+    lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL,iter.max = 500,seed=NULL)
   UseMethod ("hotTs")
 #' @export
 #' @rdname hotTs
 hotTs.default=function(Ts=NULL,NDVI,albedo=NULL,DEM=NULL,
 cluster=8,extent="interactive",upper=0.80,
-lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL,iter.max = 500){
+lower=0.2,plot=TRUE,layout="portrait",draw="poly",folder=NULL,welev=NULL,clip=NULL,iter.max = 500,seed=NULL){
   message("Selecting hot pixel")
   if(is.null(Ts)&&!is.null(folder)){
     #Ts=folder 
@@ -171,7 +174,7 @@ if(exists(".Random.seed", envir = .GlobalEnv)){
 oldseed <- get(".Random.seed", envir = .GlobalEnv)
 on.exit(assign(".Random.seed", oldseed, envir = .GlobalEnv), add = TRUE)
 }
-set.seed(99)
+if(!is.null(seed)) set.seed(seed)
 Ts.kmeans <- kmeans(v, centers=cluster, iter.max = iter.max, nstart = 3)
   
 kmeansraster <- raster(Ts)

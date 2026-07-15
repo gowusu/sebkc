@@ -2,8 +2,8 @@ Package: sebkc
 Type: Package
 Title: Surface Energy Balance and Crop Coefficient Evapotranspiration
     Estimation
-Version: 1.0-5
-Date: 2026-07-06
+Version: 1.0-6
+Date: 2026-07-15
 Authors@R: person(given = "George", family = "Owusu",
     email = "owusugeorge@ug.edu.gh", role = c("aut", "cre"))
 Description: Computes and integrates surface energy balance components of

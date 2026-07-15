@@ -21,7 +21,8 @@ coldTs(
   folder = NULL,
   welev = NULL,
   clip = NULL,
-  iter.max = 100
+  iter.max = 100,
+  seed = NULL
 )
 
 \method{coldTs}{default}(
@@ -40,7 +41,8 @@ coldTs(
   folder = NULL,
   welev = NULL,
   clip = NULL,
-  iter.max = 100
+  iter.max = 100,
+  seed = NULL
 )
 }
 \arguments{
@@ -98,6 +100,10 @@ object can be extracted. A polygon or raster will be reprojected to
 conform the data to be cropped. for example clip can take the form of c(xmin, xmax, ymin, ymax)}
 
 \item{iter.max}{The number iterations that kmeans cluster should use.}
+
+\item{seed}{optional single number. Passed to \code{\link[base]{set.seed}}
+before the k-means clustering so the pixel selection is reproducible.
+The default \code{NULL} leaves the random-number stream untouched.}
 }
 \value{
 \describe{

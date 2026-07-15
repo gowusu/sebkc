@@ -1,15 +1,19 @@
 ## Submission summary
 
-Resubmission of sebkc 1.0-5.
+Resubmission of sebkc 1.0-6.
 
-Fixes the second NOTE from the 1.0-4 pre-test: a non-standard file
-'CRAN-SUBMISSION' (created by devtools::submit_cran) had been bundled into
-the tarball. It is now listed in .Rbuildignore so it is excluded from the
-build. The only remaining NOTE is the expected "New submission" (the
-flagged words are model acronyms, author names and "et al.").
+Addresses the review by Konstanze Lauseker: coldTs() and hotTs() no longer
+set a fixed seed internally. Each function now takes a `seed` argument
+(default NULL) that is passed to set.seed() only when the user supplies it,
+so the random-number stream is left untouched by default and reproducibility
+is under the user's control. The only remaining NOTE is the expected
+"New submission" (the flagged words are model acronyms, author names and
+"et al.").
 
 ## History
 
+* 1.0-5: removed the bundled non-standard file 'CRAN-SUBMISSION' via
+  .Rbuildignore.
 * 1.0-4: removed an FAO URL that returned HTTP 404; cite FAO papers instead.
 * 1.0-3: addressed the review by Konstanze Lauseker -- explained acronyms;
   T/F -> TRUE/FALSE; print() -> message(); removed options(warn=-1);
