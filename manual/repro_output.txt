@@ -1,0 +1,132 @@
+sebkc manual reproduction
+sebkc 1.0.6 | R version 4.6.0 (2026-04-24 ucrt) 
+
+
+========== 1. Reference ET: ETo ==========
+ETo minimal (Accra-like): 2.373 mm/day
+ETo FAO-56 Example 18 (Brussels): 3.88 mm/day (textbook 3.9)
+  Rn: 13.283 MJ/m2/day  slope: 0.1221   psychrometric y: 0.0666   vpd: 0.589 
+
+
+========== 1b. Hourly ET: ETohr ==========
+ETohr (FAO-56 Ex19-like): 0.656 mm/hour
+
+
+========== 2. Crop coefficient (kc): FAO-56 textbook examples ==========
+Ex32 sprinkler: fc = 0.526  Kc_adj = 1.301 
+Ex33 furrow (fw=0.3): Kc_adj = 0.66 
+Ex34 drip: Kc_adj = 0.651 
+
+
+========== 2b. Multi-day water balance from bundled irrigation.txt ==========
+input columns: Day, ETo, Zr, RAW, Dr..i.start, P.RO, I, Ks, Kcb, Ke, Kc, ETc, DP, Dr..i.end, Dstart, Dei, E, fw, fc, few, longitude, latitude   days: 12 
+single-Kc output columns: Date,Day,ETo,Ineed,TAW,RAW,Drstart,Runoff,Ks,Zr,h,Kc,Kcb,De,Drend,Kr,Ke,p,DP,CR,GW,Evaporation,Transpiration,Kc_adj,ETc_adj,ETc,CN,fw,few,fc,P,I,AW_modelled,AW_measured,TSW_measured,TSW_modelled,theta_measured,theta_modelled,crop,kctype 
+   Day ETo   Kc  ETc TAW   RAW AW_modelled Runoff
+1    1 4.5 0.15 5.46   5  2.25        5.00      0
+2    2 5.0 0.15 6.07  10  4.31       10.00      0
+3    3 3.9 0.15 3.55  15  6.11        8.93      0
+4    4 4.2 0.15 2.27  20 10.16       10.38      0
+5    5 4.8 0.15 1.62  25 13.98       13.11      0
+6    6 2.7 0.15 2.43  30 17.56       22.49      0
+7    7 5.8 0.15 3.89  35 19.35       25.07      0
+8    8 5.1 0.15 1.60  40 19.78       26.18      0
+9    9 4.7 0.15 1.01  45 26.37       29.58      0
+10  10 5.2 0.15 0.93  50 30.48       33.57      0
+11  11 9.2 0.15 1.48  55 33.70       37.64      0
+12  12 6.4 0.15 7.79  60 35.44       60.00      0
+
+dual-Kc mean ETc: 3.643 mm/day
+[FIG] fig_kc_curve : ok 
+
+
+========== 3. Landsat 7 radiometric processing: landsat578 ==========
+albedo : min 0.124  mean 0.130  max 0.140 
+NDVI   : min 0.240  mean 0.296  max 0.363 
+SAVI   : min 0.112  mean 0.141  max 0.181 
+Ts (K) : min 290.487  mean 291.458  max 293.568 
+[FIG] fig_albedo : ok 
+[FIG] fig_NDVI : ok 
+[FIG] fig_Ts : ok 
+
+
+========== 4. Anchor pixels: coldTs / hotTs ==========
+bundled Ts [K]: min 304.445  mean 308.392  max 313.046 
+cold pixel: x= 259447 y= 292882  Tscold= 304.89 K
+hot  pixel: x= 260737 y= 294412  Tshot= 311.98 K
+
+
+========== 5. One-source models: SEBAL / SEBS / SEBI / SSEB / S-SEBI ==========
+SEBAL    EF: min 0.000  mean 0.523  max 1.100
+[FIG] fig_EF_SEBAL : ok 
+  SEBAL Rn: min 370.739  mean 418.970  max 455.305 
+  SEBAL G: min 54.981  mean 69.182  max 206.495 
+  SEBAL H: min -28.633  mean 178.906  max 400.791 
+  SEBAL LE: min -124.928  mean 170.882  max 415.143 
+SEBS     EF: min 0.000  mean 0.275  max 0.604
+[FIG] fig_EF_SEBS : ok 
+SEBI     EF: min 0.112  mean 0.403  max 0.672
+[FIG] fig_EF_SEBI : ok 
+SSEB     EF: min 0.000  mean 0.466  max 0.973
+         ET24 [mm/day]: min 0.000  mean 1.313  max 2.741
+[FIG] fig_EF_SSEB : ok 
+S-SEBI   EF: min 0.000  mean 0.584  max 1.000
+[FIG] fig_EF_S-SEBI : ok 
+
+
+========== 5b. Two-source model: TSEB (parallel and series) ==========
+TSEB-parallel  ET24: min 0.000  mean 0.536  max 5.648  E24: min 0.000  mean 0.007  max 5.648  T24: min 0.000  mean 0.543  max 5.648 
+[FIG] fig_TSEB_parallel_ET24 : ok 
+TSEB-series    ET24: min 0.161  mean 2.267  max 5.648 
+
+
+========== 6. Biomass (point) and WDI ==========
+biomass return names: biomass,yield 
+biomass yield/output:
+[1] 9.822809
+WDI EF: min 0.049  mean 0.488  max 1.000 
+[FIG] fig_WDI : ok 
+
+
+========== 7. Mean evaporative fraction across models (same scene) ==========
+   model mean_EF
+1  SEBAL   0.523
+2   SEBS   0.275
+3   SEBI   0.403
+4   SSEB   0.466
+5 S-SEBI   0.584
+
+
+========== 8. sessionInfo ==========
+R version 4.6.0 (2026-04-24 ucrt)
+Platform: x86_64-w64-mingw32/x64
+Running under: Windows 10 x64 (build 19045)
+
+Matrix products: default
+  LAPACK version 3.12.1
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/Los_Angeles
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] sebkc_1.0-6   raster_3.6-32 sp_2.2-3     
+
+loaded via a namespace (and not attached):
+ [1] xts_0.14.2         codetools_0.2-20   lattice_0.22-9     e1071_1.7-17      
+ [5] spacetime_1.3-3    zoo_1.8-15         KernSmooth_2.23-26 classInt_0.4-11   
+ [9] sf_1.1-1           gstat_2.1-6        terra_1.9-34       grid_4.6.0        
+[13] DBI_1.3.0          proxy_0.4-29       class_7.3-23       compiler_4.6.0    
+[17] tools_4.6.0        intervals_0.15.5   Rcpp_1.1.1-1.1     otel_0.2.0        
+[21] FNN_1.1.4.1        units_1.0-1       
+
+
+DONE

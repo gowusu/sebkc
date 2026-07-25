@@ -748,7 +748,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   }
   ETcxy=NULL
   ones=day/day
-  if(I==0&&length(I)==1){
+  if(length(I)==1&&I==0){
     I=day*0
   }else{
     if(length(I)==1){
@@ -1136,10 +1136,9 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   
   REWcor=2.5
   TEWcor=10
-  if(report=="stages"){
+  if(length(report)==1 && report=="stages"){
     report=stages2cum
-  }
-  if(report=="all"||report=="All"){
+  } else if(length(report)==1 && (report=="all"||report=="All")){
     report=day
   }
     report3=report

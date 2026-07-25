@@ -4,3 +4,6 @@
 .Ruserdata
 .claude/
 CRAN-SUBMISSION
+
+# Built manual HTML — not published (renders from the .md; keeps GitHub language stats R-dominant)
+manual/*.html
