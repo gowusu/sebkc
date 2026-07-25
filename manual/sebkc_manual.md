@@ -239,6 +239,34 @@ The columns carry FAO-56 names and units: `Tmax`/`Tmin`/`Tmean` (°C), `RH` (%),
 WMO/airport code, is retained but its Weather Underground source was discontinued;
 use the coordinate/POWER path above.)
 
+**From download to ET.** Because the columns are already FAO-56-ready, generating
+reference ET for every day is one `sapply` over the rows — and the precipitation
+`P` that POWER returns drives the water balance too:
+
+```r
+d$ETo <- sapply(seq_len(nrow(d)), function(i)
+  ETo(Tmax = d$Tmax[i], Tmin = d$Tmin[i], RHmax = d$RH[i], RHmin = d$RH[i],
+      uz = d$uz[i], Rs = d$Rs[i], altitude = d$altitude[i],
+      latitude = 6.7, DOY = d$date[i])$ETo)
+round(d[, c("date","Tmax","Tmin","Rs","P","ETo")], 2)
+#>         date  Tmax  Tmin    Rs    P  ETo
+#> 1 2001-04-01 34.01 23.84 22.41 6.73 5.32
+#> 2 2001-04-02 33.33 23.39 22.63 5.28 5.21
+#> 3 2001-04-03 30.30 23.47 10.49 4.27 3.04   # cloudy day: low Rs -> low ETo
+#> ...                                        # 10 days: mean ETo 4.59, total rain 30.3 mm
+
+# feed the same POWER ETo and precipitation into the FAO-56 water balance
+m <- kc(ETo = d$ETo, P = d$P, RHmin = 55, soil = "sandy loam", crop = "Broccoli", I = 0)
+round(m$output[, c("Day","ETo","ETc","P","Drend")], 2)
+#>    Day  ETo  ETc    P Drend
+#> 1    1 5.32 4.70 6.73  0.67
+#> ...
+#> 10   10 4.50 1.74 1.03  8.32   # ~8 mm cumulative irrigation need after 10 rain-fed days
+```
+
+A few lines take you from a coordinate to a daily ET series and an irrigation-need
+estimate (`Drend`), entirely from real, downloaded weather — precipitation included.
+
 > **Getting the data manually — no R needed.** The same series is available from the
 > web:
 > - **NASA POWER Data Access Viewer** (point-and-click download):
