@@ -38,13 +38,12 @@ for southern hemisphere}
 i.e. geographical coordinates in decimal degrees for the weather station.
  It should be negative for West and positive for East.}
 
-\item{NASA.SSE}{list of  NASA SSE data dates in the form of "YYYY-mm-dd".
-For example NASA.SSE=list(from=""2001-01-01"", to="2001-04-01"). Note that SSE date
-is from 1983 to 2005: 
-\url{https://power.larc.nasa.gov/}
-[Accessed on 2016-5-6] 
-if the  parameter is not provided, date parameter will be used 
-provided longitude and latitude are provided.}
+\item{NASA.SSE}{list giving the NASA POWER date range as
+list(from = "YYYY-mm-dd", to = "YYYY-mm-dd"), for example
+NASA.SSE = list(from = "2001-01-01", to = "2001-04-01"). NASA POWER daily data
+cover about 1981 to near-present: \url{https://power.larc.nasa.gov}.
+If the parameter is not provided, the date parameter is used, provided
+longitude and latitude are given.}
 
 \item{folder}{The path of the folder where the data can be written.}
 }
@@ -53,10 +52,13 @@ WMO and NASE.SSE. The WMO contains hour and day data. The NASE.SSE contains
 meta and data. See example below.
 }
 \description{
-The function retrieves weather data from the World Meteorological Organization
- and NASA SSE. The retrieval is based on airports  IATA or ICAO codes or WMO weather station 
- codes. The actual WMO data is from Weather Underground . Internet connection  is therefore 
- needed before data can be accessed
+The function retrieves daily weather data for a site from the NASA POWER service
+by longitude/latitude, returning temperature, humidity, wind, solar radiation and
+precipitation ready for \code{\link{ETo}} and \code{\link{kc}}. A legacy station
+path (WMO or airport codes, from Weather Underground) is retained but that data
+source has been discontinued. An internet connection is required. The same data
+can be downloaded manually from the NASA POWER Data Access Viewer
+\url{https://power.larc.nasa.gov/data-access-viewer/}.
 }
 \examples{
 \dontrun{

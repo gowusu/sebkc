@@ -1,9 +1,12 @@
 #' @title Retrieval of Weather Data  from WMO and NASA Surface meteorology and Solar Energy
 #' 
-#' @description The function retrieves weather data from the World Meteorological Organization
-#'  and NASA SSE. The retrieval is based on airports  IATA or ICAO codes or WMO weather station 
-#'  codes. The actual WMO data is from Weather Underground . Internet connection  is therefore 
-#'  needed before data can be accessed
+#' @description The function retrieves daily weather data for a site from the
+#'  NASA POWER service by longitude/latitude, returning temperature, humidity,
+#'  wind, solar radiation and precipitation ready for \code{\link{ETo}} and
+#'  \code{\link{kc}}. A legacy station path (WMO or airport codes, from Weather
+#'  Underground) is retained but that data source has been discontinued. An
+#'  internet connection is required. The same data can be downloaded manually from
+#'  the NASA POWER Data Access Viewer \url{https://power.larc.nasa.gov/data-access-viewer/}.
 #'
 #' @param data dataframe that can contain all or part of the input data 
 #' @param wmo numeric. World Meteorological Organization weather station code.
@@ -14,13 +17,12 @@
 #' \url{https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A} [Accessed on 2016-5-6]
 #' @param date date in the form of "YYYY-mm-dd" for example "2016-01-01"
 #' @param time time in the form of "H:M" or decimal hours only. For example "14:21" or 14.35
-#' @param NASA.SSE list of  NASA SSE data dates in the form of "YYYY-mm-dd".
-#' For example NASA.SSE=list(from=""2001-01-01"", to="2001-04-01"). Note that SSE date
-#' is from 1983 to 2005: 
-#' \url{https://power.larc.nasa.gov/}
-#' [Accessed on 2016-5-6] 
-#' if the  parameter is not provided, date parameter will be used 
-#' provided longitude and latitude are provided.
+#' @param NASA.SSE list giving the NASA POWER date range as
+#' list(from = "YYYY-mm-dd", to = "YYYY-mm-dd"), for example
+#' NASA.SSE = list(from = "2001-01-01", to = "2001-04-01"). NASA POWER daily data
+#' cover about 1981 to near-present: \url{https://power.larc.nasa.gov}.
+#' If the parameter is not provided, the date parameter is used, provided
+#' longitude and latitude are given.
 #' @param folder The path of the folder where the data can be written. 
 #' @inheritParams ETo
 #' @author George Owusu
@@ -192,9 +194,8 @@ weather=function (data=NULL,wmo=NULL, airport=NULL, date="YYYY-m-d",time=NULL,
   
   date=as.character(date)
   date1=date
-  if(date=="YYYY-mm-dd"){
+  if(length(date)==1 && date=="YYYY-mm-dd"){
     date=readline(prompt = "Enter Date in format YYYY-m-d:")
-    #return(print("Date in format YYYY-mm-dd is needed"))
   }
   
   date=gsub("-","/",date)
@@ -391,7 +392,7 @@ weather=function (data=NULL,wmo=NULL, airport=NULL, date="YYYY-m-d",time=NULL,
   }
    #day
 NASA.this=NULL
-   #NASA SSE
+   #NASA POWER daily single-point data (replaces the retired eosweb SSE endpoint)
    if(!is.null(latitude)||!is.null(longitude)||NASA.SSE$from!="YYYY-m-d"){
      NASA.this=TRUE
      if(NASA.SSE$from=="YYYY-m-d"){
@@ -406,29 +407,49 @@ NASA.this=NULL
      }
      start.date=gsub("/","-",start.date)
      end.date=gsub("/","-",end.date)
-     start.date=strsplit(start.date,"-")[[1]]
-     end.date=strsplit(end.date,"-")[[1]]
-     start.date=as.numeric(start.date)
-     end.date=as.numeric(end.date)
-     
-    url <- paste("https://eosweb.larc.nasa.gov/cgi-bin/sse/daily.cgi?email=skip%40larc.nasa.gov&step=1&lat=",
-                 latitude,"&lon=",longitude,"&sitelev=&ms=",start.date[2],"&ds=",start.date[3],"&ys=",start.date[1],"&me=",end.date[2],"&de=",end.date[3],"&ye=",end.date[1],"&p=swv_dwn&p=avg_kt&p=clr_sky&p=clr_dif&p=clr_dnr&p=clr_kt&p=lwv_dwn&p=toa_dwn&p=PS&p=TSKIN&p=T10M&p=T10MN&p=T10MX&p=Q10M&p=RH10M&p=DFP10M&submit=Submit&plot=swv_dwn",sep="")
-   html <- sebkc.tryCatch(paste(readLines(url), collapse="\n"))$value
-   
-   sensor=strsplit(html, "<a href=")
-   link=paste("https://eosweb.larc.nasa.gov",strsplit(sensor[[1]][9],"\"")[[1]][2],sep="")
-   meta=sebkc.tryCatch(read.delim(link,sep=" ",stringsAsFactors = FALSE,header=FALSE))$value[1:12,]
-   #print(meta[1:12,])
-   elevation=sebkc.tryCatch(as.numeric(read.delim(link,sep=" ",stringsAsFactors = FALSE,header=FALSE)[4,][10][[1]]))$value
-   NASA=sebkc.tryCatch(read.table(file=link,skip=23,header=TRUE))$value 
-   if(inherits(NASA, "simpleError")){
-     message(paste("NASA SSE data not Available in ",start.date[1]))
-   }
-   NASA$altitude=elevation
-   NASA$Tmax=NASA$T10MX
-   NASA$Tmin=NASA$T10MN
-   NASA$DOY=paste(NASA$YEAR,NASA$MO,NASA$DY,sep="-")
-   NASA$Rs=(NASA$swv_dwn*41.666666666666664)*0.0864
+     s=as.numeric(strsplit(start.date,"-")[[1]])
+     e=as.numeric(strsplit(end.date,"-")[[1]])
+     startYMD=sprintf("%04d%02d%02d",s[1],s[2],s[3])
+     endYMD=sprintf("%04d%02d%02d",e[1],e[2],e[3])
+     ## NASA POWER daily single-point API (community=AG). Docs:
+     ## https://power.larc.nasa.gov/docs/services/api/temporal/daily/
+     ## ALLSKY_SFC_SW_DWN is already MJ/m^2/day; temperatures in C; wind m/s.
+     power.params="T2M_MAX,T2M_MIN,T2M,RH2M,WS2M,ALLSKY_SFC_SW_DWN,PRECTOTCORR"
+     url=paste0("https://power.larc.nasa.gov/api/temporal/daily/point?parameters=",
+                power.params,"&community=AG&longitude=",longitude,"&latitude=",latitude,
+                "&start=",startYMD,"&end=",endYMD,"&format=CSV")
+     lines=sebkc.tryCatch(readLines(url,warn=FALSE))$value
+     meta=NULL
+     if(inherits(lines,"simpleError")){
+       message("NASA POWER data not available: ",conditionMessage(lines))
+       NASA=NULL
+     }else{
+       hdr=grep("-END HEADER-",lines)[1]
+       meta=lines[1:hdr]
+       elevation=sebkc.tryCatch(as.numeric(gsub("[^0-9.]","",
+                 sub(".*=","",grep("elevation",lines,value=TRUE)[1]))))$value
+       NASA=sebkc.tryCatch(read.csv(text=paste(lines[(hdr+1):length(lines)],collapse="\n"),
+                 stringsAsFactors=FALSE))$value
+       if(inherits(NASA,"simpleError")){
+         message("NASA POWER data could not be parsed")
+         NASA=NULL
+       }else{
+         NASA[NASA==-999]=NA
+         NASA$altitude=elevation
+         NASA$Tmax=NASA$T2M_MAX
+         NASA$Tmin=NASA$T2M_MIN
+         NASA$Tmean=NASA$T2M
+         NASA$RH=NASA$RH2M
+         NASA$RHmax=NASA$RH2M
+         NASA$RHmin=NASA$RH2M
+         NASA$uz=NASA$WS2M
+         NASA$Rs=NASA$ALLSKY_SFC_SW_DWN
+         NASA$P=NASA$PRECTOTCORR
+         NASA$date=as.character(as.Date(paste0(NASA$YEAR,"-01-01"))+(NASA$DOY-1))
+         NASA$latitude=latitude
+         NASA$longitude=longitude
+       }
+     }
    }
    
    if(!is.null(folder)){

@@ -215,20 +215,47 @@ overpass is what upscales, via the evaporative fraction, to a daily map in Part 
 
 ## 6. `weather`: retrieving weather data
 
-`weather()` fetches station data by WMO code or airport (IATA/ICAO) code, and NASA
-SSE solar data by coordinates, so you can build the `ETo` inputs without a local
-station (internet required):
+`weather()` builds the `ETo`/`kc` inputs for a site from the **NASA POWER** daily
+data service (an internet connection is required). Give it a longitude/latitude and
+a date range; it returns temperature, humidity, wind, solar radiation and
+precipitation, already named and unit-ready for FAO-56:
 
 ```r
-# NASA SSE solar/meteorology for Kumasi, Ghana
 kumasi <- weather(longitude = -1.5, latitude = 6.7,
-                  NASA.SSE = list(from = "2001-04-01", to = "2002-04-01"))
-kumasi$NASA.SEE$data
+                  NASA.SSE = list(from = "2001-04-01", to = "2001-04-07"))
+d <- kumasi$NASA.SEE$data
+d[, c("date","Tmax","Tmin","RH","uz","Rs","P")]
+#>         date  Tmax  Tmin    RH   uz    Rs    P
+#> 1 2001-04-01 34.01 23.84 74.99 2.50 22.41 6.73
+#> 2 2001-04-02 33.33 23.39 77.89 2.91 22.63 5.28
+#> 3 2001-04-03 30.30 23.47 81.28 3.01 10.49 4.27
+#> ... (7 days)
 ```
 
-It returns hourly and daily WMO tables and the NASA SSE series; feed the columns to
-`ETo`/`kc`. (This section needs a live connection and is not part of the offline
-reproduction.)
+The columns carry FAO-56 names and units: `Tmax`/`Tmin`/`Tmean` (°C), `RH` (%), `uz`
+(2-m wind, m/s), `Rs` (solar radiation, **MJ/m²/day**), `P` (mm/day) and `altitude`
+(m, from the POWER header), plus a calendar `date` and a numeric `DOY`. They feed
+`ETo` directly — row 1 above gives `ETo` = 5.32 mm/day. (An older station path, by
+WMO/airport code, is retained but its Weather Underground source was discontinued;
+use the coordinate/POWER path above.)
+
+> **Getting the data manually — no R needed.** The same series is available from the
+> web:
+> - **NASA POWER Data Access Viewer** (point-and-click download):
+>   <https://power.larc.nasa.gov/data-access-viewer/>
+> - **POWER API documentation** (the endpoint `weather()` calls):
+>   <https://power.larc.nasa.gov/docs/services/api/temporal/daily/>
+> - **POWER home**: <https://power.larc.nasa.gov>
+>
+> Other free weather/solar sources you can feed to `ETo`/`kc`:
+> - **Open-Meteo** — historical + forecast API, no key: <https://open-meteo.com>
+> - **Copernicus ERA5 (CDS)**: <https://cds.climate.copernicus.eu>
+> - **NOAA Climate Data Online (GHCN stations)**: <https://www.ncei.noaa.gov/cdo-web/>
+> - a **local met agency** (e.g. the Ghana Meteorological Agency) for station records.
+>
+> POWER covers ~1981 to near-present at ~0.5° resolution; for field-scale work a
+> nearby ground station is preferable where available. This section needs a live
+> connection and is not part of the offline reproduction.
 
 ## 7. `kc`: single and dual crop coefficients, and the water balance
 
