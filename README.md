@@ -32,6 +32,18 @@ if (!require("remotes")) install.packages("remotes")
 remotes::install_github("gowusu/sebkc")
 ```
 
+## Manual
+
+A full, worked manual — reference evapotranspiration and the FAO-56
+crop-coefficient water balance, plus the satellite surface-energy-balance models
+(SEBAL, METRIC, SEBS, SEBI, SSEB, S-SEBI and the two-source TSEB) — with every
+number and figure produced by running the package on the bundled Kumasi Landsat
+data:
+
+- [Read the manual (Markdown)](manual/sebkc_manual.md) — renders on GitHub
+- `manual/sebkc_manual.docx` — Word version (Save As → PDF for a printable copy)
+- `manual/reproduce_manual.R` — regenerates every table and figure
+
 ## Citation
 
 If you use **sebkc** in your work, please cite it. You can always get the current
