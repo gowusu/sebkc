@@ -1,0 +1,145 @@
+# Retrieval of Weather Data from WMO and NASA Surface meteorology and Solar Energy
+
+The function retrieves daily weather data for a site from the NASA POWER
+service by longitude/latitude, returning temperature, humidity, wind,
+solar radiation and precipitation ready for
+[`ETo`](https://gowusu.github.io/sebkc/reference/ETo.md) and
+[`kc`](https://gowusu.github.io/sebkc/reference/kc.md). A legacy station
+path (WMO or airport codes, from Weather Underground) is retained but
+that data source has been discontinued. An internet connection is
+required. The same data can be downloaded manually from the NASA POWER
+Data Access Viewer <https://power.larc.nasa.gov/data-access-viewer/>.
+
+## Usage
+
+``` r
+weather(
+  data = NULL,
+  wmo = NULL,
+  airport = NULL,
+  date = "YYYY-m-d",
+  time = NULL,
+  latitude = NULL,
+  longitude = NULL,
+  NASA.SSE = list(from = "YYYY-m-d", to = "YYYY-m-d"),
+  folder = NULL
+)
+```
+
+## Arguments
+
+- data:
+
+  dataframe that can contain all or part of the input data
+
+- wmo:
+
+  numeric. World Meteorological Organization weather station code. You
+  can use the Worldwide Station List at <https://www.wunderground.com/>
+  \[Accessed on 2016-5-6\] or <https://www.wetterzentrale.de/>
+  \[Accessed on 2016-5-6\]
+
+- airport:
+
+  numeric. IATA or ICAO code. They are alphabetically listed at
+  <https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A>
+  \[Accessed on 2016-5-6\]
+
+- date:
+
+  date in the form of "YYYY-mm-dd" for example "2016-01-01"
+
+- time:
+
+  time in the form of "H:M" or decimal hours only. For example "14:21"
+  or 14.35
+
+- latitude:
+
+  geographical coordinates in decimal degrees. It should be negative for
+  southern hemisphere
+
+- longitude:
+
+  The longitude of the measurement site i.e. geographical coordinates in
+  decimal degrees for the weather station. It should be negative for
+  West and positive for East.
+
+- NASA.SSE:
+
+  list giving the NASA POWER date range as list(from = "YYYY-mm-dd", to
+  = "YYYY-mm-dd"), for example NASA.SSE = list(from = "2001-01-01", to =
+  "2001-04-01"). NASA POWER daily data cover about 1981 to near-present:
+  <https://power.larc.nasa.gov>. If the parameter is not provided, the
+  date parameter is used, provided longitude and latitude are given.
+
+- folder:
+
+  The path of the folder where the data can be written.
+
+## Value
+
+WMO and NASE.SSE. The WMO contains hour and day data. The NASE.SSE
+contains meta and data. See example below.
+
+## References
+
+- Worldwide Station List.<https://www.wetterzentrale.de/> \[Accessed on
+  2016-5-6\]
+
+- List of airports by IATA code.
+  <https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code>
+  \[Accessed on 2016-5-6\]
+
+- Weather Underground <https://www.wunderground.com/> \[Accessed on
+  2016-5-6\]
+
+## Author
+
+George Owusu
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+#all hours data at Lincoln Airport, Nabraska
+lincoln=weather(airport = "KLNK", date="2011-08-04")
+lincoln$WMO$hour
+lincoln$WMO$day
+#current hour data at London
+london.now=weather(airport = "LON", date=format(Sys.time(), "%Y-%m-%d"),
+time=format(Sys.time(), "%H:%M"))
+london.now$WMO$hour
+#NASA SSE data for Kumasi, Ghana
+kumasi=weather(longitude = -1.5,latitude = 6.7,NASA.SSE = list(from="2001-04-01",
+to="2002-04-01"))
+
+#Hour, daily and SSE data at JFK 
+JFK=weather(airport = "JFK", date="2001-02-02",time="17:20", latitude=40.6413, 
+longitude=73.7781)
+JFK$WMO$hour
+JFK$WMO$day
+JFK$NASA.SEE$data
+JFK$NASA.SEE$meta
+
+#' #Hour, daily and SSE slice data at Kotoka International Airport, ACCRA 
+accra=weather(airport = "ACC", date="2001-02-02",time="17:20", latitude=40.6413, longitude=73.7781, 
+NASA.SSE=list(from="2001-01-01",to="2004-01-01"))
+accra$WMO$hour
+accra$WMO$hour
+accra$NASA.SEE$data
+accra$NASA.SEE$meta
+
+#Using wmo code
+kumasi.now=weather(wmo="65442", date=format(Sys.time(), "%Y-%m-%d"),time=format(Sys.time(), 
+"%H:%M"))
+kumasi.now$WMO$hour
+
+#retrieve daily data for a specific period i.e 1 month
+lincoln=weather(airport = "KLNK", date=c("2011-08-04","2011-09-04"))
+#kumasi and accra data for a time slice. May not work for different 
+#geographical regions; write the results to a file
+accrakumasi=weather(airport ="ACC", date=c("2011-08-04","2011-10-04"),
+folder="C:/Users/george/Documents/")
+} # }
+```

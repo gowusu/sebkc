@@ -1,0 +1,298 @@
+# SEBI Evapotranspiration Fraction Estimation in R
+
+`sebi` computes Evapotranspiration Fraction Estimation based on Menenti&
+Choudhury (1993) parameterization of land surface evaporation by means
+of location dependent potential evaporation and surface temperature
+range.
+
+## Usage
+
+``` r
+sebi(
+  albedo,
+  Ts,
+  Tmax,
+  Tmin,
+  RHmax = NULL,
+  RHmin = NULL,
+  latitude = NULL,
+  NDVI,
+  SAVI,
+  iter.max = 7,
+  xyhot = "auto",
+  xycold = "auto",
+  DOY,
+  sunelev,
+  welev,
+  zx = 10,
+  u = 2,
+  zomw = 2,
+  zom = NULL,
+  LAI = NULL,
+  DEM = NULL,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  model = "sebi",
+  clip = NULL,
+  folder = NULL
+)
+
+# Default S3 method
+sebi(
+  albedo = NULL,
+  Ts,
+  Tmax,
+  Tmin,
+  RHmax = NULL,
+  RHmin = NULL,
+  latitude = NULL,
+  NDVI,
+  SAVI,
+  iter.max = 7,
+  xyhot = "auto",
+  xycold = "auto",
+  DOY,
+  sunelev,
+  welev,
+  zx = 10,
+  u = 2,
+  zomw = 2,
+  zom = NULL,
+  LAI = NULL,
+  DEM = NULL,
+  lapse = 0.0065,
+  Rn24 = NULL,
+  wmo = NULL,
+  airport = NULL,
+  Krs = 0.16,
+  surface = "grass",
+  model = model,
+  clip = NULL,
+  folder = NULL
+)
+```
+
+## Arguments
+
+- albedo:
+
+  A RasterLayer data that has albedo values. You can also provide file
+  path or location on your computer
+
+- Ts:
+
+  A RasterLayer data that indicates radiometric surface temperature
+  values from remote sensing image, preferably in Kelvin (K). You can
+  also point to raster file on your computer.
+
+- Tmax:
+
+  Numeric. Maximum air Temperature in degree Celsius
+
+- Tmin:
+
+  Numeric. Minimum air Temperature in degree Celsius
+
+- RHmax:
+
+  Maximum Relative Humidity in percent
+
+- RHmin:
+
+  Minimum Relative Humidity in percent
+
+- latitude:
+
+  geographical coordinates in decimal degrees. It should be negative for
+  southern hemisphere
+
+- NDVI:
+
+  A RasterLayer data that indicates NDVI (Normalized Difference
+  Vegetation Index) values. You can also point to a file on your
+  computer.
+
+- SAVI:
+
+  A RasterLayer data that indicates SAVI(Soil-adjusted Vegetation Index)
+  values. You can also point to file on your computer.
+
+- iter.max:
+
+  maximum iterations of sensible heat calculation.
+
+- xyhot:
+
+  numeric or "auto". A list of x and y coordinates of a hot pixel in the
+  form c(x,y). If it is set to "auto",
+  [`hotTs`](https://gowusu.github.io/sebkc/reference/hotTs.md) will be
+  used to compute it.
+
+- xycold:
+
+  numeric or "auto". A list of x and y coordinates of a cold pixel in
+  the form of c(x,y). If it set to "auto",
+  [`coldTs`](https://gowusu.github.io/sebkc/reference/coldTs.md) will be
+  used to compute it.
+
+- DOY:
+
+  Numeric or Date \[YYYY-mm-dd\]. Day of the Year. If you give data in
+  the form of date \[YYYY-mm-dd\], it will be converted to DOY
+
+- sunelev:
+
+  Angle of Sun elevation in degrees, as found in the meta data of the
+  satellite image
+
+- welev:
+
+  Weather station elevation in meters
+
+- zx:
+
+  The height above the weather station where the wind speed is measured
+  \[m\]
+
+- u:
+
+  The satellites overpass time wind speed at the weather station \[m/s\]
+
+- zomw:
+
+  the roughness length for the weather station surface \[m\]
+
+- zom:
+
+  the momentum roughness length for each pixel \[m\]. You can also point
+  to a raster file on your computer
+
+- LAI:
+
+  Leaf Area Index, dimensionless
+
+- DEM:
+
+  A digital elevation model\[m\]
+
+- lapse:
+
+  A local lapse rate that is applied to correct DEM \[K/m\]. Default
+  value is 0.0065
+
+- Rn24:
+
+  A 24 hour net radiation \[W/m2\]. It is needed to estimate daily ET.
+  It can be computed with
+  [`ETo`](https://gowusu.github.io/sebkc/reference/ETo.md) with even a
+  minimal data of Tmax and Tmin. You can also point to raster file on
+  your computer
+
+- wmo:
+
+  numeric. World Meteorological Organization weather station code. You
+  can use the Worldwide Station List at <https://www.wunderground.com/>
+  \[Accessed on 2016-5-6\] or <https://www.wetterzentrale.de/>
+  \[Accessed on 2016-5-6\]
+
+- airport:
+
+  numeric. IATA or ICAO code. They are alphabetically listed at
+  <https://en.wikipedia.org/wiki/List_of_airports_by_IATA_code:_A>
+  \[Accessed on 2016-5-6\]
+
+- Krs:
+
+  Relationship between the fraction of extraterrestrial radiation that
+  reaches the earth's surface, Rs/Ra, and the air temperature difference
+  Tmax - Tmin for interior (Krs = 0.16) and coastal (Krs = 0.19) regions
+
+- surface:
+
+  character. It is either "grass" or "alfalfa"
+
+- model:
+
+  character. The type of model. It takes either "SEBAL" or "METRIC"
+
+- clip:
+
+  extent object or raster object or polygon from which an Extent object
+  can be extracted. A polygon or raster will be reprojected to conform
+  the data to be cropped. for example clip can take the form of c(xmin,
+  xmax, ymin, ymax)
+
+- folder:
+
+  An original directory of the images that contains all landsat 5,7 or 8
+  bands and metadata. At the moment only Landsat folder is supported
+
+## Value
+
+EF Evapotranspiration Fraction
+
+## Details
+
+Function [`ETo`](https://gowusu.github.io/sebkc/reference/ETo.md) will
+be automatically used to estimate parameters y (psychrometric constant),
+slope (slope of saturation vapour pressure curve) and vpd (Vapour
+pressure deficit).
+
+## References
+
+Menenti, M., & Choudhury, B. 1993. Parameterization of land surface
+evaporation by means of location dependent potential evaporation and
+surface temperature range. Paper presented at the Proceedings of IAHS
+conference on Land Surface Processes.
+
+## See also
+
+[`sebal`](https://gowusu.github.io/sebkc/reference/sebal.md) ,
+[`ETo`](https://gowusu.github.io/sebkc/reference/ETo.md),
+[`sebs`](https://gowusu.github.io/sebkc/reference/sebs.md)
+
+## Author
+
+George Owusu
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+#using folder parameter 
+folder=system.file("extdata","stack",package="sebkc")
+sebiauto=sebi(folder=folder,welev=317,Tmax=31,Tmin=28)
+
+#manual input of parameters
+#data
+albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
+NDVI=raster(system.file("extdata","NDVI.grd",package="sebkc"))
+LAI=raster(system.file("extdata","LAI.grd",package="sebkc"))
+#model
+modsebi=sebi(albedo=albedo,Ts=Ts,Tmax=31,Tmin=28,RHmax=84,
+RHmin=63,NDVI=NDVI,SAVI=NULL,iter.max=7,xyhot="full",
+xycold="full",DOY=37,sunelev=50.71154048,welev=317.1,zx=10,
+u=2,zomw=2,zom=NULL,LAI=LAI,Rn24=NULL,model="sebi")
+
+
+#Another interactive example
+#get Ts, Albedo, NDVI, SAVI, sunelev, DOY from landsat data 
+welev=278
+data=landsat578(rawdata,welev=welev)
+ #perform semi-auto simulation 
+#Determine xyhot. Digitize polygon on the Ts map
+modhot=hotTs(data,welev=300,extent="auto",cluster=2)
+#determine the cold. Digitize polygon on the Ts map
+modcold=coldTs(data,welev=275,extent="auto",cluster=2)
+xyhot=modhot$xyhot
+xycold=modcold$xycold
+#use object of \code{\link{coldTs}} or \code{\link{hotTs}} in different ways
+modsebi=sebi(data,xyhot=modhot,xycold=xycold,welev=welev,
+Tmax=Tmax,Tmin=Tmin,RHmax=RHmax,RHmin=RHmin)
+} # }
+```

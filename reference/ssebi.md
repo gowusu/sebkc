@@ -1,0 +1,98 @@
+# S-SEBI Evapotranspiration Fraction
+
+`ssebi` computes Roerink et. al (2000) S-SEBI: A simple remote sensing
+algorithm to estimate the surface energy balance.
+
+## Usage
+
+``` r
+ssebi(
+  Ts,
+  albedo = NULL,
+  threshold = 0.2,
+  plot = TRUE,
+  Rn24 = NULL,
+  folder = NULL,
+  welev = NULL
+)
+
+# Default S3 method
+ssebi(
+  Ts = NULL,
+  albedo = NULL,
+  threshold = 0.2,
+  plot = TRUE,
+  Rn24 = NULL,
+  folder = NULL,
+  welev = NULL
+)
+```
+
+## Arguments
+
+- Ts:
+
+  A RasterLayer data that indicates radiometric surface temperature
+  values from remote sensing image, preferably in Kelvin (K). You can
+  also point to raster file on your computer.
+
+- albedo:
+
+  A RasterLayer data that has albedo values. You can also provide file
+  path or location on your computer
+
+- threshold:
+
+  numeric. Albedo inflection point threshold
+
+- plot:
+
+  logical:TRUE or FALSE. To indicate if histograms or triangle should be
+  plotted
+
+- Rn24:
+
+  A 24 hour net radiation \[W/m2\]. It is needed to estimate daily ET.
+  It can be computed with
+  [`ETo`](https://gowusu.github.io/sebkc/reference/ETo.md) with even a
+  minimal data of Tmax and Tmin. You can also point to raster file on
+  your computer
+
+- folder:
+
+  An original directory of the images that contains all landsat 5,7 or 8
+  bands and metadata. At the moment only Landsat folder is supported
+
+- welev:
+
+  Weather station elevation in meters
+
+## Value
+
+EF, amax,bmax,amin,bmin
+
+## References
+
+Roerink, G. J., Su, Z., & Menenti, M. 2000. S-SEBI: A simple remote
+sensing algorithm to estimate the surface energy balance. Physics and
+Chemistry of the Earth, Part B: Hydrology, Oceans and Atmosphere ,
+25(2): 147-157.
+
+## Author
+
+George Owusu
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+#Manual data specification
+albedo=raster(system.file("extdata","albedo.grd",package="sebkc"))
+Ts=raster(system.file("extdata","Ts.grd",package="sebkc"))
+mod=ssebi(Ts=Ts,albedo=albedo,threshold=0,plot=TRUE)
+
+#Using landsat folder
+folder=system.file("extdata","stack",package="sebkc")
+ssebiauto=ssebi(folder=folder,welev=278)
+} # }
+```
