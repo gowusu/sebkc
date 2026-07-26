@@ -30,6 +30,11 @@ if (!require("remotes")) install.packages("remotes")
 remotes::install_github("gowusu/sebkc")
 ```
 
+## Documentation website
+
+Full documentation — both manuals plus a reference for every function —
+is online at **<https://gowusu.github.io/sebkc/>**.
+
 ## Manuals
 
 Two manuals ship with the package — a plain-language guide and a full
@@ -43,9 +48,12 @@ through the answer for maize, tomato, cabbage, onion and pepper across
 the dry and main seasons, using the built-in Kumasi weather (kept up to
 date automatically):
 
-- [Read the practical guide
-  (Markdown)](https://gowusu.github.io/sebkc/manual/crop_water_needs.md)
-  — renders on GitHub
+- **[Read it
+  online](https://gowusu.github.io/sebkc/articles/crop_water_needs.html)**
+  — on the documentation website
+- [Source on GitHub
+  (Markdown)](https://github.com/gowusu/sebkc/blob/master/manual/crop_water_needs.md)
+  — renders in the repo
 - `manual/crop_water_needs.docx` — Word version (Save As → PDF for a
   printable copy)
 - `manual/reproduce_water_needs.R` — regenerates every table and figure
@@ -56,9 +64,12 @@ crop-coefficient water balance, plus the satellite
 surface-energy-balance models (SEBAL, METRIC, SEBS, SEBI, SSEB, S-SEBI
 and the two-source TSEB), on the bundled Kumasi Landsat data:
 
-- [Read the technical manual
-  (Markdown)](https://gowusu.github.io/sebkc/manual/sebkc_manual.md) —
-  renders on GitHub
+- **[Read it
+  online](https://gowusu.github.io/sebkc/articles/sebkc_manual.html)** —
+  on the documentation website
+- [Source on GitHub
+  (Markdown)](https://github.com/gowusu/sebkc/blob/master/manual/sebkc_manual.md)
+  — renders in the repo
 - `manual/sebkc_manual.docx` — Word version (Save As → PDF for a
   printable copy)
 - `manual/reproduce_manual.R` — regenerates every table and figure
