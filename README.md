@@ -32,6 +32,11 @@ if (!require("remotes")) install.packages("remotes")
 remotes::install_github("gowusu/sebkc")
 ```
 
+## Documentation website
+
+Full documentation — both manuals plus a reference for every function — is online at
+**<https://gowusu.github.io/sebkc/>**.
+
 ## Manuals
 
 Two manuals ship with the package — a plain-language guide and a full technical

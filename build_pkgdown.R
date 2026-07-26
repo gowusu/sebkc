@@ -16,6 +16,13 @@ gitdir <- "C:/Users/PC/AppData/Local/GitHubDesktop/app-3.6.1/resources/app/git/c
 if (dir.exists(gitdir) && Sys.which("git") == "")
   Sys.setenv(PATH = paste(gitdir, Sys.getenv("PATH"), sep = .Platform$path.sep))
 
+## pkgdown spawns git in a cleaned environment that cannot see the global
+## identity; supply it explicitly so the gh-pages commit succeeds
+if (!nzchar(Sys.getenv("GIT_AUTHOR_NAME"))) {
+  Sys.setenv(GIT_AUTHOR_NAME = "gowusu", GIT_AUTHOR_EMAIL = "gowusu@gmail.com",
+             GIT_COMMITTER_NAME = "gowusu", GIT_COMMITTER_EMAIL = "gowusu@gmail.com")
+}
+
 ## point R/rmarkdown at the standalone Pandoc (Rscript does not bundle it)
 pandocdir <- "C:/Users/PC/AppData/Local/Pandoc"
 if (dir.exists(pandocdir)) {
