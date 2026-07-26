@@ -7,3 +7,8 @@ CRAN-SUBMISSION
 
 # Built manual HTML — not published (renders from the .md; keeps GitHub language stats R-dominant)
 manual/*.html
+
+# pkgdown: built site and generated articles are artifacts, never on master
+# (the site is deployed to the gh-pages branch by build_pkgdown.R)
+docs/
+vignettes/

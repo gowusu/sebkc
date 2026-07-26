@@ -27,7 +27,7 @@ Depends: R (>= 3.5.0), raster (>= 2.5), sp (>= 1.2)
 Imports: gstat, stats, graphics, grDevices, utils
 License: GPL-2
 Encoding: UTF-8
-URL: https://github.com/gowusu/sebkc
+URL: https://gowusu.github.io/sebkc, https://github.com/gowusu/sebkc
 BugReports: https://github.com/gowusu/sebkc/issues
 NeedsCompilation: no
 Config/roxygen2/version: 8.0.0

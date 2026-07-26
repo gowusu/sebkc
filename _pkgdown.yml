@@ -1,0 +1,25 @@
+url: https://gowusu.github.io/sebkc
+
+template:
+  bootstrap: 5
+
+home:
+  title: sebkc — Crop Water, Irrigation and Evapotranspiration in R
+  description: >
+    Estimate crop water requirements, irrigation needs and evapotranspiration from
+    weather and satellite data in R. FAO-56 reference ET and crop-coefficient water
+    balance, plus surface-energy-balance models (SEBAL, METRIC, SEBS, SEBI, SSEB,
+    S-SEBI, TSEB). Includes worked crop-water-needs assessments for farms near
+    Kumasi, Ghana.
+
+navbar:
+  structure:
+    left:  [articles, reference]
+    right: [search, github]
+
+articles:
+- title: Manuals
+  navbar: ~
+  contents:
+  - articles/crop_water_needs
+  - articles/sebkc_manual
