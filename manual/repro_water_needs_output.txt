@@ -1,0 +1,44 @@
+
+==========  1. The weather record we are standing on  ========== 
+rows: 24308  span: 1960-01-01 -> 2026-07-20 
+mean RHmin used for kc: 63.5 % 
+
+==========  2. Kumasi climate normals 2015-2024 (mean)  ========== 
+ month ETo_mm_day rain_mm
+   Jan       4.03      29
+   Feb       4.48      43
+   Mar       4.41     155
+   Apr       4.26     135
+   May       3.92     195
+   Jun       3.23     276
+   Jul       3.03     156
+   Aug       3.02      95
+   Sep       3.16     227
+   Oct       3.45     296
+   Nov       3.64     108
+   Dec       3.62      28
+
+==========  3. Crop water needs near Kumasi (planted dry 2024-11-15 / main 2025-03-15)  ========== 
+    crop season days ETo ETc perday peak rain irrigation
+   Maize    dry  125 512 435    3.5  5.9  171        265
+  Tomato    dry  135 554 443    3.3  5.7  194        248
+ Cabbage    dry  165 680 471    2.9  5.2  302        168
+   Onion    dry  150 617 557    3.7  5.3  232        325
+  Pepper    dry  125 512 383    3.1  5.2  171        213
+   Maize   main  125 466 488    3.9  6.1  742          0
+  Tomato   main  135 494 525    3.9  5.8  759          0
+ Cabbage   main  165 578 601    3.6  5.7  824          0
+   Onion   main  150 535 535    3.6  5.6  805          0
+  Pepper   main  125 466 476    3.8  5.7  742          0
+
+==========  4. Featured example: dry-season Tomato, stage by stage  ========== 
+       stage days ETc_mm rain_mm irrigation_mm
+     initial   30     35      13            22
+ development   40    119      16           103
+         mid   40    189      89           100
+        late   25     99      76            23
+season crop water need ETc: 443 mm over 135 days 
+peak daily need: 5.7 mm/day  (design figure for the pump/drip line) 
+season rain: 194 mm  ->  irrigation top-up: 248 mm 
+
+figures written to C:/Users/PC/Documents/GitHub/sebkc/manual/figures 

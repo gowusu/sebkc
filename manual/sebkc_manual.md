@@ -1,6 +1,6 @@
-# sebkc
+# Evapotranspiration from Weather and Satellites
 
-**A manual to surface energy balance and crop-coefficient evapotranspiration in R**
+**A complete guide to surface energy balance and crop-coefficient evapotranspiration in R with the `sebkc` package**
 
 This manual teaches the `sebkc` R package from the ground up. It assumes only
 basic R literacy and a first acquaintance with evapotranspiration (ET), and
@@ -11,6 +11,12 @@ surface-energy-balance models (SEBAL, METRIC, SEBS, SEBI, SSEB, S-SEBI and the
 two-source TSEB) — on the bundled Landsat scene. **Part 3** is a reference, a
 reproducibility script, a glossary and exercises, and **Part 4** a set of
 student projects.
+
+> **New — a plain-language companion.** If your goal is simply *"how much water
+> does my crop need and how much must I irrigate?"*, start with the practical
+> companion guide, **"How Much Water Does My Crop Need?"** (`manual/crop_water_needs.md`),
+> which walks through real crop-water-needs assessments for farms near Kumasi with
+> no jargon. This manual is the full technical reference behind it.
 
 Dr George Owusu
 Department of Geography and Resource Development, University of Ghana
