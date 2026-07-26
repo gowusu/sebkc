@@ -47,7 +47,7 @@ License: GPL-2
 11. [Going further — day-by-day scheduling with `kc`](#11-going-further--day-by-day-scheduling-with-kc)
 12. [Getting weather anywhere — `weather()` across Africa and beyond](#12-getting-weather-anywhere--weather-across-africa-and-beyond)
 13. [Projects — try it yourself](#13-projects--try-it-yourself)
-14. [Honest notes on the numbers](#14-honest-notes-on-the-numbers)
+14. [Consideration notes on the numbers](#14-consideration-notes-on-the-numbers)
 15. [The whole guide in one script](#15-the-whole-guide-in-one-script)
 16. [Equation appendix (for the curious)](#16-equation-appendix-for-the-curious)
 17. [References](#17-references)
@@ -525,7 +525,7 @@ have; none needs new tools. They make good class exercises or a first real piece
 
 ---
 
-## 14. Honest notes on the numbers
+## 14. Consideration notes on the numbers
 
 So you can trust — and defend — these figures:
 
@@ -535,7 +535,7 @@ So you can trust — and defend — these figures:
   millimetres are not a guarantee.
 - **The simple irrigation figure is "crop need − rainfall."** It treats the seasonal rain total
   as usable. In reality some rain runs off or drains below the roots, so real irrigation is a
-  little *higher* than the simple number — the daily balance in Section 11 is the honest refiner.
+  little *higher* than the simple number — the daily balance in Section 11 refines it.
 - **Kc values are FAO‑56 tabulated defaults.** Your variety, spacing and management can shift
   them. They are excellent planning values, not field measurements — swap in your own if you
   have them.
