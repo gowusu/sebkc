@@ -67,6 +67,7 @@ runcrop <- function(cr, start, label) {
   sink()
   o <- m$output
   list(days=nd, ETo=sum(s$ETo), ETc=sum(o$ETc,na.rm=TRUE),
+       ETcadj=sum(o$ETc_adj,na.rm=TRUE),
        rain=sum(s$P), peak=max(o$ETc,na.rm=TRUE),
        s=s, o=o)
 }
@@ -103,6 +104,41 @@ say("season crop water need ETc:", round(ft$ETc), "mm over", ft$days, "days")
 say("peak daily need:", round(ft$peak,1), "mm/day  (design figure for the pump/drip line)")
 say("season rain:", round(ft$rain), "mm  ->  irrigation top-up:",
     max(0, round(ft$ETc - ft$rain)), "mm")
+
+## --- 5. crop yield: potential (biomass) and loss to water shortage -----
+## FAO-33 whole-season yield-response factor Ky (Doorenbos & Kassam 1979)
+Ky  <- c(Maize=1.25, Tomato=1.05, Cabbage=0.95, Onion=1.10, Pepper=1.10)
+yld <- data.frame()
+for (cn in names(crops)) {
+  d <- detail[[paste(cn,"dry")]]
+  deficit <- 1 - d$ETcadj / d$ETc          # fraction of crop water need unmet by rain
+  loss    <- min(1, Ky[[cn]] * deficit)     # FAO-33 relative yield loss
+  yld <- rbind(yld, data.frame(crop=cn, Ky=Ky[[cn]],
+     water_deficit_pct=round(100*deficit), yield_loss_if_rainfed_pct=round(100*loss)))
+}
+sec("5a. Yield lost if a dry-season crop is grown on rain alone (FAO-33)")
+capture.output(print(yld, row.names=FALSE)) |> writeLines(con)
+print(yld, row.names=FALSE)
+
+## potential yield from radiation & temperature (biomass), maize, both seasons
+biomass_season <- function(start, nd, HI, crop, harvest) {
+  i0 <- which(kum$Date==as.Date(start)); w <- kum[i0:(i0+nd-1),]
+  J <- as.integer(format(w$Date,"%j")); phi <- lat*pi/180
+  dr <- 1+0.033*cos(2*pi/365*J); delta <- 0.409*sin(2*pi/365*J-1.39)
+  ws <- acos(pmin(pmax(-tan(phi)*tan(delta),-1),1))
+  Ra <- (24*60/pi)*0.0820*dr*(ws*sin(phi)*sin(delta)+cos(phi)*cos(delta)*sin(ws))
+  N  <- 24/pi*ws; Rs <- (0.25+0.5*w$n/N)*Ra; Tmean <- (w$Tmax+w$Tmin)/2
+  b <- suppressMessages(biomass(Tday=mean((w$Tmax+Tmean)/2), T24=mean(Tmean),
+        Rs=mean(Rs), latitude=lat, HI=HI, plantdate=start, harvestdate=harvest, crop=crop))
+  c(Rs=mean(Rs), biomass=as.numeric(b$biomass), yield=as.numeric(b$yield))
+}
+mz_dry  <- biomass_season("2024-11-15",125,0.40,"maize","2025-03-19")
+mz_main <- biomass_season("2025-03-15",125,0.40,"maize","2025-07-18")
+sec("5b. Potential maize yield from radiation/temperature (biomass, HI=0.40)")
+say(sprintf("dry  season: Rs=%.1f MJ/m2/d  biomass=%.1f t/ha  potential grain=%.1f t/ha",
+    mz_dry["Rs"], mz_dry["biomass"], mz_dry["yield"]))
+say(sprintf("main season: Rs=%.1f MJ/m2/d  biomass=%.1f t/ha  potential grain=%.1f t/ha",
+    mz_main["Rs"], mz_main["biomass"], mz_main["yield"]))
 
 ## ---------------- figures ---------------------------------------------
 ## Fig 1: climate normals - ETo vs rainfall
@@ -143,6 +179,14 @@ barplot(mat, beside=TRUE, col=c("#e6550d","#31a354"), border=NA,
         main="Irrigation need by crop: dry-season vs main-season planting")
 legend("topright", c("Dry-season planting","Main-season planting"),
        fill=c("#e6550d","#31a354"), border=NA, bty="n")
+par(op); dev.off()
+
+## Fig 4: yield lost to water shortage if grown rain-fed in the dry season
+png(file.path(figdir,"cwn_yield.png"), width=1600, height=950, res=200)
+op <- par(mar=c(4,4,3,2))
+barplot(yld$yield_loss_if_rainfed_pct, names.arg=yld$crop, col="#762a83",
+        border=NA, ylim=c(0,100), ylab="Yield lost if grown on rain alone (%)",
+        main="Dry-season yield forfeited without irrigation (FAO-33)")
 par(op); dev.off()
 
 say("\nfigures written to", figdir)

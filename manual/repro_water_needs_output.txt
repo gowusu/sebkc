@@ -41,4 +41,16 @@ season crop water need ETc: 443 mm over 135 days
 peak daily need: 5.7 mm/day  (design figure for the pump/drip line) 
 season rain: 194 mm  ->  irrigation top-up: 248 mm 
 
+==========  5a. Yield lost if a dry-season crop is grown on rain alone (FAO-33)  ========== 
+    crop   Ky water_deficit_pct yield_loss_if_rainfed_pct
+   Maize 1.25                49                        61
+  Tomato 1.05                44                        46
+ Cabbage 0.95                30                        28
+   Onion 1.10                51                        57
+  Pepper 1.10                47                        51
+
+==========  5b. Potential maize yield from radiation/temperature (biomass, HI=0.40)  ========== 
+dry  season: Rs=18.5 MJ/m2/d  biomass=7.8 t/ha  potential grain=3.1 t/ha 
+main season: Rs=17.3 MJ/m2/d  biomass=8.0 t/ha  potential grain=3.2 t/ha 
+
 figures written to C:/Users/PC/Documents/GitHub/sebkc/manual/figures 
