@@ -84,23 +84,14 @@ are the market-garden and food plots on its edges — Bomso, Ejisu,
 Kwadaso, the valleys along the rivers — growing vegetables and maize for
 the city.
 
-**Figure 1** shows the whole problem at a glance: the blue bars are the
-rain Kumasi can expect in an average month; the orange line is how much
-water the atmosphere tries to evaporate each day (the “demand”). Where
-the orange line is high and the blue bars are low — **December, January,
-February** — a crop is thirsty and the sky will not help. That gap is
-what irrigation has to fill.
+Seen at a glance, that is the whole problem: the blue bars are the rain
+Kumasi can expect in an average month; the orange line is how much water
+the atmosphere tries to evaporate each day (the “demand”). Where the
+orange line is high and the blue bars are low — **December, January,
+February** — a crop is thirsty and the sky will not help, and that gap
+is what irrigation has to fill (Figure 1).
 
-![Figure 1. Kumasi climate normals 2015–2024: monthly rainfall (bars)
-against atmospheric water demand ETo (line).](figures/cwn_climate.png)
-
-Figure 1. Kumasi climate normals 2015–2024: monthly rainfall (bars)
-against atmospheric water demand ETo (line).
-
-*Figure 1. Kumasi monthly rainfall (blue bars) and reference
-evapotranspiration, the atmosphere’s water demand (orange line),
-averaged over 2015–2024. The dry, thirsty Harmattan window — December to
-February — is where irrigation matters most.*
+![](figures/cwn_climate.png)
 
 Here are those same normals as a table (mean of 2015–2024, produced by
 the package):
@@ -304,21 +295,13 @@ water has to come from you:
 
 > **irrigation top-up ≈ crop need − rainfall = 443 − 194 ≈ 250 mm**
 
-**Figure 2** shows why the gap opens up. The orange bars are the crop’s
-daily water use climbing as the plants grow; the blue bars are rainfall
-— frequent early, then drying up. After the first few weeks the crop is
-drinking steadily while the sky has gone quiet.
+You can see why the gap opens up: the orange bars are the crop’s daily
+water use climbing as the plants grow, and the blue bars are rainfall —
+frequent early, then drying up. After the first few weeks the crop is
+drinking steadily while the sky has gone quiet, and the space between
+the two is what irrigation must supply (Figure 2).
 
-![Figure 2. Dry-season tomato near Kumasi: daily crop water use (orange)
-against daily rainfall (blue).](figures/cwn_tomato.png)
-
-Figure 2. Dry-season tomato near Kumasi: daily crop water use (orange)
-against daily rainfall (blue).
-
-*Figure 2. Daily crop water use (ETc, orange) and rainfall (blue) for a
-tomato crop planted 15 November near Kumasi. The crop’s thirst rises
-through the season while dry-season rainfall fades — the space between
-them is what irrigation must supply.*
+![](figures/cwn_tomato.png)
 
 Breaking the season into its four growth stages shows *when* the water
 is needed, which is how you plan a watering calendar:
@@ -357,19 +340,12 @@ March 2025). This single table is the heart of the guide:
 | Onion   | main   | 150  |   535    |        535         |     3.6      |      5.6      |    805    |        **0**        |
 | Pepper  | main   | 125  |   466    |        476         |     3.8      |      5.7      |    742    |        **0**        |
 
-**Figure 3** draws the last column: irrigation need, dry-season planting
-versus main-season planting.
+The last column — irrigation need, dry-season planting (orange) versus
+main-season planting (green) — makes the contrast plain: in the main
+season seasonal rainfall meets or exceeds the crop’s need, so the top-up
+is essentially zero (Figure 3).
 
-![Figure 3. Irrigation top-up needed by crop, dry-season vs main-season
-planting.](figures/cwn_irrigation.png)
-
-Figure 3. Irrigation top-up needed by crop, dry-season vs main-season
-planting.
-
-*Figure 3. Seasonal irrigation top-up for each crop when planted in the
-dry season (orange) versus the main rains (green). In the main season,
-seasonal rainfall meets or exceeds the crop’s need, so the top-up is
-essentially zero.*
+![](figures/cwn_irrigation.png)
 
 ------------------------------------------------------------------------
 
@@ -415,16 +391,12 @@ how much water it misses, then how much yield that costs:
 | Tomato  | 1.05 |              44%              |             **46%**             |
 | Cabbage | 0.95 |              30%              |             **28%**             |
 
-![Figure 4. Share of yield forfeited if each dry-season crop is grown on
-rainfall alone.](figures/cwn_yield.png)
+Grown on rainfall alone, every one of these dry-season crops loses at
+least a quarter of its harvest, and maize and onion lose well over half
+— the FAO-33 water–yield relation applied to the shortfall each crop
+suffers (Figure 4).
 
-Figure 4. Share of yield forfeited if each dry-season crop is grown on
-rainfall alone.
-
-*Figure 4. The share of potential yield lost when a dry-season crop near
-Kumasi is grown on rainfall alone, with no irrigation (FAO-33
-water–yield relation). Every crop loses at least a quarter of its
-harvest; maize and onion lose well over half.*
+![](figures/cwn_yield.png)
 
 This is the real argument for the irrigation numbers in Section 8.
 Dry-season maize left to the rain does not just “look thirsty” — it

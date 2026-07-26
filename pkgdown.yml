@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   articles/crop_water_needs: crop_water_needs.html
   articles/sebkc_manual: sebkc_manual.html
-last_built: 2026-07-26T14:06Z
+last_built: 2026-07-26T18:55Z
 urls:
   reference: https://gowusu.github.io/sebkc/reference
   article: https://gowusu.github.io/sebkc/articles
