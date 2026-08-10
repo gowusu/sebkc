@@ -144,15 +144,22 @@ if(is.null(PET)){
 PET=ETo(Tmax=Tmax,Tmin=Tmin,z=zx,uz=u,altitude=welev,
 RHmax=RHmax,RHmin=RHmin,n=9.2,DOY=mod$DOY,latitude=latitude)
 }
-data=mod$iter.coef[nrow(mod$iter.coef),]
 y=PET$y
 vpd=PET$vpd
 slope=PET$slope
-dTmax=(data$rah_hot/(data$pairhot*cp))*(data$Rn_hot+data$G_hot)
-dTmin=((data$rah_cold/(data$paircold*cp))*(data$Rn_cold+data$G_cold)-(1/y)*vpd)/(1+(slope/y))
+# Per-pixel, location-dependent dry/wet limits (Menenti & Choudhury, 1993). This
+# replaces the earlier formulation, which derived the limits from the single hot
+# and cold anchor pixels (mod$iter.coef) - contradicting SEBI's location-dependent
+# premise - and which used Rn + G for the available energy where it should be
+# Rn - G (corrected below, consistent with sebal()). SEBI takes the relative
+# evaporation between the dry and wet surface-temperature limits directly as the
+# evaporative fraction. Rn, G, H, rah and pair are per-pixel rasters from sebal().
+avail=mod$Rn-mod$G
+Hdry=avail                                                       #dry limit: maximum surface temperature range
+Hwet=(avail-((mod$pair*cp)/mod$rah)*(vpd/y))/(1+(slope/y))       #wet limit
 message("computing EF" )
-dT=(mod$H*mod$rah)/((mod$pair*cp))
-EF=1-(((dT/mod$rah)-(dTmin/data$rah_cold))/((dTmax/data$rah_hot)-(dTmin/data$rah_cold)))
+EF=1-((mod$H-Hwet)/(Hdry-Hwet))                                  #relative evaporation from the Ts range
+EF[avail<=0,]=0
 EF[EF<0,]=0
 EF[EF>1.1,]=1.1
 ET24=NULL
