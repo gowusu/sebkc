@@ -96,9 +96,8 @@ Tn=Ta+((Tmax-Tmin)/(4*pi))*((11+h)/(h))*sin(pi*((11-h)/(11+h)))
 
 Ta2=0.5*(Tmax-Tmin)
 T24=Ta+Ta2*((24-Tmax)/(pi*(DL-Tmax)))*sin((pi*(DL-Tmax))/(24-Tmax))
-if(is.na(T24)){
- # print("yes")
-  T24=(Tday+Tn)*0.5  
+if(any(is.na(T24))){
+  T24[is.na(T24)]=((Tday+Tn)*0.5)[is.na(T24)]
 }
 PET=ETo(Tmax=Tmax,Tmin=Tmin,latitude=latitude,DOY=DOY)
 Rs= PET$Rs*23.9
