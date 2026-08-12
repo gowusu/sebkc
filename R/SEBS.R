@@ -8,7 +8,13 @@
 #' @inheritParams ETohr
 #' @inheritParams weather
 #' @inheritParams sebkcstack
-#' @details Function \code{\link{ETo}} will be automatically used to 
+#' @param Ta numeric. Air temperature at the satellite overpass, in degrees
+#' Celsius or Kelvin (auto-detected). This is the near-surface air temperature
+#' used to form the surface-to-air temperature difference that drives the native
+#' Su (2002) sensible heat. If \code{NULL} (default) the daily \code{Tmax} is used
+#' as a crude proxy, which validation has shown biases H low; supplying the actual
+#' overpass \code{Ta} is strongly recommended. See NEWS.md for the validation note.
+#' @details Function \code{\link{ETo}} will be automatically used to
 #' estimate  parameters y (psychrometric constant), 
 #' slope (slope of saturation vapour pressure curve) and 
 #' vpd (Vapour pressure deficit). For information on data input procedure
@@ -66,13 +72,13 @@ sebs=function(albedo,Ts,Tmax,Tmin,RHmax=NULL,RHmin=NULL,n=NULL,
       NDVI,SAVI,iter.max=7,xyhot,xycold,DOY,
       sunelev,welev,zx,u,zomw,zom=NULL,LAI=NULL,DEM=NULL,
       lapse=0.0065,Rn24=NULL,wmo=NULL, airport=NULL,Krs=0.16,surface = "grass",
-      latitude=NULL,model="SEBS",clip=NULL,folder=NULL) UseMethod ("sebs")
+      latitude=NULL,Ta=NULL,model="SEBS",clip=NULL,folder=NULL) UseMethod ("sebs")
 #' @export
 #' @rdname sebs 
 sebs.default=function(albedo=NULL,Ts,Tmax,Tmin,RHmax=NULL,RHmin=NULL,n=NULL,
 NDVI,SAVI,iter.max=7,xyhot="auto",xycold="auto",DOY=NULL,
 sunelev,welev,zx=10,u=2,zomw=2,zom=NULL,LAI=NULL,DEM=NULL,lapse=0.0065,Rn24=NULL,
-wmo=NULL, airport=NULL,Krs=0.16,surface = "grass",latitude=NULL,
+wmo=NULL, airport=NULL,Krs=0.16,surface = "grass",latitude=NULL,Ta=NULL,
 model="SEBS",clip=NULL,folder=NULL){
   
   if(is.null(folder)){
@@ -172,14 +178,23 @@ slope=PET$slope
 # stability iteration. Only Rn, G and air density are reused from sebal(); these
 # are independent of the anchor pixels, so the SEBS result does not depend on the
 # spatial domain. H is then bounded by the physical dry and wet limits.
-# NOTE: correctly formulated but pending eddy-covariance validation before
-# quantitative use (see NEWS.md).
+# NOTE: validated against AmeriFlux eddy-covariance H at the Mead US-Ne1/US-Ne2
+# maize sites for three 2001 Landsat 7 overpasses (DOY 161/225/273). The native H
+# does NOT reproduce the measured flux: it under-predicts H over dry/sparse canopy
+# and mis-orders the season (rank correlation with measured H is ~0), because the
+# radiometric surface temperature diverges from the aerodynamic temperature over
+# partial/senescent canopies (late season: measured H ~200 W/m2 while Ts < Ta).
+# The error is structural, not a scalar-kB^-1 miscalibration, so it cannot be tuned
+# away in a one-source framework. sebs() therefore remains EXPERIMENTAL: prefer
+# sebal()/METRIC (anchor-calibrated dT) or tseb() (two-source) for quantitative
+# work. See NEWS.md.
 # ---------------------------------------------------------------------------
 warning("sebs(): the native SEBS sensible-heat implementation (Su 2002 kB^-1) is ",
-        "EXPERIMENTAL. It is domain-independent by construction but its kB^-1 excess ",
-        "resistance has not yet been calibrated/validated against measured sensible ",
-        "heat, so absolute EF/ET values are indicative only. Prefer sebal()/METRIC for ",
-        "quantitative work. See NEWS.md.", call. = FALSE)
+        "EXPERIMENTAL. Validation against measured eddy-covariance H (Mead US-Ne1/Ne2, ",
+        "2001) shows it does not reproduce the observed flux (under-predicts H over dry ",
+        "canopy, mis-orders the season) owing to radiometric-vs-aerodynamic temperature ",
+        "divergence in a one-source framework. Absolute EF/ET are indicative only; prefer ",
+        "sebal()/METRIC or tseb() for quantitative work. See NEWS.md.", call. = FALSE)
 message("computing SEBS sensible heat (Su 2002)")
 tmpl <- mod$Rn
 Rnv <- getValues(mod$Rn); Gv <- getValues(mod$G); pairv <- getValues(mod$pair)
@@ -190,7 +205,15 @@ LAIv <- getValues(if(inherits(LAI,"RasterLayer")) LAI else raster(LAI))
 LAIv[is.na(LAIv) | LAIv < 0.05] <- 0.05
 
 nu <- 1.5e-5; Pr <- 0.71; Cd_leaf <- 0.2; Ct_leaf <- 0.01; zref <- zx
-Ta_K   <- max(Tmax) + 273.15                                      #overpass (near-midday) air temperature [K]
+## Air temperature at the overpass. Use the supplied instantaneous Ta if given
+## (validation showed daily Tmax is a poor proxy - it warms the air toward Ts and
+## suppresses H); otherwise fall back to daily Tmax with a message.
+if(!is.null(Ta)){
+  Ta_K <- if(max(Ta, na.rm=TRUE) > 200) max(Ta, na.rm=TRUE) else max(Ta, na.rm=TRUE) + 273.15
+}else{
+  message("sebs(): no overpass air temperature Ta supplied; using daily max(Tmax) as a crude proxy")
+  Ta_K <- max(Tmax) + 273.15
+}                                                                 #overpass air temperature [K]
 zomv   <- pmax(0.018*LAIv, 1e-3)                                  #momentum roughness [m]
 fc     <- 1-exp(-0.5*LAIv); fs <- 1-fc                            #canopy / soil fractions
 hcan   <- pmax(zomv/0.136, 0.02)                                  #canopy height [m]
