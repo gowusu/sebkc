@@ -389,8 +389,3 @@ class(factor)<-"ETo"
 factor
 }
 
-#file="C:/Users/GeoKings/Documents/George Owusu/UG PhD/literature/sebal/NASAweather1983-20052.csv"
-#data=read.csv("C:/Users/GeoKings/Documents/George Owusu/UG PhD/literature/sebal/NASAweather1983-20052.csv")
-
-#mod=ETo(file)
-#mod=ETo(data)

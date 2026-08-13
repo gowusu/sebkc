@@ -298,7 +298,7 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
   }
   testcold=NULL
   
-  if((xycold=="auto"||xycold=="Auto"||xycold=="AUTO"||xycold=="full"||xycold=="Full"||xycold=="FULL")&&!is.numeric(xycold)){
+  if(!is.numeric(xycold) && tolower(xycold)[1] %in% c("auto","full")){
     xcold=tolower(xycold)
     ycold=tolower(xycold)
     testcold=TRUE
@@ -312,7 +312,7 @@ latitude=NULL,t1=1,time=NULL, Lz=NULL,Lm=NULL,model="SEBAL",iter.max=7,clip=NULL
     }
   }
   testhot=NULL
-  if((xyhot=="auto"||xyhot=="Auto"||xyhot=="AUTO"||xyhot=="FULL"||xyhot=="full"||xyhot=="Full")&&(!is.numeric(xyhot))){
+  if(!is.numeric(xyhot) && tolower(xyhot)[1] %in% c("auto","full")){
   xhot=tolower(xyhot)
   yhot=tolower(xyhot)
   testhot=TRUE

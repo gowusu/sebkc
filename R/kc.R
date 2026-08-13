@@ -499,7 +499,7 @@ kc.default<-function(ETo,P,RHmin,soil="Sandy Loam",crop,I=0,CNII=67,u2=2,FC=NULL
   day=1:daylenth
   
   #day=1:1522
-  if(!is.null(lengths)&&!is.numeric(lengths2)&&day!=lengthscum[4]){
+  if(!is.null(lengths)&&!is.numeric(lengths2)&&day[1]!=lengthscum[4]){
     #DOY=as.Date(DOY)
     #loopdates=as.Date(DOY)-100
     #thisdata=datasub(startdate=DOY[1],thisETo,substart=lengths2[1],subend=lengths2[5])$moddata
